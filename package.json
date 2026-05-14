@@ -10,7 +10,9 @@
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
     "db:push": "drizzle-kit push",
-    "db:studio": "drizzle-kit studio"
+    "db:studio": "drizzle-kit studio",
+    "vercel:trigger": "bash scripts/vercel-deploy.sh trigger",
+    "vercel:status": "bash scripts/vercel-deploy.sh status"
   },
   "dependencies": {
     "@ai-sdk/openai": "^3.0.63",
