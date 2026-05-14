@@ -44,6 +44,11 @@ print_manual() {
 
 ── Manuell im Vercel-Dashboard ──
 
+0) Root Directory (bei Fehler „apps/app does not exist“)
+   • Project → Settings → General → Root Directory
+   • Für dieses Repo (Next.js im Repo-Root): Feld leer lassen oder „.“ setzen — nicht „apps/app“.
+   • Speichern, dann neu deployen.
+
 1) Deploy auslösen
    • Deployments → „Create Deployment“
    • Branch/Commit: main  oder  vollständige Commit-SHA
