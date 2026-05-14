@@ -1,0 +1,308 @@
+{
+  "metadata": {
+    "home": {
+      "title": "Website mit KI planen: Ablauf, SEO-Bausteine & Hosting | site24.com",
+      "description": "Strukturierte Website-Erstellung mit KI-Unterstützung: Fragen, Vorschläge, Freigabe. Technische SEO als Zielbild – ohne Ranking-Garantie. Hosting und Domain beim Partner."
+    },
+    "product": {
+      "title": "Funktionen & Ablauf im Überblick",
+      "description": "Was site24.com dir bei der Erstellung deiner Website bieten soll: geführte Fragen, Beispiele, Freigaben – optional mit Code, wenn du es brauchst."
+    },
+    "workflow": {
+      "title": "Schritt für Schritt bis zur Website",
+      "description": "So soll der Ablauf aussehen: von der ersten Beschreibung bis zur Übergabe an einen Hosting-Anbieter – transparent und in klaren Phasen."
+    },
+    "hosting": {
+      "title": "Hosting & Domain beim Partner",
+      "description": "Warum Betrieb und Abrechnung beim Hosting-Anbieter liegen und wie die Übergabe gedacht ist."
+    },
+    "pricing": {
+      "title": "Preise – in Vorbereitung",
+      "description": "Pakete werden veröffentlicht, sobald Leistungsumfang und Fair-Use-Regeln verbindlich feststehen."
+    },
+    "imprint": {
+      "title": "Impressum",
+      "description": "Angaben nach TMG / RStV – bitte durch eine Rechtsberatung finalisieren, sobald Firma und Sitz feststehen."
+    },
+    "privacy": {
+      "title": "Datenschutz",
+      "description": "Informationen zur Verarbeitung personenbezogener Daten auf site24.com – Stand der reinen Informationsseite."
+    },
+    "login": {
+      "title": "Anmelden",
+      "description": "Mit Google bei site24.com anmelden – Konto für den geplanten Builder."
+    },
+    "app": {
+      "title": "Meine Projekte",
+      "description": "Übersicht deiner site24.com-Projekte – nach Anmeldung."
+    },
+    "project": {
+      "titleFallback": "Projekt",
+      "titleWithName": "{name} – Projekt",
+      "description": "Projektarbeitsfläche und Entwürfe – nach Anmeldung."
+    }
+  },
+  "nav": {
+    "ariaMain": "Hauptnavigation",
+    "ariaMainMobile": "Hauptnavigation mobil",
+    "home": "Start",
+    "login": "Anmelden",
+    "loginAria": "Anmelden oder Konto öffnen",
+    "createGroup": "Ablauf & Funktionen",
+    "workflowItem": "Ablauf",
+    "workflowDesc": "Phasen von der Idee bis Hosting",
+    "productItem": "Funktionen",
+    "productDesc": "Was du nutzen kannst",
+    "hosting": "Hosting",
+    "pricing": "Preise",
+    "cta": "Anmelden",
+    "myProjects": "Meine Projekte",
+    "signOut": "Abmelden",
+    "accountMenuAria": "Konto-Menü"
+  },
+  "footer": {
+    "tagline": "site24.com richtet sich an dich, wenn du deine eigene Website aufbauen willst: strukturiert, nachvollziehbar, ohne Schnellversprechen. Der Weg zu Domain und Hosting liegt beim jeweiligen Anbieter.",
+    "contactTitle": "Kontakt",
+    "contactLead": "Rückfragen zur Website oder Kooperation: schreib uns eine E-Mail. Kein Support für Hosting-Produkte Dritter.",
+    "legal": "Rechtliches",
+    "rights": "Alle Rechte vorbehalten.",
+    "dataNote": "Diese Informationsseite setzt keine Marketing-Cookies. Details und deine Rechte: Datenschutzerklärung.",
+    "links": {
+      "imprint": "Impressum",
+      "privacy": "Datenschutz"
+    }
+  },
+  "home": {
+    "eyebrow": "site24.com",
+    "title": "Deine Website – klar gedacht, Schritt für Schritt",
+    "subtitle": "Du beschreibst, was du anbietest und wen du erreichst. Dann führst du dich durch klare Fragen (Ja, Nein, kurzer Kommentar), siehst dir konkrete Layout-Vorschläge an und schärfst Texte und Abschnitte, bevor du dich um Domain, Hosting und Rechnung beim Partner kümmerst.",
+    "disclaimer": "Der vollständige KI-Builder ist noch in Arbeit. Auf diesen Seiten erklären wir, wie das Produkt gedacht ist – ohne Garantie für Rankings, Umsatz oder „fertig in 60 Sekunden“.",
+    "primaryCta": "Jetzt starten",
+    "secondaryCta": "Funktionen lesen",
+    "projectsBoardCta": "Meine Projekte öffnen",
+    "loginCta": "Anmelden",
+    "priceFunnelBefore": "Bezahlung und Pakete sollen über die ",
+    "priceFunnelLink": "Preise",
+    "priceFunnelAfter": "-Seite laufen (derzeit in Vorbereitung).",
+    "stats": {
+      "templates": "Bausteine statt Zufall",
+      "templatesValue": "Vorschläge sollen aus einer großen Bibliothek kommen – weniger Rechenzeit, konsistentere Layouts.",
+      "nocode": "No-Code zuerst",
+      "nocodeValue": "Du bleibst im visuellen Editor. Code nur dort, wo du ihn wirklich brauchst.",
+      "hosting": "Hosting getrennt",
+      "hostingValue": "Wir bereiten die Übergabe vor. Vertrag und Betrieb liegen beim Hosting-Anbieter – transparent für dich."
+    },
+    "valueTitle": "Warum das für dich Sinn machen kann",
+    "valueSubtitle": "Jede Phase hat eine eigene Seite – du arbeitest nicht auf einer endlosen Marketing-Rutsche, sondern mit klaren Stationen.",
+    "values": {
+      "v1Title": "Struktur statt Raten",
+      "v1Body": "Die KI soll aus Vorlagen und klaren Entscheidungen arbeiten – damit du weniger Korrekturschleifen durchläufst.",
+      "v2Title": "Nachvollziehbare Entscheidungen",
+      "v2Body": "Ja-, Nein- und Kommentarfragen halten fest, was du willst. Du kannst später nachjustieren, ohne alles neu zu erfinden.",
+      "v3Title": "Du entscheidest beim Feinschliff",
+      "v3Body": "Du markierst Abschnitte, kommentierst und verbesserst – nichts geht ohne deine bewusste Freigabe live.",
+      "v4Title": "Hosting beim Spezialisten",
+      "v4Body": "Performance, Backups und Abrechnung liegen beim Partner. Wir halten die Kette kurz und erklären, was wo passiert."
+    },
+    "proofTitle": "Qualität braucht Ruhe – keine Buzzwords",
+    "proofBody": "Wir dokumentieren den Ablauf sorgfältig und erweitern die Seiten, sobald der Builder öffentlich testbar ist. Case Studies und Kennzahlen folgen erst, wenn wir sie sauber messen können.",
+    "proofCta": "Zum Ablauf",
+    "storyTitle": "Warum ein klarer Weg weniger Stress bedeutet",
+    "storyP1": "Viele scheitern nicht an „fehlender KI“, sondern an fehlendem Kontext: Was bietest du an, für wen, und welche Seiten brauchst du wirklich? Wenn das unklar bleibt, wird jedes Layout zur Ratespielrunde.",
+    "storyP2": "site24.com soll dich deshalb Schritt für Schritt führen: erst verstehen, dann strukturiert nachfragen, dann Vorschläge zeigen, die du bewusst annimmst oder verwirfst. Erst danach geht es an Domain, Hosting und den laufenden Betrieb beim Partner.",
+    "storyP3": "So bleibst du Souverän über Inhalte und Veröffentlichung – die KI liefert Tempo und Varianten, nicht den Ersatz für deine Entscheidung.",
+    "storyLinkProduct": "Funktionen im Detail",
+    "storyLinkWorkflow": "Zeitlicher Ablauf",
+    "testimonialsTitle": "Stimmen (Beispiele)",
+    "testimonialsDisclaimer": "Noch keine echten Kund:innen-Zitate: Die folgenden Aussagen sind Platzhalter, um Ton und erwartete Nutzen klarzumachen. Sobald wir messbare Ergebnisse und Einwilligungen haben, ersetzen wir sie durch echte Stories.",
+    "quote1Text": "Ich wollte nicht noch eine Baukasten-Rutsche. Die klaren Fragen haben mir geholfen, endlich zu sortieren, was auf die Startseite muss.",
+    "quote1Author": "Beispiel: Selbstständige Beratung",
+    "quote2Text": "Mir war wichtig, dass Hosting und Rechnung nicht bei jedem Tool neu hängen. Die Trennung zum Anbieter war nachvollziehbar.",
+    "quote2Author": "Beispiel: Handwerk regional",
+    "quote3Text": "Ich erwarte keine Platz-1-Garantie – aber saubere Überschriften, Meta-Texte und Ladezeit als Zielbild sind mir wichtig.",
+    "quote3Author": "Beispiel: Online-Kurs",
+    "metricsTitle": "Zahlen, die heute schon stimmen",
+    "metricsSubtitle": "Keine erfundenen Conversion-Raten: das sind Rahmenwerte des geplanten Produkts und der Website. Messbare KPIs folgen mit dem Launch.",
+    "m1Label": "Phasen im Ablauf",
+    "m1Value": "5",
+    "m2Label": "Sprachen der Website",
+    "m2Value": "2",
+    "m3Label": "Templates (Zielgröße Bibliothek)",
+    "m3Value": "2000+",
+    "seoPrinciplesTitle": "Technisches SEO als Zielbild – auch für Seiten aus dem Builder",
+    "seoPrinciplesLead": "Der spätere Builder soll Seiten liefern, die Suchmaschinen verstehen und Nutzer:innen nicht ausbremsen. Das ersetzt keine inhaltliche Strategie und garantiert keine Rankings.",
+    "seoPrinciplesItem1": "Logische Überschriftenhierarchie (ein h1 pro Seite, sinnvolle h2/h3) und sprechende interne Verlinkung.",
+    "seoPrinciplesItem2": "Eindeutige Titel und Meta-Descriptions pro Seite – von dir freigegeben, nicht heimlich überschrieben.",
+    "seoPrinciplesItem3": "Saubere URLs und konsistente Sprachversionen (hreflang / getrennte Pfade, wie hier /de und /en).",
+    "seoPrinciplesItem4": "Performance-orientiertes Markup: schlanke Assets, sinnvolle Bildgrößen, Core Web Vitals im Blick.",
+    "seoPrinciplesItem5": "Strukturierte Daten (JSON-LD), wo es fachlich passt – ohne Schema-Spam.",
+    "seoPrinciplesItem6": "Barrierearmut und Lesbarkeit (Kontrast, Fokuszustände, sinnvolle Alternativtexte).",
+    "seoPrinciplesDisclaimer": "Suchmaschinen-Rankings hängen von Wettbewerb, Inhalten, Links und technischer Gesundheit ab. Wir versprechen keine Top-Positionen; wir versprechen ein transparentes technisches Fundament, das du verstehst.",
+    "seoPrinciplesLinkProduct": "Zu den übrigen Produkt-Bausteinen"
+  },
+  "productPage": {
+    "heroTitle": "Funktionen – was du erwarten kannst",
+    "heroSubtitle": "Zielbild für den späteren Builder. Es gibt keinen magischen „Ein-Klick-Internetauftritt“: du bleibst Editor deiner Inhalte, die KI liefert Vorschläge und Struktur.",
+    "featuresTitle": "Bausteine des geplanten Produkts",
+    "featuresSubtitle": "Alles folgt dem Prinzip: du bestimmst, die Software führt und dokumentiert.",
+    "f1Title": "Dein Geschäft in eigenen Worten",
+    "f1Body": "Freitext und Leitfragen erfassen Angebot, Zielgruppe und Tonalität – damit Vorschläge zu dir passen, nicht zu einer generischen Branche.",
+    "f2Title": "Geführte Entscheidungen",
+    "f2Body": "Klare Fragen mit Ja, Nein oder kurzem Kommentar reduzieren Missverständnisse und halten den Kontext für spätere Versionen fest.",
+    "f3Title": "Beispiele zum Anfassen",
+    "f3Body": "Du bekommst konkrete Layout-Vorschläge aus einer großen Template-Bibliothek. Du wählst, was passt – und sagt auch bewusst Nein.",
+    "f4Title": "Optional Code",
+    "f4Body": "Für die meisten Schritte reicht No-Code. Wenn du HTML/CSS oder Snippets brauchst, soll das gezielt möglich sein – ohne dass du zum Entwickler wirst.",
+    "f5Title": "Kommentare & Versionen",
+    "f5Body": "Du markierst Abschnitte, hinterlässt Feedback und vergleichst Stände, bevor du freigibst.",
+    "f6Title": "Übergabe ans Hosting",
+    "f6Body": "Export, Checkliste und Link zum Partner – damit Domain, TLS und Rechnung dort liegen, wo das Recht und der Support hingehen.",
+    "ctaTitle": "Nächster Schritt",
+    "ctaBody": "Lies den zeitlichen Ablauf und die Hosting-Logik, bevor du dich auf Wartelisten oder Beta einträgst.",
+    "ctaPrimary": "Zum Ablauf",
+    "ctaSecondary": "Hosting erklärt",
+    "seoTeaser": "Geplante technische SEO-Bausteine (Überschriften, Meta, Performance, strukturierte Daten) fassen wir auf der Startseite zusammen – inklusive ehrlichem Disclaimer zu Rankings.",
+    "seoTeaserCta": "Abschnitt „Technisches SEO“ auf der Startseite"
+  },
+  "workflowPage": {
+    "heroTitle": "Ablauf – von der Idee zum Hosting",
+    "heroSubtitle": "Kein Marketing-Tunnel: das sind Stationen, die du der Reihe nach durchdenken kannst.",
+    "steps": {
+      "s1Title": "1. Du beschreibst dein Angebot",
+      "s1Body": "Leistungen, Zielgruppe, Beispiele, Wettbewerber, die dich inspirieren oder abgrenzen – alles, was später Text und Struktur trägt.",
+      "s2Title": "2. Strukturierte Rückfragen",
+      "s2Body": "Die KI arbeitet mit Ja-, Nein- und Kommentarfragen, bis genug Kontext für einen ersten Vorschlag da ist. Du kannst jederzeit korrigieren.",
+      "s3Title": "3. Vorschläge aus Templates",
+      "s3Body": "Du siehst Layouts und Textbausteine, die zu deinen Antworten passen. Du entscheidest, was bleibt und was verworfen wird.",
+      "s4Title": "4. Feinschliff mit Kommentaren",
+      "s4Body": "Texte, Bildreihenfolge, Abschnitte – du kommentierst gezielt, statt alles neu zu schreiben.",
+      "s5Title": "5. Freigabe & Hosting beim Partner",
+      "s5Body": "Wenn du zufrieden bist, geht es zu Domain, E-Mail und Server beim Hosting-Anbieter. Dort liegen Vertrag und Support."
+    },
+    "noteTitle": "Transparenz zum Entwicklungsstand",
+    "noteBody": "Diese Seiten beschreiben das geplante Produkt. Funktionen können sich vor dem Launch noch ändern. Wir erweitern die Texte, sobald Features testbar sind."
+  },
+  "hostingPage": {
+    "heroTitle": "Hosting & Domain – beim richtigen Partner",
+    "heroSubtitle": "site24.com soll dich beim Erstellen unterstützen. Der laufende Betrieb deiner Website liegt bewusst beim Hosting-Anbieter.",
+    "intro": "Nach deiner Freigabe leiten wir dich zu einem Hosting-Partner weiter. Dort schließt du Vertrag, Domain und technische Services ab. Wir liefern Checklisten und klare Grenzen, sobald der Builder live ist – ohne versteckte Abo-Ketten auf dieser Seite.",
+    "partnerLabel": "Beispiel-Partner (Platzhalter)",
+    "partnerNote": "Name und URL kommen aus der Konfiguration und ersetzen diesen Platzhalter, sobald ein Vertragspartner feststeht.",
+    "openPartner": "Partner-Website (extern)",
+    "checklistTitle": "Das regelt typischerweise dein Hosting-Anbieter",
+    "c1": "Domain, DNS, E-Mail-Postfächer",
+    "c2": "TLS-Zertifikate und Erneuerung",
+    "c3": "Backups, Skalierung, Monitoring",
+    "c4": "Support, SLA und Rechnung",
+    "backCta": "Zurück zur Startseite"
+  },
+  "pricingPage": {
+    "heroTitle": "Preise",
+    "heroSubtitle": "Pakete veröffentlichen wir erst, wenn Leistungen, Limits und Support-Stufen verbindlich festliegen. Keine Scheinpreise.",
+    "soonTitle": "Noch in Arbeit",
+    "soonBody": "Sobald der Builder und die KI-Anbindung stabil messbar sind, findest du hier transparente Pakete inklusive Fair-Use-Hinweisen.",
+    "cards": {
+      "starterTitle": "Starter (geplant)",
+      "starterBody": "Einzelprojekt, Standard-Templates, E-Mail-Support innerhalb der angegebenen SLA.",
+      "proTitle": "Pro (geplant)",
+      "proBody": "Mehrere Projekte, Priorisierung im Support, tiefere Review-Funktionen.",
+      "orgTitle": "Team / Organisation (geplant)",
+      "orgBody": "Rollen, Freigaben, ggf. SSO – abhängig von technischer Machbarkeit und Vertrag."
+    }
+  },
+  "imprintPage": {
+    "title": "Impressum",
+    "statusBanner": "Dieses Impressum enthält Platzhalterdaten. Bitte ersetze sie mit den Angaben deines Unternehmens und lasse sie juristisch prüfen (TMG, RStV, ggf. EU-Omnibus).",
+    "company": "site24.com (Projektbezeichnung)",
+    "address": "Musterstraße 1, 10115 Berlin, Deutschland",
+    "emailLabel": "E-Mail:",
+    "representative": "Vertretungsberechtigte Person: nach Eintragung im Handelsregister / Transparenzdatenbank eintragen.",
+    "b1Title": "Haftung für Inhalte",
+    "b1Body": "Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben unberührt.",
+    "b2Title": "Haftung für Links",
+    "b2Body": "Unser Angebot enthält ggf. Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter verantwortlich.",
+    "b3Title": "Urheberrecht",
+    "b3Body": "Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechts bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.",
+    "b4Title": "EU-Streitschlichtung",
+    "b4Body": "Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: https://ec.europa.eu/consumers/odr\nWir sind nicht verpflichtet und nicht bereit, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen – bitte Text anpassen, falls du teilnimmst.",
+    "b5Title": "Verbraucherhinweis",
+    "b5Body": "Falls du Verbraucherin oder Verbraucher bist und mit uns in Vertrag stehst, gelten die gesetzlichen Widerrufs- und Gewährleistungsrechte. Platzhalter: konkrete Widerrufsbelehrung und Muster-Widerrufsformular einfügen, sobald ein zahlungspflichtiges Angebot existiert."
+  },
+  "privacyPage": {
+    "title": "Datenschutzerklärung",
+    "statusBanner": "Rechtlicher Hinweis: Diese Erklärung ersetzt keine individuelle anwaltliche Prüfung. Passe sie an, sobald du personenbezogene Daten verarbeitest (z. B. Kundenkonto, Newsletter, Analytics, KI-Verarbeitung).",
+    "lead": "Wir nehmen Datenschutz ernst. Auf der aktuellen Informationswebsite werden keine nicht notwendigen Marketing-Cookies gesetzt und kein Newsletter-Tracking durchgeführt. Sobald sich das ändert, aktualisieren wir diese Seite und holen – wo nötig – vorher deine Einwilligung ein.",
+    "s1Title": "1. Geltungsbereich und Stand",
+    "s1Body": "Diese Erklärung gilt für die Website unter site24.com in der jeweils verlinkten Domain. Stand: Mai 2026. Änderungen werden hier dokumentiert.",
+    "s2Title": "2. Verantwortliche Stelle",
+    "s2Body": "Verantwortlich im Sinne der DSGVO ist die im Impressum genannte juristische Person bzw. natürliche Person. Solange nur Platzhalterdaten eingetragen sind, wende dich für datenschutzrechtliche Anfragen an die im Impressum angegebene E-Mail-Adresse.",
+    "s3Title": "3. Hosting und Server-Logdaten",
+    "s3Body": "Die Seite wird bei einem Hosting-Anbieter betrieben. Beim Aufruf können technisch notwendige Daten (z. B. IP-Adresse, Zeitstempel, User-Agent, angeforderte Ressource) in Server-Logfiles verarbeitet werden. Zweck: sicherer Betrieb, Missbrauchserkennung, Fehleranalyse. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einem sicheren Webangebot). Speicherdauer richtet sich nach dem Anbieter; bitte ergänze die konkreten Fristen aus dem Auftragsverarbeitungsvertrag.",
+    "s4Title": "4. Kontakt per E-Mail",
+    "s4Body": "Wenn du uns per E-Mail schreibst, verarbeiten wir die von dir mitgesendeten Daten (mindestens E-Mail-Adresse, Inhalt, Metadaten), um dein Anliegen zu bearbeiten. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO bei Vertragsanbahnung bzw. lit. f DSGVO bei allgemeinen Anfragen.",
+    "s5Title": "5. Cookies und Einwilligungen",
+    "s5Body": "Aktuell setzen wir auf dieser Informationsseite keine optionalen Marketing- oder Statistik-Cookies ein, die deine Einwilligung nach ePrivacy/TDDDG bräuchten. Sobald wir z. B. ein Consent-Management oder Analytics einführen, dokumentieren wir Anbieter, Zweck, Speicherdauer und Rechtsgrundlage hier und holen Einwilligungen ein, bevor nicht notwendige Cookies gesetzt werden.",
+    "s6Title": "6. Geplante KI-Funktionen",
+    "s6Body": "Sobald ein KI-Builder aktiv ist, können Inhalte, die du eingibst, an Auftragsverarbeiter (z. B. Modell-Anbieter) übermittelt werden. Wir werden vorab beschreiben: welche Daten, zu welchem Zweck, in welchen Regionen verarbeitet werden und ob ein EU-Standardvertrag genutzt wird. Ohne diese Informationen starten wir keine produktive Verarbeitung.",
+    "s7Title": "7. Speicherdauer",
+    "s7Body": "Wir speichern personenbezogene Daten nur so lange, wie es für den jeweiligen Zweck erforderlich ist oder gesetzliche Aufbewahrungsfristen bestehen. Details folgen pro Feature in tabellarischer Form.",
+    "s8Title": "8. Deine Rechte",
+    "s8Body": "Dir stehen – soweit die gesetzlichen Voraussetzungen erfüllt sind – Rechte auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung der Verarbeitung (Art. 18), Datenübertragbarkeit (Art. 20) und Widerspruch (Art. 21) zu. Außerdem hast du das Recht, dich bei einer Datenschutz-Aufsichtsbehörde zu beschweren (Art. 77 DSGVO).",
+    "s9Title": "9. Beschwerderecht",
+    "s9Body": "Du kannst dich bei der für uns zuständigen Aufsichtsbehörde beschweren. Für Deutschland findest du eine Übersicht unter https://www.bfdi.bund.de/DE/Infothek/Anschriften_Links/anschriften_links-node.html (Link extern).",
+    "s10Title": "10. Änderungen",
+    "s10Body": "Wenn sich unsere Verarbeitung ändert (neue Features, neue Anbieter), passen wir diese Erklärung an und heben das Datum an. Bei wesentlichen Änderungen informieren wir zusätzlich gut sichtbar auf der Website."
+  },
+  "appPage": {
+    "title": "Meine Projekte",
+    "lead": "Lege ein Projekt an, um später Inhalte und Entwürfe zuzuordnen. Der KI-Editor kommt in einem späteren Schritt.",
+    "nameLabel": "Projektname",
+    "namePlaceholder": "z. B. Website Café Sonne",
+    "createSubmit": "Projekt anlegen",
+    "listHeading": "Deine Projekte",
+    "empty": "Noch keine Projekte – leg oben eines an.",
+    "openProjectAria": "Projekt „{name}“ öffnen",
+    "openLabel": "Öffnen",
+    "draftsHint": "Entwürfe und Vorlagen pro Projekt folgen als nächstes Schritt.",
+    "backHome": "Zur Startseite",
+    "dbErrorTitle": "Datenbank nicht erreichbar",
+    "dbErrorBody": "In der Hosting-Umgebung DATABASE_URL setzen (Postgres). Bei Supabase den Transaction-Pooler (Port 6543) verwenden. Migration ausführen (npm run db:migrate) und die Seite neu laden."
+  },
+  "projectPage": {
+    "backToProjects": "Alle Projekte",
+    "lead": "Entwürfe gehören zu diesem Projekt. Mit KI kannst du Notizen pro Entwurf strukturieren und erweitern (über OpenRouter, serverseitig).",
+    "draftListHeading": "Entwürfe",
+    "draftEmpty": "Noch keine Entwürfe – leg unten einen an.",
+    "draftTitleLabel": "Titel",
+    "draftTitlePlaceholder": "z. B. Startseite – erster Entwurf",
+    "draftBodyLabel": "Notizen (optional)",
+    "draftBodyPlaceholder": "Stichpunkte, Zitate, Rohideen …",
+    "draftCreateSubmit": "Entwurf speichern",
+    "aiExpand": "Mit KI erweitern",
+    "aiSetupHint": "Für KI-Vorschläge OPENROUTER_API_KEY in .env.local setzen (siehe .env.example).",
+    "aiErrorApi": "KI-Anfrage ist fehlgeschlagen. Bitte später erneut versuchen oder API-Key prüfen.",
+    "aiErrorConfig": "KI ist nicht konfiguriert (OPENROUTER_API_KEY fehlt).",
+    "dbErrorTitle": "Datenbank nicht erreichbar",
+    "dbErrorBody": "DATABASE_URL in der Hosting-Umgebung prüfen (Postgres, bei Supabase Transaction-Pooler). Migration ausführen und neu laden."
+  },
+  "loginPage": {
+    "title": "Anmelden",
+    "lead": "Melde dich mit deinem Google-Konto an. Wir speichern die nötigen Kontodaten in unserer Datenbank, damit später Projekte und Entwürfe deinem Konto zugeordnet werden können.",
+    "note": "Es gibt kein klassisches Passwort auf unserer Seite – nur den Anbieter Google als Login.",
+    "back": "Zurück zur Startseite",
+    "googleCta": "Mit Google anmelden",
+    "signedInTitle": "Angemeldet",
+    "signedInAs": "Eingeloggt als {email}",
+    "signOut": "Abmelden",
+    "setupTitle": "Login noch nicht eingerichtet",
+    "setupDb": "Lege DATABASE_URL (Postgres) in der Umgebung an und wende die Drizzle-Migrationen an (npm run db:migrate).",
+    "setupGoogle": "Trage AUTH_GOOGLE_ID und AUTH_GOOGLE_SECRET ein (OAuth-Client bei Google).",
+    "setupSecret": "Setze AUTH_SECRET (z. B. openssl rand -base64 32) und AUTH_URL.",
+    "goToApp": "Zu meinen Projekten"
+  },
+  "notFound": {
+    "title": "Seite nicht gefunden",
+    "body": "Der Link ist ungültig oder die Seite wurde verschoben.",
+    "cta": "Zur Startseite"
+  }
+}

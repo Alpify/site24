@@ -1,0 +1,308 @@
+{
+  "metadata": {
+    "home": {
+      "title": "Plan your website with AI: workflow, SEO building blocks & hosting | site24.com",
+      "description": "Structured site creation with AI support: questions, proposals, approvals. Technical SEO as a target—no ranking guarantee. Domain and hosting stay with your provider."
+    },
+    "product": {
+      "title": "Features and flow",
+      "description": "What site24.com aims to offer when you build your own site: guided questions, examples, approvals—and optional code when you need it."
+    },
+    "workflow": {
+      "title": "Workflow from idea to hosting",
+      "description": "Clear phases: from your first description to handoff with a hosting provider—transparent and structured."
+    },
+    "hosting": {
+      "title": "Hosting and domain with your provider",
+      "description": "Why operations and billing sit with the hosting company, and how handoff is intended to work."
+    },
+    "pricing": {
+      "title": "Pricing – in preparation",
+      "description": "Plans will ship once scope and fair-use rules are fixed—no placeholder prices."
+    },
+    "imprint": {
+      "title": "Legal notice",
+      "description": "Information under applicable law—replace placeholders with your company details and counsel review."
+    },
+    "privacy": {
+      "title": "Privacy",
+      "description": "How personal data is handled on site24.com for the current informational site."
+    },
+    "login": {
+      "title": "Log in",
+      "description": "Sign in with Google on site24.com – account for the planned builder."
+    },
+    "app": {
+      "title": "My projects",
+      "description": "Your site24.com projects after sign-in."
+    },
+    "project": {
+      "titleFallback": "Project",
+      "titleWithName": "{name} – project",
+      "description": "Project workspace and drafts after sign-in."
+    }
+  },
+  "nav": {
+    "ariaMain": "Main navigation",
+    "ariaMainMobile": "Main navigation mobile",
+    "home": "Home",
+    "login": "Log in",
+    "loginAria": "Log in or open account",
+    "createGroup": "Workflow & features",
+    "workflowItem": "Workflow",
+    "workflowDesc": "Phases from idea to hosting",
+    "productItem": "Features",
+    "productDesc": "What you can use",
+    "hosting": "Hosting",
+    "pricing": "Pricing",
+    "cta": "Log in",
+    "myProjects": "My projects",
+    "signOut": "Sign out",
+    "accountMenuAria": "Account menu"
+  },
+  "footer": {
+    "tagline": "site24.com is for you if you want to build your own website: structured and traceable, without empty promises. Domain and hosting remain with the provider you choose.",
+    "contactTitle": "Contact",
+    "contactLead": "Questions about this site or partnerships: email us. We do not provide third-party hosting product support.",
+    "legal": "Legal",
+    "rights": "All rights reserved.",
+    "dataNote": "This informational site does not set marketing cookies. Details and your rights: privacy policy.",
+    "links": {
+      "imprint": "Legal notice",
+      "privacy": "Privacy"
+    }
+  },
+  "home": {
+    "eyebrow": "site24.com",
+    "title": "Your website—thought through, step by step",
+    "subtitle": "You describe what you sell and who you serve. Then you move through clear questions (yes, no, short comment), review concrete layout proposals, and refine sections before you handle domain, hosting, and billing with your provider.",
+    "disclaimer": "The full AI builder is still in development. These pages explain the intended product—without promising rankings, revenue, or “live in 60 seconds”.",
+    "primaryCta": "Get started",
+    "secondaryCta": "Read the features",
+    "projectsBoardCta": "Open my projects",
+    "loginCta": "Log in",
+    "priceFunnelBefore": "Plans and payment will move through the ",
+    "priceFunnelLink": "Pricing",
+    "priceFunnelAfter": " page once packages are fixed (in preparation).",
+    "stats": {
+      "templates": "Building blocks, not guesswork",
+      "templatesValue": "Proposals should draw from a large library—less compute, more consistent layouts.",
+      "nocode": "No-code first",
+      "nocodeValue": "You stay in a visual flow. Code only where you truly need it.",
+      "hosting": "Hosting stays separate",
+      "hostingValue": "We prepare handoff. Contract and operations live with the hosting provider—clear for you."
+    },
+    "valueTitle": "Why this can work for you",
+    "valueSubtitle": "Each phase has its own page—you are not trapped on one endless marketing scroll.",
+    "values": {
+      "v1Title": "Structure instead of guessing",
+      "v1Body": "The AI is meant to work from templates and explicit decisions—fewer painful revision loops.",
+      "v2Title": "Traceable choices",
+      "v2Body": "Yes/no/comment questions capture what you want. You can adjust later without starting from zero.",
+      "v3Title": "You own the polish",
+      "v3Body": "You mark sections, comment, and improve—nothing goes live without a deliberate approval.",
+      "v4Title": "Hosting with specialists",
+      "v4Body": "Performance, backups, and billing sit with the partner. We keep the chain short and explain what happens where."
+    },
+    "proofTitle": "Quality needs calm—no buzzwords",
+    "proofBody": "We document the flow carefully and expand pages once the builder is publicly testable. Case studies and metrics only arrive when we can measure them properly.",
+    "proofCta": "Go to workflow",
+    "storyTitle": "Why a clear path reduces stress",
+    "storyP1": "Many projects fail not because of “missing AI” but missing context: what you offer, for whom, and which pages you truly need. Without that, every layout becomes guesswork.",
+    "storyP2": "site24.com is meant to guide you step by step: understand first, ask structured questions, then show proposals you deliberately accept or reject. Only then do you move to domain, hosting, and day‑two operations with your provider.",
+    "storyP3": "You stay in control of content and publication—the AI adds speed and variants, not a substitute for your decisions.",
+    "storyLinkProduct": "Features in detail",
+    "storyLinkWorkflow": "Timeline and phases",
+    "testimonialsTitle": "Voices (examples)",
+    "testimonialsDisclaimer": "No real customer quotes yet: the statements below are placeholders to clarify tone and expected benefits. Once we have measurable outcomes and consent, we will replace them with real stories.",
+    "quote1Text": "I did not want another endless template scroll. The clear questions helped me decide what must be on the homepage.",
+    "quote1Author": "Example: independent consulting",
+    "quote2Text": "I cared that hosting and billing do not chain to yet another tool. The split to the provider made sense.",
+    "quote2Author": "Example: local trades",
+    "quote3Text": "I do not expect a #1 guarantee—but I want headings, meta text, and load time as explicit goals.",
+    "quote3Author": "Example: online course",
+    "metricsTitle": "Numbers that are already true",
+    "metricsSubtitle": "No invented conversion rates—these are framework facts for the planned product and this site. Measurable KPIs ship with launch.",
+    "m1Label": "Phases in the workflow",
+    "m1Value": "5",
+    "m2Label": "Languages on this site",
+    "m2Value": "2",
+    "m3Label": "Templates (target library size)",
+    "m3Value": "2000+",
+    "seoPrinciplesTitle": "Technical SEO as a target—including sites from the builder",
+    "seoPrinciplesLead": "The future builder should output pages search engines can parse and users are not slowed down by. That does not replace content strategy and does not guarantee rankings.",
+    "seoPrinciplesItem1": "Sensible heading hierarchy (one h1 per page, meaningful h2/h3) and descriptive internal links.",
+    "seoPrinciplesItem2": "Distinct titles and meta descriptions per page—approved by you, not silently overwritten.",
+    "seoPrinciplesItem3": "Clean URLs and consistent language versions (hreflang / separate paths, like /de and /en here).",
+    "seoPrinciplesItem4": "Performance-minded markup: lean assets, sensible image sizes, Core Web Vitals in mind.",
+    "seoPrinciplesItem5": "Structured data (JSON-LD) where it is appropriate—without schema spam.",
+    "seoPrinciplesItem6": "Accessibility and readability (contrast, focus states, meaningful alt text).",
+    "seoPrinciplesDisclaimer": "Rankings depend on competition, content, links, and technical health. We do not promise top positions; we promise a transparent technical foundation you can understand.",
+    "seoPrinciplesLinkProduct": "Back to the other product building blocks"
+  },
+  "productPage": {
+    "heroTitle": "Features—what you can expect",
+    "heroSubtitle": "A target picture for the future builder. There is no magic “one-click presence”: you remain the editor of your content; the AI proposes structure and drafts.",
+    "featuresTitle": "Planned product building blocks",
+    "featuresSubtitle": "Everything follows one rule: you decide; the software guides and records.",
+    "f1Title": "Your business in your words",
+    "f1Body": "Free text and prompts capture offer, audience, and tone—so proposals fit you, not a generic industry template.",
+    "f2Title": "Guided decisions",
+    "f2Body": "Clear questions with yes, no, or a short comment reduce misunderstandings and preserve context for later versions.",
+    "f3Title": "Examples you can judge",
+    "f3Body": "You see layout drafts from a large template library. You choose what stays—and you can say no on purpose.",
+    "f4Title": "Optional code",
+    "f4Body": "Most steps stay no-code. When you need HTML/CSS or snippets, it should be explicit—not a forced developer track.",
+    "f5Title": "Comments and versions",
+    "f5Body": "You mark sections, leave feedback, and compare states before you approve.",
+    "f6Title": "Handoff to hosting",
+    "f6Body": "Export, checklist, and partner link—so domain, TLS, and billing live where law and support expect them.",
+    "ctaTitle": "Next step",
+    "ctaBody": "Read the timeline and hosting model before joining any waitlist or beta.",
+    "ctaPrimary": "Workflow",
+    "ctaSecondary": "Hosting explained",
+    "seoTeaser": "We summarize planned technical SEO building blocks (headings, meta, performance, structured data) on the home page—including an honest disclaimer about rankings.",
+    "seoTeaserCta": "“Technical SEO” section on the home page"
+  },
+  "workflowPage": {
+    "heroTitle": "Workflow—from idea to hosting",
+    "heroSubtitle": "Not a hype funnel: these are stations you can think through in order.",
+    "steps": {
+      "s1Title": "1. You describe your offer",
+      "s1Body": "Services, audience, examples, competitors that inspire or differentiate—everything that later carries copy and structure.",
+      "s2Title": "2. Structured follow-up",
+      "s2Body": "The AI works with yes/no/comment questions until there is enough context for a first draft. You can correct at any time.",
+      "s3Title": "3. Proposals from templates",
+      "s3Body": "You see layouts and text blocks that match your answers. You decide what stays and what is discarded.",
+      "s4Title": "4. Polish with comments",
+      "s4Body": "Copy, image order, sections—you comment precisely instead of rewriting everything.",
+      "s5Title": "5. Approval and hosting with the partner",
+      "s5Body": "When you are satisfied, you move to domain, email, and servers with the hosting provider. Contract and support live there."
+    },
+    "noteTitle": "Transparency on maturity",
+    "noteBody": "These pages describe the planned product. Features may change before launch. We will expand copy once capabilities are testable."
+  },
+  "hostingPage": {
+    "heroTitle": "Hosting and domain—with the right partner",
+    "heroSubtitle": "site24.com is meant to help you build. Day‑two operations for your site intentionally sit with the hosting provider.",
+    "intro": "After your approval we refer you to a hosting partner. There you sign contracts and set up domain and technical services. We will provide checklists and clear boundaries once the builder is live—without hidden subscription chains on this site.",
+    "partnerLabel": "Sample partner (placeholder)",
+    "partnerNote": "Name and URL come from configuration and replace this placeholder once a partner is contracted.",
+    "openPartner": "Partner website (external)",
+    "checklistTitle": "What your hosting provider typically handles",
+    "c1": "Domain, DNS, mailboxes",
+    "c2": "TLS certificates and renewal",
+    "c3": "Backups, scaling, monitoring",
+    "c4": "Support, SLA, and billing",
+    "backCta": "Back to home"
+  },
+  "pricingPage": {
+    "heroTitle": "Pricing",
+    "heroSubtitle": "We publish packages only when scope, limits, and support tiers are fixed. No fake price anchors.",
+    "soonTitle": "Still in progress",
+    "soonBody": "Once the builder and AI integration are measurably stable, you will find transparent packages with fair-use notes here.",
+    "cards": {
+      "starterTitle": "Starter (planned)",
+      "starterBody": "Single project, standard templates, email support within the stated SLA.",
+      "proTitle": "Pro (planned)",
+      "proBody": "Multiple projects, prioritized support, deeper review features.",
+      "orgTitle": "Team / organization (planned)",
+      "orgBody": "Roles, approvals, possibly SSO—subject to feasibility and contract."
+    }
+  },
+  "imprintPage": {
+    "title": "Legal notice",
+    "statusBanner": "This legal notice contains placeholder data. Replace it with your company details and have counsel review it (including consumer and EU dispute rules).",
+    "company": "site24.com (project name)",
+    "address": "Sample Street 1, 10115 Berlin, Germany",
+    "emailLabel": "Email:",
+    "representative": "Authorized representative: enter after commercial register / transparency filing.",
+    "b1Title": "Liability for content",
+    "b1Body": "As a service provider we are responsible for our own content on these pages under general law (Sec. 7 (1) TMG). Under Secs. 8 to 10 TMG we are not obligated to monitor transmitted or stored third-party information or to investigate circumstances indicating illegal activity. Obligations to remove or block information under general law remain unaffected.",
+    "b2Title": "Liability for links",
+    "b2Body": "Our offer may contain links to external third-party sites. We have no influence over their content and therefore cannot assume liability. The respective provider is always responsible for linked pages.",
+    "b3Title": "Copyright",
+    "b3Body": "Content and works created by the site operator on these pages are subject to copyright law. Any use beyond copyright limits requires prior written consent of the author or creator.",
+    "b4Title": "EU dispute resolution",
+    "b4Body": "The European Commission provides a platform for online dispute resolution (ODR): https://ec.europa.eu/consumers/odr\nWe are not obliged and not willing to participate in dispute resolution before a consumer arbitration board—adjust this sentence if you participate.",
+    "b5Title": "Consumer note",
+    "b5Body": "If you are a consumer contracting with us, statutory withdrawal and warranty rights apply. Placeholder: add a proper withdrawal policy and model form once a paid offer exists."
+  },
+  "privacyPage": {
+    "title": "Privacy policy",
+    "statusBanner": "Legal note: this statement is not a substitute for individual legal review. Update it as soon as you process personal data (accounts, newsletters, analytics, AI processing).",
+    "lead": "We take privacy seriously. On the current informational site we do not set non-essential marketing cookies and we do not run newsletter tracking. If that changes, we will update this page and obtain consent where required before setting non-essential cookies.",
+    "s1Title": "1. Scope and version",
+    "s1Body": "This statement applies to the website at site24.com on the linked domain. Version: May 2026. Changes will be documented here.",
+    "s2Title": "2. Controller",
+    "s2Body": "The controller under GDPR is the legal or natural person named in the legal notice. While only placeholder data is shown, contact the email address listed there for privacy requests.",
+    "s3Title": "3. Hosting and server logs",
+    "s3Body": "The site is operated with a hosting provider. When you access pages, technically necessary data (e.g., IP address, timestamp, user agent, requested resource) may be processed in server log files. Purpose: secure operation, abuse detection, error analysis. Legal basis: Art. 6 (1) lit. f GDPR (legitimate interest in a secure web offering). Retention depends on the provider; add concrete periods from your data processing agreement.",
+    "s4Title": "4. Contact by email",
+    "s4Body": "If you email us, we process the data you send (at minimum email address, content, metadata) to handle your request. Legal basis: Art. 6 (1) lit. b GDPR for pre-contractual steps, or lit. f for general inquiries.",
+    "s5Title": "5. Cookies and consent",
+    "s5Body": "Currently this informational site does not use optional marketing or analytics cookies that would require consent under ePrivacy rules. If we introduce consent management or analytics, we will document vendor, purpose, retention, and legal basis here and obtain consent before setting non-essential cookies.",
+    "s6Title": "6. Planned AI features",
+    "s6Body": "Once an AI builder is active, content you enter may be transmitted to processors (e.g., model providers). We will describe in advance which data is processed for which purpose, in which regions, and whether EU standard contractual clauses apply. We will not start productive processing without that transparency.",
+    "s7Title": "7. Retention",
+    "s7Body": "We store personal data only as long as needed for the respective purpose or as required by statutory retention periods. Details will follow per feature in tabular form.",
+    "s8Title": "8. Your rights",
+    "s8Body": "Where legal requirements are met, you have rights to access (Art. 15 GDPR), rectification (Art. 16), erasure (Art. 17), restriction (Art. 18), data portability (Art. 20), and objection (Art. 21). You also have the right to lodge a complaint with a supervisory authority (Art. 77 GDPR).",
+    "s9Title": "9. Right to lodge a complaint",
+    "s9Body": "You may complain to the supervisory authority responsible for us. For Germany, an overview is available at https://www.bfdi.bund.de/DE/Infothek/Anschriften_Links/anschriften_links-node.html (external link).",
+    "s10Title": "10. Changes",
+    "s10Body": "If our processing changes (new features, new vendors), we will update this statement and change the date. For material changes we will also inform you prominently on the site."
+  },
+  "appPage": {
+    "title": "My projects",
+    "lead": "Create a project to attach content and drafts later. The AI editor ships in a later step.",
+    "nameLabel": "Project name",
+    "namePlaceholder": "e.g. Café Sun website",
+    "createSubmit": "Create project",
+    "listHeading": "Your projects",
+    "empty": "No projects yet—create one above.",
+    "openProjectAria": "Open project “{name}”",
+    "openLabel": "Open",
+    "draftsHint": "Per-project drafts and templates are the next step.",
+    "backHome": "Back to home",
+    "dbErrorTitle": "Database unavailable",
+    "dbErrorBody": "Set DATABASE_URL in your host (Postgres). On Supabase use the transaction pooler (port 6543). Run migrations (npm run db:migrate) and reload."
+  },
+  "projectPage": {
+    "backToProjects": "All projects",
+    "lead": "Drafts belong to this project. Use AI per draft to structure and expand your notes (via OpenRouter, server-side).",
+    "draftListHeading": "Drafts",
+    "draftEmpty": "No drafts yet—create one below.",
+    "draftTitleLabel": "Title",
+    "draftTitlePlaceholder": "e.g. Homepage – first draft",
+    "draftBodyLabel": "Notes (optional)",
+    "draftBodyPlaceholder": "Bullets, quotes, rough ideas …",
+    "draftCreateSubmit": "Save draft",
+    "aiExpand": "Expand with AI",
+    "aiSetupHint": "Set OPENROUTER_API_KEY in .env.local for AI suggestions (see .env.example).",
+    "aiErrorApi": "The AI request failed. Try again later or check your API key.",
+    "aiErrorConfig": "AI is not configured (OPENROUTER_API_KEY is missing).",
+    "dbErrorTitle": "Database unavailable",
+    "dbErrorBody": "Check DATABASE_URL in your host (Postgres; on Supabase use the transaction pooler). Run migrations and reload."
+  },
+  "loginPage": {
+    "title": "Log in",
+    "lead": "Sign in with your Google account. We store the account data we need in our database so projects and drafts can be linked to your profile later.",
+    "note": "There is no classic password on our site—Google is the only sign-in provider for now.",
+    "back": "Back to home",
+    "googleCta": "Continue with Google",
+    "signedInTitle": "Signed in",
+    "signedInAs": "Signed in as {email}",
+    "signOut": "Sign out",
+    "setupTitle": "Sign-in not configured yet",
+    "setupDb": "Add DATABASE_URL (Postgres) to your environment and apply Drizzle migrations (npm run db:migrate).",
+    "setupGoogle": "Set AUTH_GOOGLE_ID and AUTH_GOOGLE_SECRET (OAuth client in Google Cloud).",
+    "setupSecret": "Set AUTH_SECRET (e.g. openssl rand -base64 32) and AUTH_URL.",
+    "goToApp": "Go to my projects"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "body": "The link is invalid or the page has moved.",
+    "cta": "Back to home"
+  }
+}

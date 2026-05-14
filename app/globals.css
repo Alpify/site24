@@ -1,0 +1,159 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light dark;
+  --background: #f4f7fb;
+  --foreground: #0c1218;
+  --muted: #4a5a68;
+  --card: #ffffff;
+  --accent: #0c5c6e;
+  --accent-hover: #094a59;
+  --accent-soft: #1a8a9e;
+  --ring: #0c5c6e;
+  --border: #d8e1ea;
+  --hero-glow: rgba(26, 138, 158, 0.14);
+  --hero-glow-2: rgba(12, 92, 110, 0.1);
+  --mesh-size: 120% 120%;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0b0f14;
+    --foreground: #e8eef4;
+    --muted: #9aacbb;
+    --card: #121922;
+    --accent: #3db4c9;
+    --accent-hover: #5fc9db;
+    --accent-soft: #5fc9db;
+    --ring: #3db4c9;
+    --border: #243040;
+    --hero-glow: rgba(61, 180, 201, 0.12);
+    --hero-glow-2: rgba(95, 201, 219, 0.06);
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-card: var(--card);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-ring: var(--ring);
+  --color-border: var(--border);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  min-height: 100dvh;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
+}
+
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* Hero: dezenter Verlauf + langsames „Atmen“ (respektiert reduced motion) */
+.hero-surface {
+  position: relative;
+  isolation: isolate;
+  background: linear-gradient(
+    165deg,
+    var(--card) 0%,
+    color-mix(in srgb, var(--card) 88%, var(--accent-soft)) 42%,
+    var(--card) 100%
+  );
+}
+
+@media (prefers-color-scheme: dark) {
+  .hero-surface {
+    background: linear-gradient(
+      165deg,
+      var(--card) 0%,
+      color-mix(in srgb, var(--card) 90%, var(--accent)) 48%,
+      var(--card) 100%
+    );
+  }
+}
+
+.hero-surface::before {
+  content: "";
+  position: absolute;
+  inset: -20% -10% auto -10%;
+  height: 70%;
+  z-index: -1;
+  background:
+    radial-gradient(
+      ellipse var(--mesh-size) at 20% 20%,
+      var(--hero-glow),
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse var(--mesh-size) at 85% 10%,
+      var(--hero-glow-2),
+      transparent 50%
+    );
+  animation: hero-breathe 22s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes hero-breathe {
+  0% {
+    opacity: 0.55;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  100% {
+    opacity: 0.85;
+    transform: translate3d(-1.5%, 1%, 0) scale(1.03);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-surface::before {
+    animation: none;
+    opacity: 0.65;
+    transform: none;
+  }
+}
+
+.card-lift {
+  transition:
+    box-shadow 0.35s ease,
+    transform 0.35s ease,
+    border-color 0.35s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-lift {
+    transition: none;
+  }
+}
+
+.card-lift:hover {
+  box-shadow: 0 12px 40px -18px color-mix(in srgb, var(--foreground) 18%, transparent);
+  transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-lift:hover {
+    transform: none;
+  }
+}
