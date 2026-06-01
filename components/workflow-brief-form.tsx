@@ -2,6 +2,7 @@
 
 import { useMemo, useState, useTransition } from "react";
 
+import { WorkflowAiButton } from "@/components/workflow-ai-button";
 import { buttonClassName } from "@/components/ui/button";
 import { saveWorkflowBrief } from "@/lib/projects/actions";
 import {
@@ -23,6 +24,9 @@ export type WorkflowBriefCopy = {
   pendingNext: string;
   invalidBanner: string;
   customPlaceholder: string;
+  aiFill: string;
+  aiFillPending: string;
+  aiFillHint: string;
   questions: Record<BriefQuestionId, string>;
   options: Record<string, Record<string, string>>;
 };
@@ -38,6 +42,7 @@ export function WorkflowBriefForm({
   initialNotes,
   copy,
   showInvalid,
+  aiEnabled,
 }: {
   locale: string;
   projectId: string;
@@ -45,6 +50,7 @@ export function WorkflowBriefForm({
   initialNotes: string | null;
   copy: WorkflowBriefCopy;
   showInvalid: boolean;
+  aiEnabled: boolean;
 }) {
   const initial = useMemo(() => mergeBrief(initialJson), [initialJson]);
   const [answers, setAnswers] = useState<BriefAnswer[]>(initial.answers);
@@ -113,12 +119,29 @@ export function WorkflowBriefForm({
         </p>
       ) : null}
 
-      <div className="flex items-center justify-between gap-3 rounded-xl border border-border/70 bg-background/60 px-4 py-3">
-        <p className="text-xs font-medium text-muted">{copy.progressLabel}</p>
-        <p className="text-sm font-semibold tabular-nums text-foreground">
-          {answeredCount}/{BRIEF_QUESTIONS.length}
-        </p>
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-1 items-center justify-between gap-3 rounded-xl border border-border/70 bg-background/60 px-4 py-3">
+          <p className="text-xs font-medium text-muted">{copy.progressLabel}</p>
+          <p className="text-sm font-semibold tabular-nums text-foreground">
+            {answeredCount}/{BRIEF_QUESTIONS.length}
+          </p>
+        </div>
+        {aiEnabled ? (
+          <WorkflowAiButton
+            locale={locale}
+            projectId={projectId}
+            endpoint={`/api/projects/${projectId}/ai/suggest-brief`}
+            label={copy.aiFill}
+            pendingLabel={copy.aiFillPending}
+            successRedirect={`/${locale}/app/${projectId}/brief`}
+            variant="primary"
+            className={buttonClassName("primary", "min-h-11 w-full shrink-0 px-5 sm:w-auto")}
+          />
+        ) : null}
       </div>
+      {aiEnabled ? (
+        <p className="text-xs leading-relaxed text-muted">{copy.aiFillHint}</p>
+      ) : null}
 
       <ol className="space-y-5">
         {BRIEF_QUESTIONS.map((q, idx) => {

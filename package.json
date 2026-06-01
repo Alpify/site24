@@ -15,7 +15,7 @@
     "vercel:status": "bash scripts/vercel-deploy.sh status"
   },
   "dependencies": {
-    "@ai-sdk/openai": "^3.0.63",
+    "@ai-sdk/openai": "^1.3.24",
     "@auth/drizzle-adapter": "^1.11.2",
     "ai": "^6.0.182",
     "drizzle-orm": "^0.45.2",

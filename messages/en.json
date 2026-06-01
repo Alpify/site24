@@ -296,7 +296,7 @@
   },
   "appPage": {
     "title": "My project",
-    "lead": "Your access includes one website project.",
+    "lead": "One project, four AI-assisted steps: add your idea—then briefing, layout, copy, and hosting in the workflow.",
     "nameLabel": "Project name",
     "namePlaceholder": "e.g. Café Sun website",
     "ideaLabel": "Notes (optional)",
@@ -345,7 +345,7 @@
     "dbErrorBody": "Check DATABASE_URL in your host (Postgres; on Supabase use the transaction pooler). Run migrations and reload."
   },
   "workflow": {
-    "workspaceLead": "Four steps: briefing, layout, polish, hosting. Each has its own page—you only jump ahead when you want to.",
+    "workspaceLead": "Four AI-assisted steps: briefing from your idea, layout recommendation, generated copy, then a hosting checklist.",
     "nav": {
       "brief": "Briefing",
       "layout": "Layout",
@@ -357,7 +357,10 @@
     "brief": {
       "kicker": "Step 1 · Briefing",
       "namePrefix": "# ",
-      "lead": "Pick the answer that fits each question—one tap. Optionally add free-form notes below.",
+      "lead": "Answer each question with a tap—or let AI suggest a briefing from your project idea.",
+      "aiFill": "Suggest briefing with AI",
+      "aiFillPending": "AI thinking …",
+      "aiFillHint": "Uses your project name and idea from setup. You can edit everything after.",
       "progressLabel": "Questions answered",
       "notesLabel": "Anything else? (optional)",
       "notesPlaceholder": "e.g. brand colour, deadlines, special requests …",
@@ -410,7 +413,10 @@
     "layout": {
       "kicker": "Step 2 · Layout",
       "pageTitle": "Choose a layout",
-      "pageLead": "Four page sketches—pick the direction that matches your briefing. We then create first sections for polish.",
+      "pageLead": "Pick a sketch—the AI highlights a recommendation from your briefing. Continuing creates first text sections.",
+      "aiRecommendLabel": "AI pick:",
+      "aiRecommendApply": "Apply",
+      "aiRecommendLoading": "AI is choosing a layout …",
       "proposalsTitle": "Pick a sketch",
       "sketchBadge": "Sketch",
       "save": "Save",
@@ -440,7 +446,18 @@
     "polish": {
       "kicker": "Step 3 · Polish",
       "pageTitle": "Refine copy and sections",
-      "pageLead": "Edit drafts, add bullet points, or use optional AI suggestions. Nothing goes live without your deliberate step."
+      "pageLead": "Edit copy, expand sections with AI, or generate all sections from your briefing and layout at once.",
+      "aiTip": "“Generate all copy” fills your sections from briefing and layout—you review and adjust.",
+      "aiGenerateAll": "Generate all copy",
+      "aiGenerateAllPending": "AI writing …",
+      "aiGenerateAllConfirm": "Existing section text will be replaced with new AI suggestions. Continue?",
+      "continueHosting": "Continue to hosting",
+      "continuePending": "Continuing …",
+      "incompleteBanner": "At least one section needs some content (~20 characters) before you continue.",
+      "editTitle": "Title",
+      "editSection": "Edit",
+      "saveSection": "Save",
+      "savingSection": "Saving …"
     },
     "hosting": {
       "kicker": "Step 4 · Hosting",

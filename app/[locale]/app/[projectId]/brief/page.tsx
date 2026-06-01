@@ -4,6 +4,7 @@ import { getTranslations } from "next-intl/server";
 
 import { auth } from "@/auth";
 import { WorkflowBriefForm } from "@/components/workflow-brief-form";
+import { isOpenRouterConfigured } from "@/lib/ai/openrouter-client";
 import { getDb } from "@/lib/db";
 import { projects } from "@/lib/db/schema";
 import {
@@ -58,6 +59,9 @@ export default async function WorkflowBriefPage({
     pendingNext: t("brief.pendingNext"),
     invalidBanner: t("brief.invalidBanner"),
     customPlaceholder: t("brief.customPlaceholder"),
+    aiFill: t("brief.aiFill"),
+    aiFillPending: t("brief.aiFillPending"),
+    aiFillHint: t("brief.aiFillHint"),
     questions,
     options,
   };
@@ -77,6 +81,7 @@ export default async function WorkflowBriefPage({
         initialNotes={project.workflowGoals}
         copy={copy}
         showInvalid={sp.invalid === "1"}
+        aiEnabled={isOpenRouterConfigured()}
       />
     </div>
   );

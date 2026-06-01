@@ -1,8 +1,9 @@
 import dotenv from "dotenv";
 import { defineConfig } from "drizzle-kit";
 
-dotenv.config({ path: ".env.local" });
-dotenv.config();
+// .env.local must win over a stale `export DATABASE_URL=...` in the shell.
+dotenv.config({ path: ".env.local", override: true });
+dotenv.config({ override: true });
 
 export default defineConfig({
   schema: "./lib/db/schema.ts",

@@ -4,6 +4,7 @@ import { getTranslations } from "next-intl/server";
 
 import { auth } from "@/auth";
 import { WorkflowLayoutForm } from "@/components/workflow-layout-form";
+import { isOpenRouterConfigured } from "@/lib/ai/openrouter-client";
 import { getDb } from "@/lib/db";
 import { projects } from "@/lib/db/schema";
 
@@ -41,6 +42,9 @@ export default async function WorkflowLayoutPage({
     pendingSave: t("layout.pendingSave"),
     pendingNext: t("layout.pendingNext"),
     invalidBanner: t("layout.invalidBanner"),
+    aiRecommendLabel: t("layout.aiRecommendLabel"),
+    aiRecommendApply: t("layout.aiRecommendApply"),
+    aiRecommendLoading: t("layout.aiRecommendLoading"),
     proposals: {
       focusLanding: {
         title: t("layout.proposals.focusLanding.title"),
@@ -72,6 +76,7 @@ export default async function WorkflowLayoutPage({
         initialJson={project.workflowBuilderJson}
         copy={copy}
         showInvalid={sp.invalid === "1"}
+        aiEnabled={isOpenRouterConfigured()}
       />
     </div>
   );

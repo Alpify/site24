@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState, useTransition } from "react";
+import { useEffect, useMemo, useState, useTransition } from "react";
 
 import { buttonClassName } from "@/components/ui/button";
 import { saveWorkflowLayout } from "@/lib/projects/actions";
@@ -19,6 +19,9 @@ export type WorkflowLayoutCopy = {
   pendingSave: string;
   pendingNext: string;
   invalidBanner: string;
+  aiRecommendLabel: string;
+  aiRecommendApply: string;
+  aiRecommendLoading: string;
   proposals: Record<string, { title: string; hint: string }>;
 };
 
@@ -36,17 +39,49 @@ export function WorkflowLayoutForm({
   initialJson,
   copy,
   showInvalid,
+  aiEnabled,
 }: {
   locale: string;
   projectId: string;
   initialJson: string | null;
   copy: WorkflowLayoutCopy;
   showInvalid: boolean;
+  aiEnabled: boolean;
 }) {
   const initial = useMemo(() => mergeLayout(initialJson), [initialJson]);
   const [proposalId, setProposalId] = useState<LayoutProposalId>(initial.proposalId);
   const [pending, start] = useTransition();
   const [pendingIntent, setPendingIntent] = useState<"save" | "next" | null>(null);
+  const [aiPick, setAiPick] = useState<{
+    proposalId: LayoutProposalId;
+    reason: string;
+  } | null>(null);
+  const [aiLoading, setAiLoading] = useState(false);
+
+  useEffect(() => {
+    if (!aiEnabled) return;
+    let cancelled = false;
+    setAiLoading(true);
+    fetch(
+      `/api/projects/${encodeURIComponent(projectId)}/ai/recommend-layout?locale=${encodeURIComponent(locale)}`,
+      { method: "POST", credentials: "include", cache: "no-store" },
+    )
+      .then((r) => r.json())
+      .then((body: { proposalId?: LayoutProposalId; reason?: string }) => {
+        if (cancelled || !body.proposalId) return;
+        setAiPick({
+          proposalId: body.proposalId,
+          reason: body.reason ?? "",
+        });
+      })
+      .catch(() => {})
+      .finally(() => {
+        if (!cancelled) setAiLoading(false);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [aiEnabled, locale, projectId]);
 
   const payloadJson = useMemo(
     () => JSON.stringify({ version: 2, proposalId } satisfies LayoutPayloadV2),
@@ -78,10 +113,33 @@ export function WorkflowLayoutForm({
         </p>
       ) : null}
 
+      {aiEnabled && (aiLoading || aiPick) ? (
+        <div className="rounded-2xl border border-accent/30 bg-accent/5 px-4 py-3 text-sm">
+          {aiLoading ? (
+            <p className="text-muted">{copy.aiRecommendLoading}</p>
+          ) : aiPick ? (
+            <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+              <p className="text-foreground">
+                <span className="font-semibold">{copy.aiRecommendLabel}</span>{" "}
+                <span className="text-muted">{aiPick.reason}</span>
+              </p>
+              <button
+                type="button"
+                className={buttonClassName("secondary", "min-h-9 shrink-0 px-4 text-xs sm:text-sm")}
+                onClick={() => setProposalId(aiPick.proposalId)}
+              >
+                {copy.aiRecommendApply}
+              </button>
+            </div>
+          ) : null}
+        </div>
+      ) : null}
+
       <p className="text-xs font-semibold uppercase tracking-wide text-muted">{copy.proposalsTitle}</p>
       <div className="grid gap-4 sm:grid-cols-2">
         {LAYOUT_PROPOSALS.map((p, idx) => {
           const active = proposalId === p.id;
+          const recommended = aiPick?.proposalId === p.id;
           const pc = copy.proposals[p.i18nKey];
           const letter = String.fromCharCode(65 + idx);
           return (
@@ -93,7 +151,9 @@ export function WorkflowLayoutForm({
               className={`group relative flex flex-col rounded-2xl border-2 p-4 text-left transition-all ${
                 active
                   ? "border-accent bg-accent/10 shadow-lg ring-2 ring-accent/25"
-                  : "border-border/80 bg-card/80 hover:border-accent/35 hover:shadow-md"
+                  : recommended
+                    ? "border-accent/50 bg-accent/5 hover:border-accent/60 hover:shadow-md"
+                    : "border-border/80 bg-card/80 hover:border-accent/35 hover:shadow-md"
               }`}
             >
               <div className="flex items-start justify-between gap-2">

@@ -325,6 +325,92 @@ export async function createDraft(
   redirect(`/${locale}/app/${projectId}/polish`);
 }
 
+export async function updateDraft(
+  locale: string,
+  projectId: string,
+  draftId: string,
+  formData: FormData,
+) {
+  const session = await auth();
+  if (!session?.user?.id) {
+    redirect(`/${locale}/login`);
+  }
+
+  const title = formData.get("title")?.toString().trim();
+  const bodyRaw = formData.get("body")?.toString() ?? "";
+  const body = bodyRaw.trim().length > 0 ? bodyRaw.trim().slice(0, 50_000) : null;
+
+  if (!title || title.length > 200) {
+    redirect(`/${locale}/app/${projectId}/polish?invalid=1`);
+  }
+
+  const [owned] = await getDb()
+    .select({ id: projects.id })
+    .from(projects)
+    .where(and(eq(projects.id, projectId), eq(projects.userId, session.user.id)))
+    .limit(1);
+
+  if (!owned) {
+    return;
+  }
+
+  await getDb()
+    .update(drafts)
+    .set({ title, body, updatedAt: new Date() })
+    .where(and(eq(drafts.id, draftId), eq(drafts.projectId, projectId)));
+
+  revalidateProjectTree(locale, projectId);
+}
+
+export async function saveWorkflowPolish(
+  locale: string,
+  projectId: string,
+  formData: FormData,
+) {
+  const session = await auth();
+  if (!session?.user?.id) {
+    redirect(`/${locale}/login`);
+  }
+
+  const intent = formData.get("intent")?.toString();
+
+  const [owned] = await getDb()
+    .select({ id: projects.id })
+    .from(projects)
+    .where(and(eq(projects.id, projectId), eq(projects.userId, session.user.id)))
+    .limit(1);
+
+  if (!owned) {
+    return;
+  }
+
+  if (intent === "next") {
+    const rows = await getDb()
+      .select({ body: drafts.body })
+      .from(drafts)
+      .where(eq(drafts.projectId, projectId));
+    const hasContent = rows.some((r) => (r.body?.trim().length ?? 0) >= 20);
+    if (!hasContent) {
+      redirect(`/${locale}/app/${projectId}/polish?incomplete=1`);
+    }
+
+    await getDb()
+      .update(projects)
+      .set({ workflowStep: "hosting", updatedAt: new Date() })
+      .where(eq(projects.id, projectId));
+
+    revalidateProjectTree(locale, projectId);
+    redirect(`/${locale}/app/${projectId}/hosting`);
+  }
+
+  await getDb()
+    .update(projects)
+    .set({ workflowStep: "polish", updatedAt: new Date() })
+    .where(eq(projects.id, projectId));
+
+  revalidateProjectTree(locale, projectId);
+}
+
 export async function deleteDraft(formData: FormData) {
   const localeRaw = formData.get("locale")?.toString()?.trim();
   const projectId = formData.get("projectId")?.toString()?.trim();

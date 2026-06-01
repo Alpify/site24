@@ -296,7 +296,7 @@
   },
   "appPage": {
     "title": "Mein Projekt",
-    "lead": "Pro Zugang ist aktuell ein Website-Projekt vorgesehen.",
+    "lead": "Ein Projekt, vier Schritte mit KI: Idee eingeben — Briefing, Layout, Texte und Hosting folgen im Workflow.",
     "nameLabel": "Projektname",
     "namePlaceholder": "z. B. Website Café Sonne",
     "ideaLabel": "Notizen (optional)",
@@ -345,7 +345,7 @@
     "dbErrorBody": "DATABASE_URL in der Hosting-Umgebung prüfen (Postgres, bei Supabase Transaction-Pooler). Migration ausführen und neu laden."
   },
   "workflow": {
-    "workspaceLead": "Vier Schritte: Briefing, Layout, Feinschliff, Hosting. Jeder hat eine eigene Seite — du springst nur hin, wenn du willst.",
+    "workspaceLead": "Vier Schritte mit KI-Unterstützung: Briefing aus deiner Idee, Layout-Empfehlung, Texte schreiben lassen, dann Hosting-Checkliste.",
     "nav": {
       "brief": "Briefing",
       "layout": "Layout",
@@ -357,7 +357,10 @@
     "brief": {
       "kicker": "Schritt 1 · Briefing",
       "namePrefix": "# ",
-      "lead": "Wähle zu jeder Frage die passende Antwort — ein Klick genügt. Optional ergänzt du unten noch Freitext.",
+      "lead": "Beantworte die Fragen per Klick — oder lass die KI aus deiner Projekt-Idee ein Briefing vorschlagen.",
+      "aiFill": "KI-Briefing vorschlagen",
+      "aiFillPending": "KI denkt …",
+      "aiFillHint": "Nutzt Name und Idee aus der Projektanlage. Du kannst alles danach anpassen.",
       "progressLabel": "Fragen beantwortet",
       "notesLabel": "Noch etwas wichtig? (optional)",
       "notesPlaceholder": "z. B. Besonderheiten, Markenfarbe, Termine …",
@@ -410,7 +413,10 @@
     "layout": {
       "kicker": "Schritt 2 · Layout",
       "pageTitle": "Layout wählen",
-      "pageLead": "Vier Seiten-Skizzen — tippe die Richtung an, die zu deinem Briefing passt. Danach legen wir erste Abschnitte für den Feinschliff an.",
+      "pageLead": "Wähle eine Skizze — die KI markiert eine Empfehlung aus deinem Briefing. Beim Weiterlegen entstehen erste Text-Abschnitte.",
+      "aiRecommendLabel": "KI-Empfehlung:",
+      "aiRecommendApply": "Übernehmen",
+      "aiRecommendLoading": "KI wählt passendes Layout …",
       "proposalsTitle": "Skizze auswählen",
       "sketchBadge": "Skizze",
       "save": "Stand speichern",
@@ -440,7 +446,18 @@
     "polish": {
       "kicker": "Schritt 3 · Feinschliff",
       "pageTitle": "Texte und Abschnitte schärfen",
-      "pageLead": "Bearbeite die Entwürfe, ergänze Stichpunkte oder nutze optional KI-Vorschläge. Nichts geht live ohne deinen bewussten Schritt."
+      "pageLead": "Texte bearbeiten, einzeln mit KI erweitern oder alle Abschnitte auf einmal aus Briefing und Layout generieren.",
+      "aiTip": "„Alle Texte generieren“ füllt deine Abschnitte anhand von Briefing und Layout — du prüfst und passt an.",
+      "aiGenerateAll": "Alle Texte generieren",
+      "aiGenerateAllPending": "KI schreibt …",
+      "aiGenerateAllConfirm": "Bestehende Abschnittstexte werden durch neue KI-Vorschläge ersetzt. Fortfahren?",
+      "continueHosting": "Weiter zu Hosting",
+      "continuePending": "Weiter …",
+      "incompleteBanner": "Mindestens ein Abschnitt braucht etwas Inhalt (ca. 20 Zeichen), bevor es weitergeht.",
+      "editTitle": "Titel",
+      "editSection": "Bearbeiten",
+      "saveSection": "Speichern",
+      "savingSection": "Speichere …"
     },
     "hosting": {
       "kicker": "Schritt 4 · Hosting",

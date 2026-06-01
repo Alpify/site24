@@ -3,39 +3,35 @@ import { NextResponse } from "next/server";
 import { getTranslations } from "next-intl/server";
 
 import { auth } from "@/auth";
-import { aiEnhanceDraftForUser } from "@/lib/projects/ai-workflow";
+import { aiSuggestBriefForUser } from "@/lib/projects/ai-workflow";
 
 export async function POST(
-  _request: Request,
-  context: { params: Promise<{ projectId: string; draftId: string }> },
+  request: Request,
+  context: { params: Promise<{ projectId: string }> },
 ) {
   const session = await auth();
   if (!session?.user?.id) {
     return NextResponse.json({ error: "unauthorized" }, { status: 401 });
   }
 
-  const { projectId, draftId } = await context.params;
-  const { searchParams } = new URL(_request.url);
-  const localeRaw = searchParams.get("locale")?.trim();
-  const locale = localeRaw === "en" ? "en" : "de";
+  const { projectId } = await context.params;
+  const { searchParams } = new URL(request.url);
+  const locale = searchParams.get("locale") === "en" ? "en" : "de";
   const t = await getTranslations({ locale, namespace: "workflow" });
   const labelFn = (key: string) => t(key as "brief.questions.site_topic");
 
-  const result = await aiEnhanceDraftForUser({
+  const result = await aiSuggestBriefForUser({
     userId: session.user.id,
     locale,
     projectId,
-    draftId,
     labelFn,
   });
 
   if (!result.ok) {
-    const status =
-      result.error === "forbidden" || result.error === "state" ? 404 : 400;
+    const status = result.error === "forbidden" ? 404 : 400;
     return NextResponse.json({ error: result.error }, { status });
   }
 
   revalidatePath(`/${locale}/app/${projectId}`, "layout");
-
-  return NextResponse.json({ ok: true });
+  return NextResponse.json({ ok: true, ...result.data });
 }

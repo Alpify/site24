@@ -10,7 +10,8 @@ import { ProjectWorkflowNavClient } from "@/components/project-workflow-nav-clie
 import { buildPageMetadata } from "@/lib/build-page-metadata";
 import { buttonClassName } from "@/components/ui/button";
 import { getDb } from "@/lib/db";
-import { projects } from "@/lib/db/schema";
+import { drafts, projects } from "@/lib/db/schema";
+import { computeWorkflowProgress } from "@/lib/workflow/progress";
 
 export async function generateMetadata({
   params,
@@ -88,6 +89,18 @@ export default async function ProjectWorkspaceLayout({
     notFound();
   }
 
+  const draftRows = await getDb()
+    .select({ body: drafts.body })
+    .from(drafts)
+    .where(eq(drafts.projectId, projectId));
+  const draftsWithBody = draftRows.filter((d) => (d.body?.trim().length ?? 0) >= 20).length;
+  const progress = computeWorkflowProgress({
+    workflowStep: project.workflowStep,
+    workflowBriefJson: project.workflowBriefJson,
+    workflowBuilderJson: project.workflowBuilderJson,
+    draftsWithBody,
+  });
+
   const labels = {
     brief: tFlow("nav.brief"),
     layout: tFlow("nav.layout"),
@@ -116,6 +129,7 @@ export default async function ProjectWorkspaceLayout({
           labels={labels}
           previewLabel={tFlow("nav.preview")}
           ariaLabel={tFlow("nav.aria")}
+          stepAccess={progress.steps}
         />
         {children}
       </div>
