@@ -50,14 +50,17 @@ export default async function ProjectPreviewPage({
             <h2 className="text-lg font-semibold text-foreground">{t("preview.briefHeading")}</h2>
             <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-muted">
               {brief.answers.map((a) => {
-                const q = BRIEF_QUESTIONS.find((x) => x.id === a.id);
-                const opt = q?.options.find((o) => o.id === a.optionId);
+                const labels = a.optionIds.map((oid) => {
+                  const q = BRIEF_QUESTIONS.find((x) => x.id === a.id);
+                  const opt = q?.options.find((o) => o.id === oid);
+                  return t(`brief.options.${a.id}.${opt?.i18nKey ?? oid}`);
+                });
                 return (
                   <li key={a.id}>
                     <span className="text-foreground">{t(`brief.questions.${a.id}`)}</span>
                     {": "}
                     <span className="font-medium text-foreground">
-                      {t(`brief.options.${a.id}.${opt?.i18nKey ?? a.optionId}`)}
+                      {labels.join(", ")}
                       {a.customText ? ` — ${a.customText}` : ""}
                     </span>
                   </li>

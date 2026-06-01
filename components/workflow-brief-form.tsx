@@ -8,7 +8,7 @@ import { saveWorkflowBrief } from "@/lib/projects/actions";
 import {
   BRIEF_QUESTIONS,
   type BriefAnswer,
-  type BriefPayloadV1,
+  type BriefPayloadV2,
   type BriefQuestionId,
   defaultBriefPayload,
   parseBriefPayload,
@@ -16,6 +16,7 @@ import {
 
 export type WorkflowBriefCopy = {
   progressLabel: string;
+  multiHint: string;
   notesLabel: string;
   notesPlaceholder: string;
   save: string;
@@ -31,7 +32,7 @@ export type WorkflowBriefCopy = {
   options: Record<string, Record<string, string>>;
 };
 
-function mergeBrief(initialJson: string | null | undefined): BriefPayloadV1 {
+function mergeBrief(initialJson: string | null | undefined): BriefPayloadV2 {
   return parseBriefPayload(initialJson ?? "") ?? defaultBriefPayload();
 }
 
@@ -58,9 +59,9 @@ export function WorkflowBriefForm({
   const [pending, start] = useTransition();
   const [pendingIntent, setPendingIntent] = useState<"save" | "next" | null>(null);
 
-  const answeredCount = answers.filter((a) => a.optionId).length;
+  const answeredCount = answers.filter((a) => a.optionIds.length > 0).length;
   const payloadJson = useMemo(
-    () => JSON.stringify({ version: 1, answers } satisfies BriefPayloadV1),
+    () => JSON.stringify({ version: 2, answers } satisfies BriefPayloadV2),
     [answers],
   );
 
@@ -79,25 +80,44 @@ export function WorkflowBriefForm({
     });
   }
 
-  function pickOption(qid: BriefQuestionId, optionId: string) {
+  function toggleOption(qid: BriefQuestionId, optionId: string) {
+    const q = BRIEF_QUESTIONS.find((x) => x.id === qid)!;
     setAnswers((prev) =>
-      prev.map((a) =>
-        a.id === qid
-          ? {
-              ...a,
-              optionId,
-              ...(optionId === "other" ? { customText: a.customText ?? "" } : { customText: undefined }),
-            }
-          : a,
-      ),
+      prev.map((a) => {
+        if (a.id !== qid) return a;
+        const has = a.optionIds.includes(optionId);
+        if (q.multiSelect) {
+          let next = has
+            ? a.optionIds.filter((x) => x !== optionId)
+            : [...a.optionIds, optionId];
+          if (optionId === "other" && !has) {
+            return { ...a, optionIds: next, customText: a.customText ?? "" };
+          }
+          if (optionId !== "other" && has) {
+            next = next.filter((x) => x !== "other");
+          }
+          return {
+            ...a,
+            optionIds: next,
+            ...(optionId === "other" && has ? { customText: undefined } : {}),
+          };
+        }
+        return {
+          ...a,
+          optionIds: [optionId],
+          ...(optionId === "other" ? { customText: a.customText ?? "" } : { customText: undefined }),
+        };
+      }),
     );
   }
 
   function setCustom(qid: BriefQuestionId, text: string) {
     setAnswers((prev) =>
-      prev.map((a) =>
-        a.id === qid ? { ...a, optionId: "other", customText: text } : a,
-      ),
+      prev.map((a) => {
+        if (a.id !== qid) return a;
+        const ids = a.optionIds.includes("other") ? a.optionIds : [...a.optionIds, "other"];
+        return { ...a, optionIds: ids, customText: text };
+      }),
     );
   }
 
@@ -142,6 +162,7 @@ export function WorkflowBriefForm({
       {aiEnabled ? (
         <p className="text-xs leading-relaxed text-muted">{copy.aiFillHint}</p>
       ) : null}
+      <p className="text-xs text-muted">{copy.multiHint}</p>
 
       <ol className="space-y-5">
         {BRIEF_QUESTIONS.map((q, idx) => {
@@ -159,15 +180,19 @@ export function WorkflowBriefForm({
                 >
                   {idx + 1}
                 </span>
-                <p className="pt-0.5 text-sm font-semibold leading-snug text-foreground sm:text-base">
-                  {qCopy}
-                </p>
+                <div>
+                  <p className="pt-0.5 text-sm font-semibold leading-snug text-foreground sm:text-base">
+                    {qCopy}
+                  </p>
+                  {q.multiSelect ? (
+                    <p className="mt-0.5 text-xs text-muted">{copy.multiHint}</p>
+                  ) : null}
+                </div>
               </div>
               <div className="grid gap-2 p-4 sm:grid-cols-2 sm:p-5">
                 {q.options.map((opt) => {
-                  const active = row.optionId === opt.id;
-                  const label =
-                    copy.options[q.id]?.[opt.id] ?? opt.id;
+                  const active = row.optionIds.includes(opt.id);
+                  const label = copy.options[q.id]?.[opt.id] ?? opt.id;
                   return (
                     <button
                       key={opt.id}
@@ -175,14 +200,14 @@ export function WorkflowBriefForm({
                       disabled={pending}
                       aria-pressed={active}
                       className={optionChip(active)}
-                      onClick={() => pickOption(q.id, opt.id)}
+                      onClick={() => toggleOption(q.id, opt.id)}
                     >
                       {label}
                     </button>
                   );
                 })}
               </div>
-              {row.optionId === "other" ? (
+              {row.optionIds.includes("other") ? (
                 <div className="border-t border-border/60 px-4 pb-4 sm:px-5">
                   <label className="mt-3 block text-xs font-medium text-muted">
                     {copy.customPlaceholder}

@@ -1,7 +1,10 @@
 import { and, count, eq } from "drizzle-orm";
 
+import { createSectionWithAi } from "@/lib/ai/create-section";
 import { expandDraftNotes } from "@/lib/ai/expand-draft-notes";
 import { generateSiteSections } from "@/lib/ai/generate-site-sections";
+import { reviseSectionWithAi } from "@/lib/ai/revise-section";
+import { parseBriefPayload } from "@/lib/workflow/brief-questions";
 import { isOpenRouterConfigured } from "@/lib/ai/openrouter-client";
 import { recommendLayoutFromBrief } from "@/lib/ai/recommend-layout";
 import { suggestBriefFromIdea } from "@/lib/ai/suggest-brief";
@@ -145,9 +148,20 @@ export async function aiGeneratePolishForUser(opts: {
     return { ok: false, error: "forbidden" };
   }
 
-  const layout = parseLayoutPayload(project.workflowBuilderJson);
+  let layout = parseLayoutPayload(project.workflowBuilderJson);
   if (!layout) {
-    return { ok: false, error: "state" };
+    const rec = await aiRecommendLayoutForUser(opts);
+    if (!rec.ok) {
+      return { ok: false, error: rec.error };
+    }
+    layout = { version: 2, proposalId: rec.data.proposalId };
+    await getDb()
+      .update(projects)
+      .set({
+        workflowBuilderJson: JSON.stringify(layout),
+        updatedAt: new Date(),
+      })
+      .where(eq(projects.id, project.id));
   }
 
   const briefLines = formatBriefAnswersForAi(
@@ -302,4 +316,199 @@ export async function aiEnhanceDraftForUser(opts: {
   } catch {
     return { ok: false, error: "api" };
   }
+}
+
+export async function aiGenerateFullSiteForUser(opts: {
+  userId: string;
+  locale: string;
+  projectId: string;
+  labelFn: (key: string) => string;
+}): Promise<AiResult<{ proposalId: LayoutProposalId; sections: number }>> {
+  if (!isOpenRouterConfigured()) {
+    return { ok: false, error: "config" };
+  }
+  const project = await loadOwnedProject(opts.userId, opts.projectId);
+  if (!project) {
+    return { ok: false, error: "forbidden" };
+  }
+  if (!parseBriefPayload(project.workflowBriefJson)) {
+    return { ok: false, error: "state" };
+  }
+
+  const gen = await aiGeneratePolishForUser({
+    ...opts,
+    replaceExisting: true,
+  });
+  if (!gen.ok) {
+    return { ok: false, error: gen.error };
+  }
+
+  const refreshed = await loadOwnedProject(opts.userId, opts.projectId);
+  const layout = parseLayoutPayload(refreshed?.workflowBuilderJson ?? null);
+  const [c] = await getDb()
+    .select({ c: count() })
+    .from(drafts)
+    .where(eq(drafts.projectId, project.id));
+
+  await getDb()
+    .update(projects)
+    .set({ workflowStep: "polish", updatedAt: new Date() })
+    .where(eq(projects.id, project.id));
+
+  return {
+    ok: true,
+    data: {
+      proposalId: layout?.proposalId ?? "focus-landing",
+      sections: c?.c ?? gen.data.updated,
+    },
+  };
+}
+
+export async function aiReviseSectionForUser(opts: {
+  userId: string;
+  locale: string;
+  projectId: string;
+  draftId: string;
+  instruction: string;
+  labelFn: (key: string) => string;
+}): Promise<AiResult<null>> {
+  if (!isOpenRouterConfigured()) {
+    return { ok: false, error: "config" };
+  }
+  const project = await loadOwnedProject(opts.userId, opts.projectId);
+  if (!project) {
+    return { ok: false, error: "forbidden" };
+  }
+  const [draft] = await getDb()
+    .select()
+    .from(drafts)
+    .where(and(eq(drafts.id, opts.draftId), eq(drafts.projectId, project.id)))
+    .limit(1);
+  if (!draft || !opts.instruction.trim()) {
+    return { ok: false, error: "state" };
+  }
+
+  const briefLines = formatBriefAnswersForAi(
+    opts.locale,
+    project.workflowBriefJson,
+    opts.labelFn,
+  );
+  const context = buildProjectAiContext({
+    locale: opts.locale,
+    project,
+    briefLines,
+  });
+
+  try {
+    const body = await reviseSectionWithAi({
+      locale: opts.locale,
+      context,
+      sectionTitle: draft.title,
+      currentBody: draft.body,
+      instruction: opts.instruction.trim(),
+    });
+    await getDb()
+      .update(drafts)
+      .set({ body, updatedAt: new Date() })
+      .where(eq(drafts.id, draft.id));
+    return { ok: true, data: null };
+  } catch {
+    return { ok: false, error: "api" };
+  }
+}
+
+export async function aiCreateSectionForUser(opts: {
+  userId: string;
+  locale: string;
+  projectId: string;
+  description: string;
+  labelFn: (key: string) => string;
+}): Promise<AiResult<{ draftId: string }>> {
+  if (!isOpenRouterConfigured()) {
+    return { ok: false, error: "config" };
+  }
+  const project = await loadOwnedProject(opts.userId, opts.projectId);
+  if (!project) {
+    return { ok: false, error: "forbidden" };
+  }
+  if (!opts.description.trim()) {
+    return { ok: false, error: "state" };
+  }
+
+  const [c] = await getDb()
+    .select({ c: count() })
+    .from(drafts)
+    .where(eq(drafts.projectId, project.id));
+  if ((c?.c ?? 0) >= 12) {
+    return { ok: false, error: "state" };
+  }
+
+  const briefLines = formatBriefAnswersForAi(
+    opts.locale,
+    project.workflowBriefJson,
+    opts.labelFn,
+  );
+  const context = buildProjectAiContext({
+    locale: opts.locale,
+    project,
+    briefLines,
+  });
+
+  try {
+    const section = await createSectionWithAi({
+      locale: opts.locale,
+      context,
+      description: opts.description.trim(),
+    });
+    const [row] = await getDb()
+      .insert(drafts)
+      .values({
+        projectId: project.id,
+        title: section.title,
+        body: section.body || null,
+      })
+      .returning({ id: drafts.id });
+    if (!row) {
+      return { ok: false, error: "api" };
+    }
+    return { ok: true, data: { draftId: row.id } };
+  } catch {
+    return { ok: false, error: "api" };
+  }
+}
+
+export async function aiApplyLayoutForUser(opts: {
+  userId: string;
+  locale: string;
+  projectId: string;
+  proposalId: LayoutProposalId;
+  labelFn: (key: string) => string;
+}): Promise<AiResult<{ proposalId: LayoutProposalId }>> {
+  const project = await loadOwnedProject(opts.userId, opts.projectId);
+  if (!project) {
+    return { ok: false, error: "forbidden" };
+  }
+
+  await getDb()
+    .update(projects)
+    .set({
+      workflowBuilderJson: JSON.stringify({
+        version: 2,
+        proposalId: opts.proposalId,
+      }),
+      updatedAt: new Date(),
+    })
+    .where(eq(projects.id, project.id));
+
+  const gen = await aiGeneratePolishForUser({
+    userId: opts.userId,
+    locale: opts.locale,
+    projectId: opts.projectId,
+    labelFn: opts.labelFn,
+    replaceExisting: true,
+  });
+  if (!gen.ok) {
+    return { ok: false, error: gen.error };
+  }
+  return { ok: true, data: { proposalId: opts.proposalId } };
 }

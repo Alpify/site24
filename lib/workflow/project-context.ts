@@ -25,10 +25,14 @@ export function formatBriefAnswersForAi(
   const lines: string[] = [];
   for (const a of brief.answers) {
     const q = BRIEF_QUESTIONS.find((x) => x.id === a.id);
-    const opt = q?.options.find((o) => o.id === a.optionId);
     const qLabel = labelFn(`brief.questions.${a.id}`);
-    const oLabel = labelFn(`brief.options.${a.id}.${opt?.i18nKey ?? a.optionId}`);
-    lines.push(`- ${qLabel}: ${oLabel}${a.customText ? ` (${a.customText})` : ""}`);
+    const labels = a.optionIds.map((oid) => {
+      const opt = q?.options.find((o) => o.id === oid);
+      return labelFn(`brief.options.${a.id}.${opt?.i18nKey ?? oid}`);
+    });
+    lines.push(
+      `- ${qLabel}: ${labels.join(", ") || "—"}${a.customText ? ` (${a.customText})` : ""}`,
+    );
   }
   return lines.join("\n");
 }

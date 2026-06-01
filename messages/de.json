@@ -357,7 +357,8 @@
     "brief": {
       "kicker": "Schritt 1 · Briefing",
       "namePrefix": "# ",
-      "lead": "Beantworte die Fragen per Klick — oder lass die KI aus deiner Projekt-Idee ein Briefing vorschlagen.",
+      "lead": "Mehrfachauswahl wo markiert — dann erzeugt die KI deine Website. Du bearbeitest live in der Vorschau.",
+      "multiHint": "Mehrere Antworten möglich — erneut tippen zum Abwählen.",
       "aiFill": "KI-Briefing vorschlagen",
       "aiFillPending": "KI denkt …",
       "aiFillHint": "Nutzt Name und Idee aus der Projektanlage. Du kannst alles danach anpassen.",
@@ -366,15 +367,19 @@
       "notesPlaceholder": "z. B. Besonderheiten, Markenfarbe, Termine …",
       "customPlaceholder": "Kurz beschreiben …",
       "save": "Zwischenstand speichern",
-      "next": "Weiter zum Layout",
+      "next": "Website generieren",
       "pendingSave": "Speichere …",
       "pendingNext": "Weiter …",
-      "invalidBanner": "Bitte jede Frage mit einer Antwort wählen. Bei „Sonstiges“ kurz beschreiben.",
+      "invalidBanner": "Bitte jede Frage: mindestens eine Antwort. Bei „Sonstiges“ kurz beschreiben.",
       "questions": {
         "site_topic": "Was ist das Thema deiner Website?",
         "audience": "Wen willst du erreichen?",
         "visitor_action": "Was sollen Besucherinnen und Besucher tun?",
-        "site_tone": "Welcher Stil soll rüberkommen?"
+        "site_tone": "Welcher Stil soll rüberkommen?",
+        "brand_personality": "Welche Markenwerte passen?",
+        "must_have": "Was muss auf der Seite vorkommen?",
+        "content_status": "Wie weit sind deine Inhalte?",
+        "priority": "Was ist dir am wichtigsten?"
       },
       "options": {
         "site_topic": {
@@ -384,6 +389,7 @@
           "portfolio": "Portfolio / Referenzen",
           "nonprofit": "Verein / Initiative",
           "personal": "Persönliche Seite",
+          "events": "Events / Veranstaltungen",
           "other": "Sonstiges"
         },
         "audience": {
@@ -392,6 +398,8 @@
           "national": "Deutschlandweit",
           "b2b": "Unternehmen / B2B",
           "community": "Community / Fans",
+          "young": "Jüngere Zielgruppe",
+          "seniors": "Senioren",
           "mixed": "Gemischt"
         },
         "visitor_action": {
@@ -399,16 +407,71 @@
           "book": "Termin buchen / reservieren",
           "buy": "Kaufen / bestellen",
           "inform": "Informieren / Vertrauen aufbauen",
-          "subscribe": "Newsletter / Interesse melden"
+          "subscribe": "Newsletter / Interesse melden",
+          "download": "Download / Material",
+          "visit": "Vor Ort vorbeikommen"
         },
         "site_tone": {
           "modern": "Modern & klar",
           "warm": "Warm & nahbar",
           "bold": "Mutig & auffällig",
           "calm": "Ruhig & seriös",
-          "premium": "Hochwertig & reduziert"
+          "premium": "Hochwertig & reduziert",
+          "playful": "Locker & verspielt"
+        },
+        "brand_personality": {
+          "trustworthy": "Vertrauenswürdig",
+          "innovative": "Innovativ",
+          "personal": "Persönlich & nah",
+          "expert": "Fachlich / Experte",
+          "sustainable": "Nachhaltig",
+          "luxury": "Exklusiv"
+        },
+        "must_have": {
+          "hero": "Starker Startbereich (Hero)",
+          "services_list": "Leistungen / Angebot",
+          "about": "Über uns / Team",
+          "testimonials": "Kundenstimmen",
+          "gallery": "Galerie / Bilder",
+          "pricing": "Preise",
+          "faq": "FAQ",
+          "blog": "News / Blog",
+          "contact_form": "Kontaktformular",
+          "map": "Karte / Anfahrt"
+        },
+        "content_status": {
+          "have_copy": "Texte habe ich schon",
+          "need_help": "Brauche Hilfe beim Schreiben",
+          "starting_fresh": "Starte bei null"
+        },
+        "priority": {
+          "fast_launch": "Schnell online",
+          "design": "Schönes Design",
+          "seo": "Gefunden werden (SEO)",
+          "conversions": "Anfragen / Verkäufe",
+          "accessibility": "Barrierefreiheit"
         }
       }
+    },
+    "editor": {
+      "previewTitle": "Live-Vorschau",
+      "previewHint": "Klicke einen Abschnitt an oder ziehe mit der Maus ein Rechteck über mehrere Bereiche.",
+      "selectedLabel": "Ausgewählt",
+      "noSelection": "Noch kein Bereich gewählt",
+      "instructionLabel": "Änderung beschreiben",
+      "instructionPlaceholder": "z. B. „Kürzer und freundlicher“, „Preise ergänzen“, „mehr Vertrauen“ …",
+      "applyAi": "Mit KI überarbeiten",
+      "applyingAi": "KI arbeitet …",
+      "newSectionLabel": "Neuer Abschnitt",
+      "newSectionPlaceholder": "Beschreibe den neuen Abschnitt, z. B. „FAQ mit 5 Fragen zu Öffnungszeiten“",
+      "addSection": "Abschnitt anlegen",
+      "addingSection": "Wird angelegt …",
+      "regenerateSite": "Website neu generieren",
+      "regenerating": "Generiere …",
+      "layoutTitle": "Layout wechseln",
+      "layoutHint": "Neues Layout = Seite wird mit KI neu aufgebaut (Inhalte aus Briefing).",
+      "generatingBanner": "Deine Website wird erstellt — Layout, Texte und Vorschau …",
+      "multiSelectHint": "Mehrere Bereiche markiert"
     },
     "layout": {
       "kicker": "Schritt 2 · Layout",
@@ -445,8 +508,8 @@
     },
     "polish": {
       "kicker": "Schritt 3 · Feinschliff",
-      "pageTitle": "Texte und Abschnitte schärfen",
-      "pageLead": "Texte bearbeiten, einzeln mit KI erweitern oder alle Abschnitte auf einmal aus Briefing und Layout generieren.",
+      "pageTitle": "Website bearbeiten",
+      "pageLead": "Zuerst siehst du deine generierte Website. Klicke einen Bereich an oder ziehe ein Rechteck — beschreibe die Änderung, die KI passt den Abschnitt an. Layout wechseln regeneriert die Seite.",
       "aiTip": "„Alle Texte generieren“ füllt deine Abschnitte anhand von Briefing und Layout — du prüfst und passt an.",
       "aiGenerateAll": "Alle Texte generieren",
       "aiGenerateAllPending": "KI schreibt …",

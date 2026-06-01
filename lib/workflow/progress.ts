@@ -25,7 +25,8 @@ export function computeWorkflowProgress(opts: {
 }): WorkflowProgress {
   const currentStep = normalizeStoredWorkflowStep(opts.workflowStep);
   const briefComplete = parseBriefPayload(opts.workflowBriefJson) !== null;
-  const layoutComplete = parseLayoutPayload(opts.workflowBuilderJson) !== null;
+  const layoutComplete =
+    parseLayoutPayload(opts.workflowBuilderJson) !== null || opts.draftsWithBody > 0;
   const polishComplete = opts.draftsWithBody > 0;
 
   const completion: Record<WorkflowStepId, boolean> = {

@@ -58,6 +58,7 @@ export default async function WorkflowBriefPage({
     pendingSave: t("brief.pendingSave"),
     pendingNext: t("brief.pendingNext"),
     invalidBanner: t("brief.invalidBanner"),
+    multiHint: t("brief.multiHint"),
     customPlaceholder: t("brief.customPlaceholder"),
     aiFill: t("brief.aiFill"),
     aiFillPending: t("brief.aiFillPending"),

@@ -66,14 +66,17 @@ export default async function WorkflowHostingPage({
             {brief ? (
               <ul className="space-y-1.5">
                 {brief.answers.map((a) => {
-                  const q = BRIEF_QUESTIONS.find((x) => x.id === a.id);
-                  const opt = q?.options.find((o) => o.id === a.optionId);
+                  const labels = a.optionIds.map((oid) => {
+                    const q = BRIEF_QUESTIONS.find((x) => x.id === a.id);
+                    const opt = q?.options.find((o) => o.id === oid);
+                    return t(`brief.options.${a.id}.${opt?.i18nKey ?? oid}`);
+                  });
                   return (
                     <li key={a.id} className="text-sm">
                       <span className="text-muted">{t(`brief.questions.${a.id}`)}</span>
                       {": "}
                       <span className="font-medium">
-                        {t(`brief.options.${a.id}.${opt?.i18nKey ?? a.optionId}`)}
+                        {labels.join(", ")}
                         {a.customText ? ` — ${a.customText}` : ""}
                       </span>
                     </li>

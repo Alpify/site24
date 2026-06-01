@@ -4,14 +4,15 @@ import { createOpenRouterModel } from "@/lib/ai/openrouter-client";
 import { parseJsonObject } from "@/lib/ai/parse-json-response";
 import { BRIEF_OPTION_IDS } from "@/lib/workflow/project-context";
 import {
+  BRIEF_QUESTION_IDS,
   BRIEF_QUESTIONS,
   defaultBriefPayload,
   parseBriefPayload,
-  type BriefPayloadV1,
+  type BriefPayloadV2,
 } from "@/lib/workflow/brief-questions";
 
 type AiBriefResponse = {
-  answers?: { id: string; optionId: string; customText?: string }[];
+  answers?: { id: string; optionIds?: string[]; optionId?: string; customText?: string }[];
   notes?: string;
 };
 
@@ -19,22 +20,22 @@ export async function suggestBriefFromIdea(opts: {
   locale: string;
   projectName: string;
   idea: string;
-}): Promise<{ payload: BriefPayloadV1; notes: string }> {
+}): Promise<{ payload: BriefPayloadV2; notes: string }> {
   const de = opts.locale === "de";
-  const optionGuide = BRIEF_QUESTIONS.map(
-    (q) =>
-      `${q.id}: [${BRIEF_OPTION_IDS[q.id].join(", ")}]`,
-  ).join("\n");
+  const optionGuide = BRIEF_QUESTIONS.map((q) => {
+    const multi = q.multiSelect ? " (mehrere möglich)" : " (genau eine)";
+    return `${q.id}${multi}: [${BRIEF_OPTION_IDS[q.id].join(", ")}]`;
+  }).join("\n");
 
   const { text } = await generateText({
     model: createOpenRouterModel(),
     system: de
-      ? "Du bist Briefing-Assistent für site24.com. Antworte NUR mit einem JSON-Objekt, ohne Markdown."
-      : "You are a briefing assistant for site24.com. Reply ONLY with a JSON object, no markdown.",
+      ? "Du bist Briefing-Assistent für site24.com. Antworte NUR mit JSON."
+      : "You are a briefing assistant for site24.com. Reply ONLY with JSON.",
     prompt: de
-      ? `Projekt: ${opts.projectName}\nIdee des Nutzers:\n${opts.idea || "(keine Idee angegeben)"}\n\nWähle pro Frage genau eine optionId aus den erlaubten Listen.\nFragen und erlaubte optionIds:\n${optionGuide}\n\nJSON-Format:\n{"answers":[{"id":"site_topic","optionId":"..."},...],"notes":"optional 1-3 Sätze Zusammenfassung"}\n\nRegeln: genau 4 answers (site_topic, audience, visitor_action, site_tone). Bei "other" customText setzen.`
-      : `Project: ${opts.projectName}\nUser idea:\n${opts.idea || "(no idea provided)"}\n\nPick exactly one optionId per question from the allowed lists.\nQuestions and allowed optionIds:\n${optionGuide}\n\nJSON shape:\n{"answers":[{"id":"site_topic","optionId":"..."},...],"notes":"optional 1-3 sentence summary"}\n\nRules: exactly 4 answers (site_topic, audience, visitor_action, site_tone). For "other" set customText.`,
-    maxOutputTokens: 800,
+      ? `Projekt: ${opts.projectName}\nIdee:\n${opts.idea || "(keine)"}\n\nFragen:\n${optionGuide}\n\nJSON: {"answers":[{"id":"site_topic","optionIds":["local_business",...]}, ...], "notes":"..."}\n\nAlle IDs: ${BRIEF_QUESTION_IDS.join(", ")}. Pro Frage mindestens 1 optionId. content_status nur 1 Wert. Bei other customText.`
+      : `Project: ${opts.projectName}\nIdea:\n${opts.idea || "(none)"}\n\nQuestions:\n${optionGuide}\n\nJSON: {"answers":[{"id":"site_topic","optionIds":["local_business",...]}, ...], "notes":"..."}\n\nAll ids: ${BRIEF_QUESTION_IDS.join(", ")}. At least 1 optionId per question. content_status only 1. For other set customText.`,
+    maxOutputTokens: 1200,
     temperature: 0.35,
   });
 
@@ -43,7 +44,13 @@ export async function suggestBriefFromIdea(opts: {
     return { payload: defaultBriefPayload(), notes: opts.idea.slice(0, 2000) };
   }
 
-  const raw = JSON.stringify({ version: 1, answers: parsed.answers });
+  const normalized = parsed.answers.map((a) => ({
+    id: a.id,
+    optionIds: a.optionIds ?? (a.optionId ? [a.optionId] : []),
+    customText: a.customText,
+  }));
+
+  const raw = JSON.stringify({ version: 2, answers: normalized });
   const validated = parseBriefPayload(raw);
   return {
     payload: validated ?? defaultBriefPayload(),

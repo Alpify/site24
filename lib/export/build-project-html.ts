@@ -39,10 +39,8 @@ export function buildProjectHtmlExport(opts: {
   const brief = parseBriefPayload(project.workflowBriefJson);
   if (brief) {
     const lines = brief.answers.map((a) => {
-      const q = BRIEF_QUESTIONS.find((x) => x.id === a.id);
-      const opt = q?.options.find((o) => o.id === a.optionId);
-      const label = opt?.id ?? a.optionId;
-      return `${a.id}: ${label}${a.customText ? ` (${a.customText})` : ""}`;
+      const labels = a.optionIds.join(", ");
+      return `${a.id}: ${labels}${a.customText ? ` (${a.customText})` : ""}`;
     });
     parts.push(`<section><h2>${escapeHtml(briefHeading)}</h2><pre style='white-space:pre-wrap'>`);
     parts.push(escapeHtml(lines.join("\n")));

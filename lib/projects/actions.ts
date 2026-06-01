@@ -104,7 +104,7 @@ export async function saveWorkflowBrief(
       .where(eq(projects.id, projectId));
 
     revalidateProjectTree(locale, projectId);
-    redirect(`/${locale}/app/${projectId}/layout`);
+    redirect(`/${locale}/app/${projectId}/polish?autogen=1`);
   }
 
   await getDb()

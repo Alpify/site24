@@ -357,7 +357,8 @@
     "brief": {
       "kicker": "Step 1 · Briefing",
       "namePrefix": "# ",
-      "lead": "Answer each question with a tap—or let AI suggest a briefing from your project idea.",
+      "lead": "Multi-select where noted—then AI generates your site. You edit live in the preview.",
+      "multiHint": "Multiple answers allowed—tap again to deselect.",
       "aiFill": "Suggest briefing with AI",
       "aiFillPending": "AI thinking …",
       "aiFillHint": "Uses your project name and idea from setup. You can edit everything after.",
@@ -366,15 +367,19 @@
       "notesPlaceholder": "e.g. brand colour, deadlines, special requests …",
       "customPlaceholder": "Describe briefly …",
       "save": "Save progress",
-      "next": "Continue to layout",
+      "next": "Generate website",
       "pendingSave": "Saving …",
       "pendingNext": "Continuing …",
-      "invalidBanner": "Answer every question. For “Other”, add a short description.",
+      "invalidBanner": "Answer every question with at least one choice. For “Other”, add a short description.",
       "questions": {
         "site_topic": "What is your website about?",
         "audience": "Who do you want to reach?",
         "visitor_action": "What should visitors do?",
-        "site_tone": "What tone should the site convey?"
+        "site_tone": "What tone should the site convey?",
+        "brand_personality": "Which brand values fit?",
+        "must_have": "What must be on the site?",
+        "content_status": "How ready is your content?",
+        "priority": "What matters most?"
       },
       "options": {
         "site_topic": {
@@ -384,6 +389,7 @@
           "portfolio": "Portfolio / case studies",
           "nonprofit": "Nonprofit / initiative",
           "personal": "Personal site",
+          "events": "Events",
           "other": "Other"
         },
         "audience": {
@@ -392,6 +398,8 @@
           "national": "Nationwide",
           "b2b": "Businesses / B2B",
           "community": "Community / fans",
+          "young": "Younger audience",
+          "seniors": "Seniors",
           "mixed": "Mixed"
         },
         "visitor_action": {
@@ -399,16 +407,71 @@
           "book": "Book / reserve",
           "buy": "Buy / order",
           "inform": "Learn / build trust",
-          "subscribe": "Newsletter / register interest"
+          "subscribe": "Newsletter / register interest",
+          "download": "Download",
+          "visit": "Visit in person"
         },
         "site_tone": {
           "modern": "Modern & clear",
           "warm": "Warm & approachable",
           "bold": "Bold & striking",
           "calm": "Calm & serious",
-          "premium": "Premium & minimal"
+          "premium": "Premium & minimal",
+          "playful": "Playful"
+        },
+        "brand_personality": {
+          "trustworthy": "Trustworthy",
+          "innovative": "Innovative",
+          "personal": "Personal",
+          "expert": "Expert",
+          "sustainable": "Sustainable",
+          "luxury": "Luxury"
+        },
+        "must_have": {
+          "hero": "Strong hero",
+          "services_list": "Services",
+          "about": "About / team",
+          "testimonials": "Testimonials",
+          "gallery": "Gallery",
+          "pricing": "Pricing",
+          "faq": "FAQ",
+          "blog": "News / blog",
+          "contact_form": "Contact form",
+          "map": "Map / directions"
+        },
+        "content_status": {
+          "have_copy": "I have copy",
+          "need_help": "Need writing help",
+          "starting_fresh": "Starting fresh"
+        },
+        "priority": {
+          "fast_launch": "Launch fast",
+          "design": "Beautiful design",
+          "seo": "Be found (SEO)",
+          "conversions": "Leads / sales",
+          "accessibility": "Accessibility"
         }
       }
+    },
+    "editor": {
+      "previewTitle": "Live preview",
+      "previewHint": "Click a section or drag a rectangle to select areas.",
+      "selectedLabel": "Selected",
+      "noSelection": "No section selected yet",
+      "instructionLabel": "Describe the change",
+      "instructionPlaceholder": "e.g. “Shorter and friendlier”, “add pricing”, “more trust” …",
+      "applyAi": "Revise with AI",
+      "applyingAi": "AI working …",
+      "newSectionLabel": "New section",
+      "newSectionPlaceholder": "Describe the section, e.g. “FAQ with 5 questions about hours”",
+      "addSection": "Add section",
+      "addingSection": "Adding …",
+      "regenerateSite": "Regenerate website",
+      "regenerating": "Generating …",
+      "layoutTitle": "Change layout",
+      "layoutHint": "New layout rebuilds the page with AI from your briefing.",
+      "generatingBanner": "Building your website—layout, copy, and preview …",
+      "multiSelectHint": "Multiple areas selected"
     },
     "layout": {
       "kicker": "Step 2 · Layout",
@@ -445,8 +508,8 @@
     },
     "polish": {
       "kicker": "Step 3 · Polish",
-      "pageTitle": "Refine copy and sections",
-      "pageLead": "Edit copy, expand sections with AI, or generate all sections from your briefing and layout at once.",
+      "pageTitle": "Edit your website",
+      "pageLead": "Your generated site appears first. Click a block or drag to select—describe changes and AI updates the section. Switch layout to rebuild.",
       "aiTip": "“Generate all copy” fills your sections from briefing and layout—you review and adjust.",
       "aiGenerateAll": "Generate all copy",
       "aiGenerateAllPending": "AI writing …",
