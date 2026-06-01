@@ -1,9 +1,12 @@
 "use client";
 
-import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/routing";
 import { NavCreateMenu } from "@/components/nav-create-menu";
+import {
+  UserAccountPanel,
+  type AccountPanelUser,
+} from "@/components/user-account-panel";
 
 function normalizeAppPathname(pathname: string | null | undefined): string | null {
   if (pathname == null) return null;
@@ -20,19 +23,14 @@ const secondaryRoutes = [
   { href: "/preise", key: "pricing" as const },
 ];
 
-type HeaderUser = {
-  id: string;
-  name?: string | null;
-  email?: string | null;
-  image?: string | null;
-};
-
 export function SiteHeader({
   user,
   signOutAction,
+  switchAccountAction,
 }: {
-  user: HeaderUser | null;
+  user: AccountPanelUser | null;
   signOutAction?: () => Promise<void>;
+  switchAccountAction?: () => Promise<void>;
 }) {
   const t = useTranslations("nav");
   const pathnameRaw = usePathname();
@@ -91,10 +89,11 @@ export function SiteHeader({
         <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
           <LocaleSwitcher />
           {user && signOutAction ? (
-            <AccountMenu
+            <UserAccountPanel
               user={user}
-              pathname={pathKey}
               signOutAction={signOutAction}
+              switchAccountAction={switchAccountAction}
+              variant="menu"
             />
           ) : (
             <Link
@@ -107,13 +106,13 @@ export function SiteHeader({
               <UserIcon className="h-5 w-5" />
             </Link>
           )}
-          {pathKey === "/" ? null : user ? (
+          {user ? (
             <Link
               href="/app"
               aria-current={isAppRoute(pathKey) ? "page" : undefined}
               className="rounded-lg bg-accent px-2.5 py-2 text-xs font-medium text-white shadow-sm transition-colors hover:bg-accent-hover sm:px-4 sm:text-sm"
             >
-              {t("myProjects")}
+              {pathKey === "/" ? t("ctaLoggedHome") : t("myProjects")}
             </Link>
           ) : (
             <Link
@@ -121,7 +120,7 @@ export function SiteHeader({
               aria-current={pathKey === "/login" ? "page" : undefined}
               className="rounded-lg bg-accent px-2.5 py-2 text-xs font-medium text-white shadow-sm transition-colors hover:bg-accent-hover sm:px-4 sm:text-sm"
             >
-              {t("cta")}
+              {pathKey === "/" ? t("ctaGuestHome") : t("cta")}
             </Link>
           )}
         </div>
@@ -158,78 +157,6 @@ export function SiteHeader({
         </div>
       </nav>
     </header>
-  );
-}
-
-function AccountMenu({
-  user,
-  pathname,
-  signOutAction,
-}: {
-  user: HeaderUser;
-  pathname: string;
-  signOutAction: () => Promise<void>;
-}) {
-  const t = useTranslations("nav");
-  return (
-    <details className="relative">
-      <summary
-        className={`inline-flex h-10 w-10 cursor-pointer list-none items-center justify-center rounded-full text-muted transition-colors hover:bg-accent/10 hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring [&::-webkit-details-marker]:hidden ${
-          pathname === "/login" || isAppRoute(pathname)
-            ? "bg-accent/10 text-accent"
-            : ""
-        }`}
-        aria-label={t("accountMenuAria")}
-      >
-        <HeaderAvatar user={user} />
-      </summary>
-      <div className="absolute right-0 z-50 mt-2 w-52 rounded-lg border border-border bg-card p-2 shadow-lg">
-        <Link
-          href="/app"
-          className="flex min-h-10 items-center rounded-md px-3 text-sm text-foreground hover:bg-background"
-        >
-          {t("myProjects")}
-        </Link>
-        <Link
-          href="/login"
-          className="mt-0.5 flex min-h-10 items-center rounded-md px-3 text-sm text-muted hover:bg-background hover:text-foreground"
-        >
-          {t("login")}
-        </Link>
-        <form action={signOutAction} className="mt-1 border-t border-border pt-1">
-          <button
-            type="submit"
-            className="flex w-full min-h-10 items-center rounded-md px-3 text-left text-sm text-muted hover:bg-background hover:text-foreground"
-          >
-            {t("signOut")}
-          </button>
-        </form>
-      </div>
-    </details>
-  );
-}
-
-function HeaderAvatar({ user }: { user: HeaderUser }) {
-  const initial = (
-    user.name?.trim()?.[0] ??
-    user.email?.trim()?.[0] ??
-    "?"
-  ).toUpperCase();
-  if (user.image) {
-    return (
-      <Image
-        src={user.image}
-        alt=""
-        width={32}
-        height={32}
-        className="h-8 w-8 rounded-full object-cover"
-      />
-    );
-  }
-  return (
-    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-accent/15 text-xs font-semibold text-accent">
-      {initial}
-    </span>
   );
 }
 

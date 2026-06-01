@@ -35,7 +35,6 @@ export default async function WorkflowPage({
     { title: t("steps.s2Title"), description: t("steps.s2Body") },
     { title: t("steps.s3Title"), description: t("steps.s3Body") },
     { title: t("steps.s4Title"), description: t("steps.s4Body") },
-    { title: t("steps.s5Title"), description: t("steps.s5Body") },
   ];
 
   return (

@@ -50,15 +50,32 @@
     "loginAria": "Anmelden oder Konto öffnen",
     "createGroup": "Ablauf & Funktionen",
     "workflowItem": "Ablauf",
-    "workflowDesc": "Phasen von der Idee bis Hosting",
+    "workflowDesc": "Briefing bis Hosting in vier Schritten",
     "productItem": "Funktionen",
     "productDesc": "Was du nutzen kannst",
     "hosting": "Hosting",
     "pricing": "Preise",
-    "cta": "Mit Google",
+    "cta": "Starten",
+    "ctaGuestHome": "Kostenlos starten",
+    "ctaLoggedHome": "Los geht's",
     "myProjects": "Mein Projekt",
     "signOut": "Abmelden",
     "accountMenuAria": "Konto-Menü"
+  },
+  "account": {
+    "panelAria": "Google-Konto",
+    "menuTriggerAria": "Konto-Menü öffnen",
+    "fallbackName": "Angemeldet",
+    "googleAccount": "Google-Konto",
+    "myProjects": "Mein Projekt",
+    "accountSettings": "Konto & Anmeldung",
+    "switchAccount": "Anderes Google-Konto",
+    "signOut": "Abmelden",
+    "confirmTitle": "Von site24 abmelden?",
+    "confirmBody": "Du wirst nur auf site24 abgemeldet. In Google Chrome bleibt dein Google-Konto ggf. weiter angemeldet — das ist normal.",
+    "cancel": "Abbrechen",
+    "confirmSignOut": "Abmelden",
+    "signingOut": "Wird abgemeldet …"
   },
   "footer": {
     "tagline": "site24.com richtet sich an dich, wenn du deine eigene Website aufbauen willst: strukturiert, nachvollziehbar, ohne Schnellversprechen. Der Weg zu Domain und Hosting liegt beim jeweiligen Anbieter.",
@@ -73,32 +90,52 @@
     }
   },
   "home": {
-    "eyebrow": "site24.com",
-    "title": "Deine Website – klar gedacht, Schritt für Schritt",
-    "subtitle": "Du beschreibst, was du anbietest und wen du erreichst. Dann führst du dich durch klare Fragen (Ja, Nein, kurzer Kommentar), siehst dir konkrete Layout-Vorschläge an und schärfst Texte und Abschnitte, bevor du dich um Domain, Hosting und Rechnung beim Partner kümmerst.",
-    "disclaimer": "Der vollständige KI-Builder ist noch in Arbeit. Auf diesen Seiten erklären wir, wie das Produkt gedacht ist – ohne Garantie für Rankings, Umsatz oder „fertig in 60 Sekunden“.",
-    "heroSingleGuest": "Anmelden",
-    "heroSingleLogged": "Zum Projekt",
-    "heroSecondary": "Funktionen",
-    "loginCta": "Mit Google anmelden",
-    "priceFunnelBefore": "Bezahlung und Pakete sollen über die ",
-    "priceFunnelLink": "Preise",
-    "priceFunnelAfter": "-Seite laufen (derzeit in Vorbereitung).",
-    "stats": {
-      "templates": "Bausteine statt Zufall",
-      "templatesValue": "Vorschläge sollen aus einer großen Bibliothek kommen – weniger Rechenzeit, konsistentere Layouts.",
-      "nocode": "No-Code zuerst",
-      "nocodeValue": "Du bleibst im visuellen Editor. Code nur dort, wo du ihn wirklich brauchst.",
-      "hosting": "Hosting getrennt",
-      "hostingValue": "Wir bereiten die Übergabe vor. Vertrag und Betrieb liegen beim Hosting-Anbieter – transparent für dich."
+    "eyebrow": "Website Schritt für Schritt",
+    "title": "Von der Idee zur fertigen Website — ohne Rätselraten",
+    "subtitle": "Du arbeitest in vier klaren Phasen: Briefing, Layout, Feinschliff und Hosting. Jede Station hat eine eigene Seite in der App.",
+    "hint": "Der Builder wächst noch. Was du hier siehst, ist das Zielbild — ehrlich erklärt, ohne Rankings- oder Umsatzversprechen.",
+    "heroCtaGuest": "Mit Google starten",
+    "heroCtaLogged": "Los geht's",
+    "heroSecondary": "Ablauf ansehen",
+    "heroStepsLabel": "So läuft es in der App",
+    "heroSteps": {
+      "brief": {
+        "title": "Briefing",
+        "teaser": "Thema, Zielgruppe, Stil — per Klick",
+        "item1": "Vier kurze Fragen, Antworten antippen",
+        "item2": "Optional Freitext für Besonderheiten",
+        "item3": "Dein Stand wird gespeichert und ist nachvollziehbar"
+      },
+      "layout": {
+        "title": "Layout",
+        "teaser": "Eine Seiten-Skizze auswählen",
+        "item1": "Vier Richtungen — von Landing bis One-Pager",
+        "item2": "Erste Abschnitte werden als Entwürfe angelegt",
+        "item3": "Du siehst sofort, wie die Seite grob wirkt"
+      },
+      "polish": {
+        "title": "Feinschliff",
+        "teaser": "Texte und Abschnitte schärfen",
+        "item1": "Entwürfe bearbeiten, Stichpunkte ergänzen",
+        "item2": "Optional KI-Vorschläge — du entscheidest",
+        "item3": "Vorschau, bevor etwas live geht"
+      },
+      "hosting": {
+        "title": "Hosting",
+        "teaser": "Domain & Betrieb beim Partner",
+        "item1": "Checkliste vor dem Go-live",
+        "item2": "Export und interne Vorschau",
+        "item3": "Vertrag und Server beim Hosting-Anbieter — nicht bei uns"
+      }
     },
+    "loginCta": "Mit Google anmelden",
     "valueTitle": "Warum das für dich Sinn machen kann",
     "valueSubtitle": "Jede Phase hat eine eigene Seite – du arbeitest nicht auf einer endlosen Marketing-Rutsche, sondern mit klaren Stationen.",
     "values": {
       "v1Title": "Struktur statt Raten",
       "v1Body": "Die KI soll aus Vorlagen und klaren Entscheidungen arbeiten – damit du weniger Korrekturschleifen durchläufst.",
       "v2Title": "Nachvollziehbare Entscheidungen",
-      "v2Body": "Ja-, Nein- und Kommentarfragen halten fest, was du willst. Du kannst später nachjustieren, ohne alles neu zu erfinden.",
+      "v2Body": "Klick-Antworten im Briefing halten fest, was du willst. Du kannst später nachjustieren, ohne alles neu zu erfinden.",
       "v3Title": "Du entscheidest beim Feinschliff",
       "v3Body": "Du markierst Abschnitte, kommentierst und verbesserst – nichts geht ohne deine bewusste Freigabe live.",
       "v4Title": "Hosting beim Spezialisten",
@@ -109,13 +146,13 @@
     "proofCta": "Zum Ablauf",
     "storyTitle": "Warum ein klarer Weg weniger Stress bedeutet",
     "storyP1": "Viele scheitern nicht an „fehlender KI“, sondern an fehlendem Kontext: Was bietest du an, für wen, und welche Seiten brauchst du wirklich? Wenn das unklar bleibt, wird jedes Layout zur Ratespielrunde.",
-    "storyP2": "site24.com soll dich deshalb Schritt für Schritt führen: erst verstehen, dann strukturiert nachfragen, dann Vorschläge zeigen, die du bewusst annimmst oder verwirfst. Erst danach geht es an Domain, Hosting und den laufenden Betrieb beim Partner.",
+    "storyP2": "site24.com führt dich deshalb durch Briefing, Layout und Feinschliff — mit klaren Stationen statt einer endlosen Marketing-Rutsche. Erst wenn du zufrieden bist, geht es an Domain, Hosting und den Betrieb beim Partner.",
     "storyP3": "So bleibst du Souverän über Inhalte und Veröffentlichung – die KI liefert Tempo und Varianten, nicht den Ersatz für deine Entscheidung.",
     "storyLinkProduct": "Funktionen im Detail",
     "storyLinkWorkflow": "Zeitlicher Ablauf",
     "testimonialsTitle": "Stimmen (Beispiele)",
     "testimonialsDisclaimer": "Noch keine echten Kund:innen-Zitate: Die folgenden Aussagen sind Platzhalter, um Ton und erwartete Nutzen klarzumachen. Sobald wir messbare Ergebnisse und Einwilligungen haben, ersetzen wir sie durch echte Stories.",
-    "quote1Text": "Ich wollte nicht noch eine Baukasten-Rutsche. Die klaren Fragen haben mir geholfen, endlich zu sortieren, was auf die Startseite muss.",
+    "quote1Text": "Ich wollte nicht noch eine Baukasten-Rutsche. Das Briefing mit Klick-Antworten hat mir geholfen, endlich zu sortieren, was auf die Startseite muss.",
     "quote1Author": "Beispiel: Selbstständige Beratung",
     "quote2Text": "Mir war wichtig, dass Hosting und Rechnung nicht bei jedem Tool neu hängen. Die Trennung zum Anbieter war nachvollziehbar.",
     "quote2Author": "Beispiel: Handwerk regional",
@@ -123,8 +160,8 @@
     "quote3Author": "Beispiel: Online-Kurs",
     "metricsTitle": "Zahlen, die heute schon stimmen",
     "metricsSubtitle": "Keine erfundenen Conversion-Raten: das sind Rahmenwerte des geplanten Produkts und der Website. Messbare KPIs folgen mit dem Launch.",
-    "m1Label": "Phasen im Ablauf",
-    "m1Value": "5",
+    "m1Label": "Phasen in der App",
+    "m1Value": "4",
     "m2Label": "Sprachen der Website",
     "m2Value": "2",
     "m3Label": "Templates (Zielgröße Bibliothek)",
@@ -135,7 +172,7 @@
     "seoPrinciplesItem2": "Eindeutige Titel und Meta-Descriptions pro Seite – von dir freigegeben, nicht heimlich überschrieben.",
     "seoPrinciplesItem3": "Saubere URLs und konsistente Sprachversionen (hreflang / getrennte Pfade, wie hier /de und /en).",
     "seoPrinciplesItem4": "Performance-orientiertes Markup: schlanke Assets, sinnvolle Bildgrößen, Core Web Vitals im Blick.",
-    "seoPrinciplesItem5": "Strukturierte Daten (JSON-LD), wo es fachlich passt – ohne Schema-Spam.",
+    "seoPrinciplesItem5": "Suchmaschinen-freundliche Zusatzinfos im Seitenquelltext, wo es fachlich passt — ohne Tricks.",
     "seoPrinciplesItem6": "Barrierearmut und Lesbarkeit (Kontrast, Fokuszustände, sinnvolle Alternativtexte).",
     "seoPrinciplesDisclaimer": "Suchmaschinen-Rankings hängen von Wettbewerb, Inhalten, Links und technischer Gesundheit ab. Wir versprechen keine Top-Positionen; wir versprechen ein transparentes technisches Fundament, das du verstehst.",
     "seoPrinciplesLinkProduct": "Zu den übrigen Produkt-Bausteinen"
@@ -147,10 +184,10 @@
     "featuresSubtitle": "Alles folgt dem Prinzip: du bestimmst, die Software führt und dokumentiert.",
     "f1Title": "Dein Geschäft in eigenen Worten",
     "f1Body": "Freitext und Leitfragen erfassen Angebot, Zielgruppe und Tonalität – damit Vorschläge zu dir passen, nicht zu einer generischen Branche.",
-    "f2Title": "Geführte Entscheidungen",
-    "f2Body": "Klare Fragen mit Ja, Nein oder kurzem Kommentar reduzieren Missverständnisse und halten den Kontext für spätere Versionen fest.",
-    "f3Title": "Beispiele zum Anfassen",
-    "f3Body": "Du bekommst konkrete Layout-Vorschläge aus einer großen Template-Bibliothek. Du wählst, was passt – und sagt auch bewusst Nein.",
+    "f2Title": "Geführtes Briefing",
+    "f2Body": "Kurze Fragen mit Antworten zum Antippen — kein Ja-Nein-Raster. So bleibt fest, was deine Website transportieren soll.",
+    "f3Title": "Layouts zum Anfassen",
+    "f3Body": "Du wählst eine Skizze; daraus entstehen erste Abschnitte. Du entscheidest, was bleibt und was du im Feinschliff änderst.",
     "f4Title": "Optional Code",
     "f4Body": "Für die meisten Schritte reicht No-Code. Wenn du HTML/CSS oder Snippets brauchst, soll das gezielt möglich sein – ohne dass du zum Entwickler wirst.",
     "f5Title": "Kommentare & Versionen",
@@ -167,25 +204,23 @@
   },
   "workflowPage": {
     "heroTitle": "Ablauf – von der Idee zum Hosting",
-    "heroSubtitle": "Kein Marketing-Tunnel: das sind Stationen, die du der Reihe nach durchdenken kannst.",
+    "heroSubtitle": "Vier Stationen in der App. Du arbeitest sie der Reihe nach ab — in deinem Tempo.",
     "steps": {
-      "s1Title": "1. Du beschreibst dein Angebot",
-      "s1Body": "Leistungen, Zielgruppe, Beispiele, Wettbewerber, die dich inspirieren oder abgrenzen – alles, was später Text und Struktur trägt.",
-      "s2Title": "2. Strukturierte Rückfragen",
-      "s2Body": "Die KI arbeitet mit Ja-, Nein- und Kommentarfragen, bis genug Kontext für einen ersten Vorschlag da ist. Du kannst jederzeit korrigieren.",
-      "s3Title": "3. Vorschläge aus Templates",
-      "s3Body": "Du siehst Layouts und Textbausteine, die zu deinen Antworten passen. Du entscheidest, was bleibt und was verworfen wird.",
-      "s4Title": "4. Feinschliff mit Kommentaren",
-      "s4Body": "Texte, Bildreihenfolge, Abschnitte – du kommentierst gezielt, statt alles neu zu schreiben.",
-      "s5Title": "5. Freigabe & Hosting beim Partner",
-      "s5Body": "Wenn du zufrieden bist, geht es zu Domain, E-Mail und Server beim Hosting-Anbieter. Dort liegen Vertrag und Support."
+      "s1Title": "1. Briefing",
+      "s1Body": "Thema, Zielgruppe, gewünschte Aktion und Stil — du tippst passende Antworten an. Optional ergänzt du Freitext.",
+      "s2Title": "2. Layout",
+      "s2Body": "Du wählst eine von vier Skizzen. Daraus legen wir erste Abschnitte an, die du später bearbeitest.",
+      "s3Title": "3. Feinschliff",
+      "s3Body": "Texte schärfen, Abschnitte anpassen, optional Vorschläge nutzen. Nichts geht ohne deinen Schritt live.",
+      "s4Title": "4. Hosting",
+      "s4Body": "Checkliste, Vorschau, Export — dann Domain und Betrieb beim Hosting-Partner. Vertrag und Support liegen dort."
     },
     "noteTitle": "Transparenz zum Entwicklungsstand",
     "noteBody": "Diese Seiten beschreiben das geplante Produkt. Funktionen können sich vor dem Launch noch ändern. Wir erweitern die Texte, sobald Features testbar sind.",
-    "ctaTitle": "Website bei site24.com angehen",
-    "ctaLead": "In der App legst du ein Projekt an und arbeitest Ziele, Struktur und Entwürfe Schritt für Schritt ab – ohne Druck und ohne Schnellversprechen.",
+    "ctaTitle": "Bereit für dein Projekt?",
+    "ctaLead": "Ein Projekt anlegen und mit dem Briefing starten — danach Layout, Feinschliff und Hosting in klar getrennten Schritten.",
     "ctaLogin": "Mit Google starten",
-    "ctaApp": "Zu meinen Projekten",
+    "ctaApp": "Los geht's",
     "ctaProduct": "Funktionen im Überblick"
   },
   "hostingPage": {
@@ -310,46 +345,79 @@
     "dbErrorBody": "DATABASE_URL in der Hosting-Umgebung prüfen (Postgres, bei Supabase Transaction-Pooler). Migration ausführen und neu laden."
   },
   "workflow": {
-    "workspaceLead": "Zuerst Idee festhalten, dann im Baukasten kurz entscheiden und eine Skizze wählen. Entwürfe bearbeitest du unter „Inhalte“.",
+    "workspaceLead": "Vier Schritte: Briefing, Layout, Feinschliff, Hosting. Jeder hat eine eigene Seite — du springst nur hin, wenn du willst.",
     "nav": {
-      "goals": "Idee",
-      "builder": "Baukasten",
-      "content": "Inhalte",
-      "review": "Check",
+      "brief": "Briefing",
+      "layout": "Layout",
+      "polish": "Feinschliff",
+      "hosting": "Hosting",
       "preview": "Vorschau",
       "aria": "Schritte zur Website"
     },
-    "goals": {
-      "kicker": "Schritt 1",
+    "brief": {
+      "kicker": "Schritt 1 · Briefing",
       "namePrefix": "# ",
-      "lead": "Beschreibe in eigenen Worten, was du anbietest und was die Website für dich erledigen soll. Wenn du das Projekt ohne Text angelegt hast, fülle die Idee hier nach.",
-      "label": "Deine Idee",
-      "placeholder": "z. B. Café mit Frühstück, Zielgruppe Nachbarschaft, Besucher sollen reservieren oder anrufen …",
+      "lead": "Wähle zu jeder Frage die passende Antwort — ein Klick genügt. Optional ergänzt du unten noch Freitext.",
+      "progressLabel": "Fragen beantwortet",
+      "notesLabel": "Noch etwas wichtig? (optional)",
+      "notesPlaceholder": "z. B. Besonderheiten, Markenfarbe, Termine …",
+      "customPlaceholder": "Kurz beschreiben …",
       "save": "Zwischenstand speichern",
-      "next": "Weiter zum Baukasten"
+      "next": "Weiter zum Layout",
+      "pendingSave": "Speichere …",
+      "pendingNext": "Weiter …",
+      "invalidBanner": "Bitte jede Frage mit einer Antwort wählen. Bei „Sonstiges“ kurz beschreiben.",
+      "questions": {
+        "site_topic": "Was ist das Thema deiner Website?",
+        "audience": "Wen willst du erreichen?",
+        "visitor_action": "Was sollen Besucherinnen und Besucher tun?",
+        "site_tone": "Welcher Stil soll rüberkommen?"
+      },
+      "options": {
+        "site_topic": {
+          "local_business": "Lokales Geschäft / Café / Praxis",
+          "services": "Dienstleistung / Beratung",
+          "shop": "Shop / Produkt",
+          "portfolio": "Portfolio / Referenzen",
+          "nonprofit": "Verein / Initiative",
+          "personal": "Persönliche Seite",
+          "other": "Sonstiges"
+        },
+        "audience": {
+          "local": "Nachbarschaft / Region",
+          "regional": "Mehrere Städte / Bundesland",
+          "national": "Deutschlandweit",
+          "b2b": "Unternehmen / B2B",
+          "community": "Community / Fans",
+          "mixed": "Gemischt"
+        },
+        "visitor_action": {
+          "contact": "Kontakt aufnehmen",
+          "book": "Termin buchen / reservieren",
+          "buy": "Kaufen / bestellen",
+          "inform": "Informieren / Vertrauen aufbauen",
+          "subscribe": "Newsletter / Interesse melden"
+        },
+        "site_tone": {
+          "modern": "Modern & klar",
+          "warm": "Warm & nahbar",
+          "bold": "Mutig & auffällig",
+          "calm": "Ruhig & seriös",
+          "premium": "Hochwertig & reduziert"
+        }
+      }
     },
-    "builder": {
-      "pageTitle": "Baukasten",
-      "pageLead": "Beantworte kurz drei Fragen mit Ja, Nein oder Kommentar. Wähle danach eine von vier Seiten-Skizzen – so legen wir passende Entwürfe an, die du unter „Inhalte“ weiterbearbeitest.",
-      "stepsHeading": "Drei Fragen",
-      "decisionsTitle": "Kurz entscheiden",
-      "decisionsLead": "Es geht nicht um „richtig oder falsch“, sondern um Orientierung für den ersten Aufbau.",
-      "proposalsTitle": "Vier Skizzen – eine wählen",
+    "layout": {
+      "kicker": "Schritt 2 · Layout",
+      "pageTitle": "Layout wählen",
+      "pageLead": "Vier Seiten-Skizzen — tippe die Richtung an, die zu deinem Briefing passt. Danach legen wir erste Abschnitte für den Feinschliff an.",
+      "proposalsTitle": "Skizze auswählen",
       "sketchBadge": "Skizze",
-      "choiceYes": "Ja",
-      "choiceNo": "Nein",
-      "choiceComment": "Kommentar",
-      "commentPlaceholder": "Kurz ergänzen …",
       "save": "Stand speichern",
-      "next": "Skizze übernehmen & zu Inhalten",
+      "next": "Layout übernehmen & zum Feinschliff",
       "pendingSave": "Speichere …",
       "pendingNext": "Übernehme …",
-      "invalidBanner": "Bitte prüfe: alle Fragen beantwortet und eine Skizze gewählt. Speichere erneut oder wähle eine Skizze aus.",
-      "questions": {
-        "offer_clear": "Ist dein Angebot in einem Satz klar (was du tust / verkaufst)?",
-        "audience_known": "Weißt du, wen du primär erreichen willst (z. B. lokal, B2B, Privatkundinnen)?",
-        "content_ready": "Hast du schon Texte oder Bilder – oder startest du mit Stichpunkten und Platzhaltern?"
-      },
+      "invalidBanner": "Bitte eine Skizze auswählen.",
       "proposals": {
         "focusLanding": {
           "title": "Fokus Landing",
@@ -369,28 +437,45 @@
         }
       }
     },
-    "review": {
-      "title": "Check",
-      "lead": "Kurz prüfen, ob Idee, Baukasten und Entwürfe zusammenpassen.",
-      "goalsLabel": "Idee",
-      "builderLabel": "Baukasten",
-      "structureNotesLabel": "Weitere Struktur-Notizen",
-      "draftsLabel": "Abschnitte",
+    "polish": {
+      "kicker": "Schritt 3 · Feinschliff",
+      "pageTitle": "Texte und Abschnitte schärfen",
+      "pageLead": "Bearbeite die Entwürfe, ergänze Stichpunkte oder nutze optional KI-Vorschläge. Nichts geht live ohne deinen bewussten Schritt."
+    },
+    "hosting": {
+      "kicker": "Schritt 4 · Hosting",
+      "title": "Bereit für Domain & Betrieb",
+      "lead": "Prüfe deinen Stand, exportiere die Vorschau und kümmere dich um Domain und Hosting beim Partner — Vertrag und Server liegen dort.",
+      "briefLabel": "Briefing",
+      "layoutLabel": "Layout",
+      "polishLabel": "Feinschliff",
       "draftCount": "{count, plural, =0 {Keine Abschnitte} one {# Abschnitt} other {# Abschnitte}}",
       "empty": "—",
+      "checklistTitle": "Checkliste vor dem Go-live",
+      "saveChecklist": "Checkliste speichern",
+      "pendingSave": "Speichere …",
+      "checklist": {
+        "content_reviewed": "Inhalte im Feinschliff durchgelesen",
+        "preview_checked": "Vorschau im Browser geprüft",
+        "domain_planned": "Domain-Wunsch ist klar (Name notiert)",
+        "partner_ready": "Hosting-Partner und nächster Schritt bekannt"
+      },
+      "partnerTitle": "Nächste Schritte",
+      "partnerLead": "Export und Vorschau für dich; Domain, SSL und Rechnung regelst du beim Hosting-Anbieter.",
       "openPreview": "Vorschau öffnen",
-      "downloadHtml": "HTML exportieren"
+      "downloadHtml": "HTML exportieren",
+      "partnerLink": "So funktioniert Hosting"
     },
     "preview": {
       "badge": "Interne Vorschau",
-      "goalsHeading": "Idee",
-      "structureHeading": "Struktur-Notizen",
-      "builderHeading": "Baukasten",
+      "briefHeading": "Briefing",
+      "notesHeading": "Zusätzliche Notizen",
+      "layoutHeading": "Layout",
       "empty": "Noch keine Inhalte für die Vorschau."
     },
     "templates": {
       "heading": "Vorlagen",
-      "lead": "Vorlagen legen mehrere Entwürfe mit Beispiel-Stichpunkten an. Du bearbeitest sie danach unter „Inhalte“.",
+      "lead": "Vorlagen legen mehrere Entwürfe mit Beispiel-Stichpunkten an. Du bearbeitest sie danach im Feinschliff.",
       "openCatalog": "Vorlagen (optional)",
       "catalogHint": "Klappt zu, bis du mehrere Bausteine auf einmal brauchst.",
       "apply": "Vorlage anwenden",

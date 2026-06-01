@@ -97,11 +97,11 @@ export function ExpandDraftAiButton({
             ? body.error
             : "api";
         const q = code === "notfound" || code === "forbidden" ? "state" : code;
-        window.location.assign(`/${locale}/app/${projectId}/content?aiError=${encodeURIComponent(q)}`);
+        window.location.assign(`/${locale}/app/${projectId}/polish?aiError=${encodeURIComponent(q)}`);
         return;
       }
 
-      window.location.assign(`/${locale}/app/${projectId}/content`);
+      window.location.assign(`/${locale}/app/${projectId}/polish`);
     } finally {
       setPending(false);
     }

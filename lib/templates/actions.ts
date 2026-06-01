@@ -44,5 +44,5 @@ export async function applySiteTemplate(
   await insertTemplateDraftsForProject(projectId, template.id);
 
   revalidateProject(locale, projectId);
-  redirect(`/${locale}/app/${projectId}/content`);
+  redirect(`/${locale}/app/${projectId}/polish`);
 }

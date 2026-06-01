@@ -6,7 +6,7 @@ import { auth } from "@/auth";
 import { LocaleHtmlLang } from "@/components/locale-html-lang";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { signOutToLocale } from "@/lib/auth/actions";
+import { signOutToLocale, switchGoogleAccount } from "@/lib/auth/actions";
 import { routing } from "@/i18n/routing";
 
 export function generateStaticParams() {
@@ -31,6 +31,9 @@ export default async function LocaleLayout({
   const signOutAction = session?.user
     ? signOutToLocale.bind(null, locale)
     : undefined;
+  const switchAccountAction = session?.user
+    ? switchGoogleAccount.bind(null, locale)
+    : undefined;
 
   return (
     <NextIntlClientProvider messages={messages}>
@@ -38,6 +41,7 @@ export default async function LocaleLayout({
       <SiteHeader
         user={session?.user ?? null}
         signOutAction={signOutAction}
+        switchAccountAction={switchAccountAction}
       />
       <main className="flex flex-1 flex-col">{children}</main>
       <SiteFooter />

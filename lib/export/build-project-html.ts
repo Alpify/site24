@@ -1,7 +1,8 @@
 import type { InferSelectModel } from "drizzle-orm";
 
 import type { drafts, projects } from "@/lib/db/schema";
-import { getProposalDef, parseBuilderPayload } from "@/lib/workflow/builder-proposals";
+import { BRIEF_QUESTIONS, parseBriefPayload } from "@/lib/workflow/brief-questions";
+import { getLayoutProposalDef, parseLayoutPayload } from "@/lib/workflow/layout-proposals";
 
 export function escapeHtml(text: string): string {
   return text
@@ -31,28 +32,34 @@ export function buildProjectHtmlExport(opts: {
     `<h1>${title}</h1>`,
   ];
 
-  const goalsHeading = locale.startsWith("de") ? "Idee" : "Idea";
-  const structureHeading = locale.startsWith("de") ? "Seitenstruktur" : "Site structure";
+  const briefHeading = locale.startsWith("de") ? "Briefing" : "Briefing";
+  const notesHeading = locale.startsWith("de") ? "Notizen" : "Notes";
+  const layoutHeading = locale.startsWith("de") ? "Layout" : "Layout";
+
+  const brief = parseBriefPayload(project.workflowBriefJson);
+  if (brief) {
+    const lines = brief.answers.map((a) => {
+      const q = BRIEF_QUESTIONS.find((x) => x.id === a.id);
+      const opt = q?.options.find((o) => o.id === a.optionId);
+      const label = opt?.id ?? a.optionId;
+      return `${a.id}: ${label}${a.customText ? ` (${a.customText})` : ""}`;
+    });
+    parts.push(`<section><h2>${escapeHtml(briefHeading)}</h2><pre style='white-space:pre-wrap'>`);
+    parts.push(escapeHtml(lines.join("\n")));
+    parts.push("</pre></section>");
+  }
 
   if (project.workflowGoals) {
-    parts.push(`<section><h2>${escapeHtml(goalsHeading)}</h2><pre style='white-space:pre-wrap'>`);
+    parts.push(`<section><h2>${escapeHtml(notesHeading)}</h2><pre style='white-space:pre-wrap'>`);
     parts.push(escapeHtml(project.workflowGoals));
     parts.push("</pre></section>");
   }
-  if (project.workflowStructure) {
-    parts.push(`<section><h2>${escapeHtml(structureHeading)}</h2><pre style='white-space:pre-wrap'>`);
-    parts.push(escapeHtml(project.workflowStructure));
-    parts.push("</pre></section>");
-  }
 
-  const builder = parseBuilderPayload(project.workflowBuilderJson);
-  if (builder) {
-    const builderHeading = locale.startsWith("de") ? "Baukasten" : "Builder";
-    const def = getProposalDef(builder.proposalId);
-    const sketch = def?.id ?? builder.proposalId;
-    const lines = builder.answers.map((a) => `${a.id}: ${a.choice}`).join("\n");
-    parts.push(`<section><h2>${escapeHtml(builderHeading)}</h2><pre style='white-space:pre-wrap'>`);
-    parts.push(escapeHtml(`Sketch: ${sketch}\n${lines}`));
+  const layout = parseLayoutPayload(project.workflowBuilderJson);
+  if (layout) {
+    const def = getLayoutProposalDef(layout.proposalId);
+    parts.push(`<section><h2>${escapeHtml(layoutHeading)}</h2><pre style='white-space:pre-wrap'>`);
+    parts.push(escapeHtml(`Sketch: ${def?.id ?? layout.proposalId}`));
     parts.push("</pre></section>");
   }
 

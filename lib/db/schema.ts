@@ -71,11 +71,14 @@ export const projects = pgTable("project", {
     .notNull()
     .references(() => users.id, { onDelete: "cascade" }),
   name: text("name").notNull(),
-  /** goals | builder | content | review */
-  workflowStep: text("workflowStep").notNull().default("goals"),
+  /** brief | layout | polish | hosting */
+  workflowStep: text("workflowStep").notNull().default("brief"),
+  /** Optional free notes from the brief step */
   workflowGoals: text("workflowGoals"),
   workflowStructure: text("workflowStructure"),
-  /** JSON: Baukasten (Ja/Nein/Kommentar + gewählte Skizze) */
+  /** JSON: Briefing checklist answers (see lib/workflow/brief-questions.ts) */
+  workflowBriefJson: text("workflowBriefJson"),
+  /** JSON: chosen layout sketch (see lib/workflow/layout-proposals.ts) */
   workflowBuilderJson: text("workflowBuilderJson"),
   createdAt: timestamp("createdAt", { mode: "date" }).defaultNow().notNull(),
   updatedAt: timestamp("updatedAt", { mode: "date" }).defaultNow().notNull(),

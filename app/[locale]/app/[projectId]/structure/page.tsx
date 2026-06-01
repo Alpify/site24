@@ -7,5 +7,5 @@ export default async function LegacyStructureRedirect({
   params: Promise<{ locale: string; projectId: string }>;
 }) {
   const { locale, projectId } = await params;
-  redirect(`/${locale}/app/${projectId}/builder`);
+  redirect(`/${locale}/app/${projectId}/layout`);
 }

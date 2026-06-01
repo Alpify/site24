@@ -50,15 +50,32 @@
     "loginAria": "Log in or open account",
     "createGroup": "Workflow & features",
     "workflowItem": "Workflow",
-    "workflowDesc": "Phases from idea to hosting",
+    "workflowDesc": "Briefing through hosting in four steps",
     "productItem": "Features",
     "productDesc": "What you can use",
     "hosting": "Hosting",
     "pricing": "Pricing",
-    "cta": "Google",
+    "cta": "Get started",
+    "ctaGuestHome": "Start free",
+    "ctaLoggedHome": "Get started",
     "myProjects": "My project",
     "signOut": "Sign out",
     "accountMenuAria": "Account menu"
+  },
+  "account": {
+    "panelAria": "Google account",
+    "menuTriggerAria": "Open account menu",
+    "fallbackName": "Signed in",
+    "googleAccount": "Google account",
+    "myProjects": "My project",
+    "accountSettings": "Account & sign-in",
+    "switchAccount": "Switch Google account",
+    "signOut": "Sign out",
+    "confirmTitle": "Sign out of site24?",
+    "confirmBody": "You will only be signed out of site24. Your Google account may stay signed in in the browser — that is expected.",
+    "cancel": "Cancel",
+    "confirmSignOut": "Sign out",
+    "signingOut": "Signing out …"
   },
   "footer": {
     "tagline": "site24.com is for you if you want to build your own website: structured and traceable, without empty promises. Domain and hosting remain with the provider you choose.",
@@ -73,32 +90,52 @@
     }
   },
   "home": {
-    "eyebrow": "site24.com",
-    "title": "Your website—thought through, step by step",
-    "subtitle": "You describe what you sell and who you serve. Then you move through clear questions (yes, no, short comment), review concrete layout proposals, and refine sections before you handle domain, hosting, and billing with your provider.",
-    "disclaimer": "The full AI builder is still in development. These pages explain the intended product—without promising rankings, revenue, or “live in 60 seconds”.",
-    "heroSingleGuest": "Sign in",
-    "heroSingleLogged": "Open project",
-    "heroSecondary": "Features",
-    "loginCta": "Sign in with Google",
-    "priceFunnelBefore": "Plans and payment will move through the ",
-    "priceFunnelLink": "Pricing",
-    "priceFunnelAfter": " page once packages are fixed (in preparation).",
-    "stats": {
-      "templates": "Building blocks, not guesswork",
-      "templatesValue": "Proposals should draw from a large library—less compute, more consistent layouts.",
-      "nocode": "No-code first",
-      "nocodeValue": "You stay in a visual flow. Code only where you truly need it.",
-      "hosting": "Hosting stays separate",
-      "hostingValue": "We prepare handoff. Contract and operations live with the hosting provider—clear for you."
+    "eyebrow": "Your website, step by step",
+    "title": "From idea to a site you understand — without guesswork",
+    "subtitle": "You work in four clear phases: briefing, layout, polish, and hosting. Each has its own page in the app.",
+    "hint": "The builder is still growing. What you see here is the target experience—explained honestly, with no ranking or revenue promises.",
+    "heroCtaGuest": "Continue with Google",
+    "heroCtaLogged": "Get started",
+    "heroSecondary": "See the workflow",
+    "heroStepsLabel": "How it works in the app",
+    "heroSteps": {
+      "brief": {
+        "title": "Briefing",
+        "teaser": "Topic, audience, tone — tap to answer",
+        "item1": "Four short questions, tap your answers",
+        "item2": "Optional notes for special cases",
+        "item3": "Your choices are saved and easy to revisit"
+      },
+      "layout": {
+        "title": "Layout",
+        "teaser": "Pick a page sketch",
+        "item1": "Four directions — from landing page to one-pager",
+        "item2": "First sections are created as drafts",
+        "item3": "You see roughly how the site will feel"
+      },
+      "polish": {
+        "title": "Polish",
+        "teaser": "Refine copy and sections",
+        "item1": "Edit drafts and add bullet points",
+        "item2": "Optional AI suggestions — you decide",
+        "item3": "Preview before anything goes live"
+      },
+      "hosting": {
+        "title": "Hosting",
+        "teaser": "Domain and ops with your provider",
+        "item1": "Pre-launch checklist",
+        "item2": "Export and internal preview",
+        "item3": "Contract and servers with your hosting partner—not with us"
+      }
     },
+    "loginCta": "Sign in with Google",
     "valueTitle": "Why this can work for you",
     "valueSubtitle": "Each phase has its own page—you are not trapped on one endless marketing scroll.",
     "values": {
       "v1Title": "Structure instead of guessing",
       "v1Body": "The AI is meant to work from templates and explicit decisions—fewer painful revision loops.",
       "v2Title": "Traceable choices",
-      "v2Body": "Yes/no/comment questions capture what you want. You can adjust later without starting from zero.",
+      "v2Body": "Tap-to-answer briefing captures what you want. You can adjust later without starting from zero.",
       "v3Title": "You own the polish",
       "v3Body": "You mark sections, comment, and improve—nothing goes live without a deliberate approval.",
       "v4Title": "Hosting with specialists",
@@ -123,8 +160,8 @@
     "quote3Author": "Example: online course",
     "metricsTitle": "Numbers that are already true",
     "metricsSubtitle": "No invented conversion rates—these are framework facts for the planned product and this site. Measurable KPIs ship with launch.",
-    "m1Label": "Phases in the workflow",
-    "m1Value": "5",
+    "m1Label": "Phases in the app",
+    "m1Value": "4",
     "m2Label": "Languages on this site",
     "m2Value": "2",
     "m3Label": "Templates (target library size)",
@@ -135,7 +172,7 @@
     "seoPrinciplesItem2": "Distinct titles and meta descriptions per page—approved by you, not silently overwritten.",
     "seoPrinciplesItem3": "Clean URLs and consistent language versions (hreflang / separate paths, like /de and /en here).",
     "seoPrinciplesItem4": "Performance-minded markup: lean assets, sensible image sizes, Core Web Vitals in mind.",
-    "seoPrinciplesItem5": "Structured data (JSON-LD) where it is appropriate—without schema spam.",
+    "seoPrinciplesItem5": "Search-friendly extra page metadata where it makes sense—without gimmicks.",
     "seoPrinciplesItem6": "Accessibility and readability (contrast, focus states, meaningful alt text).",
     "seoPrinciplesDisclaimer": "Rankings depend on competition, content, links, and technical health. We do not promise top positions; we promise a transparent technical foundation you can understand.",
     "seoPrinciplesLinkProduct": "Back to the other product building blocks"
@@ -147,10 +184,10 @@
     "featuresSubtitle": "Everything follows one rule: you decide; the software guides and records.",
     "f1Title": "Your business in your words",
     "f1Body": "Free text and prompts capture offer, audience, and tone—so proposals fit you, not a generic industry template.",
-    "f2Title": "Guided decisions",
-    "f2Body": "Clear questions with yes, no, or a short comment reduce misunderstandings and preserve context for later versions.",
-    "f3Title": "Examples you can judge",
-    "f3Body": "You see layout drafts from a large template library. You choose what stays—and you can say no on purpose.",
+    "f2Title": "Guided briefing",
+    "f2Body": "Short questions with tap-to-answer choices—not a yes/no grid. That keeps your site's message clear.",
+    "f3Title": "Layouts you can compare",
+    "f3Body": "Pick a sketch; we create first sections from it. You decide what stays and what you change in polish.",
     "f4Title": "Optional code",
     "f4Body": "Most steps stay no-code. When you need HTML/CSS or snippets, it should be explicit—not a forced developer track.",
     "f5Title": "Comments and versions",
@@ -162,30 +199,28 @@
     "ctaPrimary": "Workflow",
     "ctaSecondary": "Hosting explained",
     "ctaGoogle": "Continue with Google",
-    "seoTeaser": "We summarize planned technical SEO building blocks (headings, meta, performance, structured data) on the home page—including an honest disclaimer about rankings.",
+    "seoTeaser": "We summarize planned technical SEO building blocks (headings, meta, performance) on the home page—including an honest disclaimer about rankings.",
     "seoTeaserCta": "“Technical SEO” section on the home page"
   },
   "workflowPage": {
     "heroTitle": "Workflow—from idea to hosting",
-    "heroSubtitle": "Not a hype funnel: these are stations you can think through in order.",
+    "heroSubtitle": "Four stations in the app. Work through them in order—at your pace.",
     "steps": {
-      "s1Title": "1. You describe your offer",
-      "s1Body": "Services, audience, examples, competitors that inspire or differentiate—everything that later carries copy and structure.",
-      "s2Title": "2. Structured follow-up",
-      "s2Body": "The AI works with yes/no/comment questions until there is enough context for a first draft. You can correct at any time.",
-      "s3Title": "3. Proposals from templates",
-      "s3Body": "You see layouts and text blocks that match your answers. You decide what stays and what is discarded.",
-      "s4Title": "4. Polish with comments",
-      "s4Body": "Copy, image order, sections—you comment precisely instead of rewriting everything.",
-      "s5Title": "5. Approval and hosting with the partner",
-      "s5Body": "When you are satisfied, you move to domain, email, and servers with the hosting provider. Contract and support live there."
+      "s1Title": "1. Briefing",
+      "s1Body": "Topic, audience, desired action, and tone—you tap the answers that fit. Add optional notes if needed.",
+      "s2Title": "2. Layout",
+      "s2Body": "Choose one of four sketches. We create first sections you can edit later.",
+      "s3Title": "3. Polish",
+      "s3Body": "Refine copy, adjust sections, use suggestions if you want. Nothing goes live without your step.",
+      "s4Title": "4. Hosting",
+      "s4Body": "Checklist, preview, export—then domain and operations with your hosting partner. Contract and support live there."
     },
     "noteTitle": "Transparency on maturity",
     "noteBody": "These pages describe the planned product. Features may change before launch. We will expand copy once capabilities are testable.",
-    "ctaTitle": "Start building your site on site24.com",
-    "ctaLead": "In the app you create a project and work through goals, structure, and drafts step by step—without hype or fake speed promises.",
+    "ctaTitle": "Ready for your project?",
+    "ctaLead": "Create a project and start with briefing—then layout, polish, and hosting as separate steps.",
     "ctaLogin": "Continue with Google",
-    "ctaApp": "Go to my projects",
+    "ctaApp": "Get started",
     "ctaProduct": "Browse the features"
   },
   "hostingPage": {
@@ -310,46 +345,79 @@
     "dbErrorBody": "Check DATABASE_URL in your host (Postgres; on Supabase use the transaction pooler). Run migrations and reload."
   },
   "workflow": {
-    "workspaceLead": "Capture your idea, then use the builder for quick decisions and a sketch pick. You refine drafts under “Content”.",
+    "workspaceLead": "Four steps: briefing, layout, polish, hosting. Each has its own page—you only jump ahead when you want to.",
     "nav": {
-      "goals": "Idea",
-      "builder": "Builder",
-      "content": "Content",
-      "review": "Check",
+      "brief": "Briefing",
+      "layout": "Layout",
+      "polish": "Polish",
+      "hosting": "Hosting",
       "preview": "Preview",
       "aria": "Website workflow steps"
     },
-    "goals": {
-      "kicker": "Step 1",
+    "brief": {
+      "kicker": "Step 1 · Briefing",
       "namePrefix": "# ",
-      "lead": "Describe what you offer and what the site should do for you. If you created the project without text, add your idea here.",
-      "label": "Your idea",
-      "placeholder": "e.g. breakfast café, neighbourhood audience, visitors should book or call …",
+      "lead": "Pick the answer that fits each question—one tap. Optionally add free-form notes below.",
+      "progressLabel": "Questions answered",
+      "notesLabel": "Anything else? (optional)",
+      "notesPlaceholder": "e.g. brand colour, deadlines, special requests …",
+      "customPlaceholder": "Describe briefly …",
       "save": "Save progress",
-      "next": "Continue to the builder"
+      "next": "Continue to layout",
+      "pendingSave": "Saving …",
+      "pendingNext": "Continuing …",
+      "invalidBanner": "Answer every question. For “Other”, add a short description.",
+      "questions": {
+        "site_topic": "What is your website about?",
+        "audience": "Who do you want to reach?",
+        "visitor_action": "What should visitors do?",
+        "site_tone": "What tone should the site convey?"
+      },
+      "options": {
+        "site_topic": {
+          "local_business": "Local business / café / practice",
+          "services": "Services / consulting",
+          "shop": "Shop / product",
+          "portfolio": "Portfolio / case studies",
+          "nonprofit": "Nonprofit / initiative",
+          "personal": "Personal site",
+          "other": "Other"
+        },
+        "audience": {
+          "local": "Neighbourhood / region",
+          "regional": "Several cities / state",
+          "national": "Nationwide",
+          "b2b": "Businesses / B2B",
+          "community": "Community / fans",
+          "mixed": "Mixed"
+        },
+        "visitor_action": {
+          "contact": "Get in touch",
+          "book": "Book / reserve",
+          "buy": "Buy / order",
+          "inform": "Learn / build trust",
+          "subscribe": "Newsletter / register interest"
+        },
+        "site_tone": {
+          "modern": "Modern & clear",
+          "warm": "Warm & approachable",
+          "bold": "Bold & striking",
+          "calm": "Calm & serious",
+          "premium": "Premium & minimal"
+        }
+      }
     },
-    "builder": {
-      "pageTitle": "Builder",
-      "pageLead": "Answer three questions with yes, no, or a short comment. Then pick one of four page sketches—we create matching drafts you can refine under “Content”.",
-      "stepsHeading": "Three questions",
-      "decisionsTitle": "Quick decisions",
-      "decisionsLead": "This is about direction for a first version—not a test you can fail.",
-      "proposalsTitle": "Four sketches—pick one",
+    "layout": {
+      "kicker": "Step 2 · Layout",
+      "pageTitle": "Choose a layout",
+      "pageLead": "Four page sketches—pick the direction that matches your briefing. We then create first sections for polish.",
+      "proposalsTitle": "Pick a sketch",
       "sketchBadge": "Sketch",
-      "choiceYes": "Yes",
-      "choiceNo": "No",
-      "choiceComment": "Comment",
-      "commentPlaceholder": "Add a short note …",
       "save": "Save",
-      "next": "Use sketch & go to content",
+      "next": "Apply layout & go to polish",
       "pendingSave": "Saving …",
       "pendingNext": "Applying …",
-      "invalidBanner": "Something was incomplete. Pick a sketch and try again, or reload the page.",
-      "questions": {
-        "offer_clear": "Is your offer clear in one sentence (what you do / sell)?",
-        "audience_known": "Do you know who you mainly want to reach (e.g. local, B2B, consumers)?",
-        "content_ready": "Do you already have copy or images—or start with bullets and placeholders?"
-      },
+      "invalidBanner": "Please select a sketch.",
       "proposals": {
         "focusLanding": {
           "title": "Landing focus",
@@ -369,28 +437,45 @@
         }
       }
     },
-    "review": {
-      "title": "Check",
-      "lead": "Quick check that your idea, builder choices, and drafts line up.",
-      "goalsLabel": "Idea",
-      "builderLabel": "Builder",
-      "structureNotesLabel": "Extra structure notes",
-      "draftsLabel": "Sections",
+    "polish": {
+      "kicker": "Step 3 · Polish",
+      "pageTitle": "Refine copy and sections",
+      "pageLead": "Edit drafts, add bullet points, or use optional AI suggestions. Nothing goes live without your deliberate step."
+    },
+    "hosting": {
+      "kicker": "Step 4 · Hosting",
+      "title": "Ready for domain & operations",
+      "lead": "Review your progress, export a preview, then handle domain and hosting with your provider—contract and servers stay there.",
+      "briefLabel": "Briefing",
+      "layoutLabel": "Layout",
+      "polishLabel": "Polish",
       "draftCount": "{count, plural, =0 {No sections yet} one {# section} other {# sections}}",
       "empty": "—",
+      "checklistTitle": "Pre-launch checklist",
+      "saveChecklist": "Save checklist",
+      "pendingSave": "Saving …",
+      "checklist": {
+        "content_reviewed": "Reviewed copy in polish",
+        "preview_checked": "Checked preview in the browser",
+        "domain_planned": "Domain idea is clear (name noted)",
+        "partner_ready": "Know hosting partner and next step"
+      },
+      "partnerTitle": "Next steps",
+      "partnerLead": "Export and preview for you; domain, SSL, and billing live with your hosting provider.",
       "openPreview": "Open preview",
-      "downloadHtml": "Export HTML"
+      "downloadHtml": "Export HTML",
+      "partnerLink": "How hosting works"
     },
     "preview": {
       "badge": "Internal preview",
-      "goalsHeading": "Idea",
-      "structureHeading": "Structure notes",
-      "builderHeading": "Builder",
+      "briefHeading": "Briefing",
+      "notesHeading": "Additional notes",
+      "layoutHeading": "Layout",
       "empty": "Nothing to preview yet."
     },
     "templates": {
       "heading": "Templates",
-      "lead": "Templates create several drafts with example bullet points—edit them under “Content”.",
+      "lead": "Templates create several drafts with example bullet points—edit them in polish.",
       "openCatalog": "Templates (optional)",
       "catalogHint": "Collapsed until you need several blocks at once.",
       "apply": "Apply template",

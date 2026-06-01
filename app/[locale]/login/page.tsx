@@ -3,7 +3,12 @@ import { Link } from "@/i18n/routing";
 import { auth } from "@/auth";
 import { buildPageMetadata } from "@/lib/build-page-metadata";
 import { buttonClassName } from "@/components/ui/button";
-import { signInWithGoogle, signOutToLocale } from "@/lib/auth/actions";
+import { UserAccountPanel } from "@/components/user-account-panel";
+import {
+  signInWithGoogle,
+  signOutToLocale,
+  switchGoogleAccount,
+} from "@/lib/auth/actions";
 
 export async function generateMetadata({
   params,
@@ -36,8 +41,6 @@ export default async function LoginPage({
   const hasSecret = Boolean(process.env.AUTH_SECRET);
   const authReady = hasDatabase && hasGoogle && hasSecret;
 
-  const email = session?.user?.email ?? session?.user?.name ?? "—";
-
   return (
     <section className="border-b border-border bg-card py-16 md:py-24">
       <div className="mx-auto max-w-lg px-[max(1rem,env(safe-area-inset-left))] sm:px-6 lg:pr-[max(1rem,env(safe-area-inset-right))]">
@@ -58,21 +61,23 @@ export default async function LoginPage({
             <p className="mt-4 text-center text-sm font-medium text-foreground">
               {t("signedInTitle")}
             </p>
-            <p className="mt-2 text-center text-sm leading-relaxed text-muted">
-              {t("signedInAs", { email })}
-            </p>
-            <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+            <div className="mt-8 flex justify-center">
+              <UserAccountPanel
+                user={{
+                  id: session.user.id ?? "",
+                  name: session.user.name,
+                  email: session.user.email,
+                  image: session.user.image,
+                }}
+                signOutAction={signOutToLocale.bind(null, locale)}
+                switchAccountAction={switchGoogleAccount.bind(null, locale)}
+                variant="inline"
+              />
+            </div>
+            <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
               <Link href="/app" className={buttonClassName("primary", "min-h-11 px-6")}>
                 {t("goToApp")}
               </Link>
-              <form action={signOutToLocale.bind(null, locale)}>
-                <button
-                  type="submit"
-                  className={buttonClassName("secondary", "min-h-11 px-6")}
-                >
-                  {t("signOut")}
-                </button>
-              </form>
               <Link href="/" className={buttonClassName("ghost", "min-h-11 px-6")}>
                 {t("back")}
               </Link>

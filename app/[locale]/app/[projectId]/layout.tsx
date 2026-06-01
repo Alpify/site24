@@ -89,10 +89,10 @@ export default async function ProjectWorkspaceLayout({
   }
 
   const labels = {
-    goals: tFlow("nav.goals"),
-    builder: tFlow("nav.builder"),
-    content: tFlow("nav.content"),
-    review: tFlow("nav.review"),
+    brief: tFlow("nav.brief"),
+    layout: tFlow("nav.layout"),
+    polish: tFlow("nav.polish"),
+    hosting: tFlow("nav.hosting"),
   } as const;
 
   return (

@@ -3,10 +3,15 @@
 import NextLink from "next/link";
 import { usePathname } from "next/navigation";
 
-import { WORKFLOW_STEPS, type WorkflowStepId } from "@/lib/workflow/site-steps";
+import {
+  WORKFLOW_STEPS,
+  WORKFLOW_STEP_IDS,
+  normalizeWorkflowPathSegment,
+  type WorkflowStepId,
+} from "@/lib/workflow/site-steps";
 import { buttonClassName } from "@/components/ui/button";
 
-const STEP_IDS = new Set<WorkflowStepId>(["goals", "builder", "content", "review"]);
+const STEP_IDS = new Set<string>(WORKFLOW_STEP_IDS);
 
 export function ProjectWorkflowNavClient({
   locale,
@@ -23,9 +28,9 @@ export function ProjectWorkflowNavClient({
 }) {
   const pathname = usePathname();
   const last = pathname.split("/").filter(Boolean).pop() ?? "";
-  const activeStep: WorkflowStepId = STEP_IDS.has(last as WorkflowStepId)
+  const activeStep: WorkflowStepId = STEP_IDS.has(last)
     ? (last as WorkflowStepId)
-    : "content";
+    : normalizeWorkflowPathSegment(last);
   const previewActive = last === "preview";
 
   return (
