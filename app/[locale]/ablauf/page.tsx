@@ -1,6 +1,10 @@
 import { getTranslations } from "next-intl/server";
-import { buildPageMetadata } from "@/lib/build-page-metadata";
+
+import { auth } from "@/auth";
 import { StepTimeline } from "@/components/step-timeline";
+import { Link } from "@/i18n/routing";
+import { buildPageMetadata } from "@/lib/build-page-metadata";
+import { buttonClassName } from "@/components/ui/button";
 
 export async function generateMetadata({
   params,
@@ -17,7 +21,13 @@ export async function generateMetadata({
   });
 }
 
-export default async function WorkflowPage() {
+export default async function WorkflowPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  await params;
+  const session = await auth();
   const t = await getTranslations("workflowPage");
 
   const steps = [
@@ -43,6 +53,29 @@ export default async function WorkflowPage() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <StepTimeline steps={steps} />
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-border bg-background py-12 md:py-16">
+        <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
+          <h2 className="text-xl font-semibold tracking-tight text-foreground sm:text-2xl">
+            {t("ctaTitle")}
+          </h2>
+          <p className="mt-3 text-sm leading-relaxed text-muted sm:text-base">{t("ctaLead")}</p>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+            {session?.user ? (
+              <Link href="/app" className={buttonClassName("primary", "min-h-11 px-6 py-3")}>
+                {t("ctaApp")}
+              </Link>
+            ) : (
+              <Link href="/login" className={buttonClassName("primary", "min-h-11 px-6 py-3")}>
+                {t("ctaLogin")}
+              </Link>
+            )}
+            <Link href="/produkt" className={buttonClassName("secondary", "min-h-11 px-6 py-3")}>
+              {t("ctaProduct")}
+            </Link>
           </div>
         </div>
       </section>

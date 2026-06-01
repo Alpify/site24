@@ -22,6 +22,20 @@
       "when": 1778771833738,
       "tag": "0002_drafts",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1778779258978,
+      "tag": "0003_even_wind_dancer",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1778780464089,
+      "tag": "0004_fine_silver_surfer",
+      "breakpoints": true
     }
   ]
 }

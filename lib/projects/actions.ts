@@ -1,13 +1,19 @@
 "use server";
 
-import { and, eq } from "drizzle-orm";
+import { and, count, eq } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
 import { auth } from "@/auth";
-import { expandDraftNotes } from "@/lib/ai/expand-draft-notes";
 import { getDb } from "@/lib/db";
 import { drafts, projects } from "@/lib/db/schema";
+import { insertTemplateDraftsForProject } from "@/lib/templates/insert-template-drafts";
+import {
+  getProposalDef,
+  leanOnePagerSeed,
+  parseBuilderPayload,
+} from "@/lib/workflow/builder-proposals";
+import { isWorkflowStepId, type WorkflowStepId } from "@/lib/workflow/site-steps";
 
 export async function createProject(locale: string, formData: FormData) {
   const session = await auth();
@@ -15,17 +21,187 @@ export async function createProject(locale: string, formData: FormData) {
     redirect(`/${locale}/login`);
   }
 
+  const [countRow] = await getDb()
+    .select({ c: count() })
+    .from(projects)
+    .where(eq(projects.userId, session.user.id));
+  if ((countRow?.c ?? 0) >= 1) {
+    redirect(`/${locale}/app?limit=1`);
+  }
+
   const name = formData.get("name")?.toString().trim();
   if (!name || name.length > 120) {
     return;
   }
 
-  await getDb().insert(projects).values({
-    userId: session.user.id,
-    name,
-  });
+  const ideaRaw = formData.get("idea")?.toString() ?? "";
+  const idea = ideaRaw.trim();
+  const workflowGoals = idea.length > 0 ? idea.slice(0, 20_000) : null;
+  const initialStep: WorkflowStepId = workflowGoals ? "builder" : "goals";
+
+  const [inserted] = await getDb()
+    .insert(projects)
+    .values({
+      userId: session.user.id,
+      name,
+      workflowGoals,
+      workflowStep: initialStep,
+    })
+    .returning({ id: projects.id });
+
+  if (!inserted) {
+    return;
+  }
 
   revalidatePath(`/${locale}/app`);
+  redirect(`/${locale}/app/${inserted.id}/${initialStep}`);
+}
+
+function revalidateProjectTree(locale: string, projectId: string) {
+  revalidatePath(`/${locale}/app/${projectId}`, "layout");
+}
+
+export async function saveWorkflowGoals(locale: string, projectId: string, formData: FormData) {
+  const session = await auth();
+  if (!session?.user?.id) {
+    redirect(`/${locale}/login`);
+  }
+
+  const text = formData.get("workflowGoals")?.toString() ?? "";
+  const intent = formData.get("intent")?.toString();
+
+  const [owned] = await getDb()
+    .select({ id: projects.id })
+    .from(projects)
+    .where(and(eq(projects.id, projectId), eq(projects.userId, session.user.id)))
+    .limit(1);
+
+  if (!owned) {
+    return;
+  }
+
+  const nextStep: WorkflowStepId | undefined =
+    intent === "next" ? "builder" : undefined;
+
+  await getDb()
+    .update(projects)
+    .set({
+      workflowGoals: text.slice(0, 20_000),
+      ...(nextStep ? { workflowStep: nextStep } : {}),
+      updatedAt: new Date(),
+    })
+    .where(eq(projects.id, projectId));
+
+  revalidateProjectTree(locale, projectId);
+  if (nextStep) {
+    redirect(`/${locale}/app/${projectId}/builder`);
+  }
+}
+
+export async function saveWorkflowBuilder(
+  locale: string,
+  projectId: string,
+  formData: FormData,
+) {
+  const session = await auth();
+  if (!session?.user?.id) {
+    redirect(`/${locale}/login`);
+  }
+
+  const intent = formData.get("intent")?.toString();
+  const rawPayload = formData.get("payload")?.toString() ?? "{}";
+
+  const [owned] = await getDb()
+    .select({ id: projects.id })
+    .from(projects)
+    .where(and(eq(projects.id, projectId), eq(projects.userId, session.user.id)))
+    .limit(1);
+
+  if (!owned) {
+    return;
+  }
+
+  if (intent === "next") {
+    const parsed = parseBuilderPayload(rawPayload);
+    if (!parsed) {
+      redirect(`/${locale}/app/${projectId}/builder?invalid=1`);
+    }
+
+    await getDb()
+      .update(projects)
+      .set({
+        workflowBuilderJson: rawPayload.slice(0, 50_000),
+        workflowStep: "content",
+        updatedAt: new Date(),
+      })
+      .where(eq(projects.id, projectId));
+
+    const [countRow] = await getDb()
+      .select({ c: count() })
+      .from(drafts)
+      .where(eq(drafts.projectId, projectId));
+    const draftCount = countRow?.c ?? 0;
+
+    if (draftCount === 0) {
+      const def = getProposalDef(parsed.proposalId);
+      if (def?.templateId) {
+        await insertTemplateDraftsForProject(projectId, def.templateId);
+      } else if (def?.id === "lean-onepager") {
+        const seed = leanOnePagerSeed(locale);
+        await getDb().insert(drafts).values({
+          projectId,
+          title: seed.title.slice(0, 200),
+          body: seed.body.slice(0, 50_000),
+        });
+      }
+    }
+
+    revalidateProjectTree(locale, projectId);
+    redirect(`/${locale}/app/${projectId}/content`);
+  }
+
+  await getDb()
+    .update(projects)
+    .set({
+      workflowBuilderJson: rawPayload.slice(0, 50_000),
+      updatedAt: new Date(),
+    })
+    .where(eq(projects.id, projectId));
+
+  revalidateProjectTree(locale, projectId);
+}
+
+export async function setWorkflowStep(
+  locale: string,
+  projectId: string,
+  step: string,
+) {
+  const session = await auth();
+  if (!session?.user?.id) {
+    redirect(`/${locale}/login`);
+  }
+
+  if (!isWorkflowStepId(step)) {
+    return;
+  }
+
+  const [owned] = await getDb()
+    .select({ id: projects.id })
+    .from(projects)
+    .where(and(eq(projects.id, projectId), eq(projects.userId, session.user.id)))
+    .limit(1);
+
+  if (!owned) {
+    return;
+  }
+
+  await getDb()
+    .update(projects)
+    .set({ workflowStep: step, updatedAt: new Date() })
+    .where(eq(projects.id, projectId));
+
+  revalidateProjectTree(locale, projectId);
+  redirect(`/${locale}/app/${projectId}/${step}`);
 }
 
 export async function createDraft(
@@ -56,68 +232,54 @@ export async function createDraft(
     return;
   }
 
+  const MAX_DRAFTS_PER_PROJECT = 12;
+  const [draftCount] = await getDb()
+    .select({ c: count() })
+    .from(drafts)
+    .where(eq(drafts.projectId, projectId));
+  if ((draftCount?.c ?? 0) >= MAX_DRAFTS_PER_PROJECT) {
+    redirect(`/${locale}/app/${projectId}/content?draftLimit=1`);
+  }
+
   await getDb().insert(drafts).values({
     projectId,
     title,
     body,
   });
 
-  revalidatePath(`/${locale}/app/${projectId}`);
+  revalidateProjectTree(locale, projectId);
+  redirect(`/${locale}/app/${projectId}/content`);
 }
 
-export async function expandDraftWithAi(
-  locale: string,
-  projectId: string,
-  draftId: string,
-) {
+export async function deleteDraft(formData: FormData) {
+  const localeRaw = formData.get("locale")?.toString()?.trim();
+  const projectId = formData.get("projectId")?.toString()?.trim();
+  const draftId = formData.get("draftId")?.toString()?.trim();
+  const locale = localeRaw === "en" || localeRaw === "de" ? localeRaw : "de";
+
+  if (!projectId || !draftId) {
+    redirect(`/${locale}/login`);
+  }
+
   const session = await auth();
   if (!session?.user?.id) {
     redirect(`/${locale}/login`);
   }
 
-  if (!process.env.OPENROUTER_API_KEY) {
-    redirect(`/${locale}/app/${projectId}?aiError=config`);
-  }
-
   const [owned] = await getDb()
-    .select({ id: projects.id, name: projects.name })
+    .select({ id: projects.id })
     .from(projects)
     .where(and(eq(projects.id, projectId), eq(projects.userId, session.user.id)))
     .limit(1);
 
   if (!owned) {
-    return;
+    redirect(`/${locale}/app/${projectId}/content?aiError=state`);
   }
 
-  const [draft] = await getDb()
-    .select()
-    .from(drafts)
-    .where(and(eq(drafts.id, draftId), eq(drafts.projectId, projectId)))
-    .limit(1);
+  await getDb()
+    .delete(drafts)
+    .where(and(eq(drafts.id, draftId), eq(drafts.projectId, projectId)));
 
-  if (!draft) {
-    return;
-  }
-
-  try {
-    const suggestion = await expandDraftNotes({
-      locale,
-      projectName: owned.name,
-      draftTitle: draft.title,
-      draftBody: draft.body,
-    });
-
-    const marker = locale === "de" ? "\n\n--- KI ---\n" : "\n\n--- AI ---\n";
-    const base = draft.body ?? "";
-    const newBody = (base + marker + suggestion).slice(0, 50_000);
-
-    await getDb()
-      .update(drafts)
-      .set({ body: newBody, updatedAt: new Date() })
-      .where(eq(drafts.id, draftId));
-  } catch {
-    redirect(`/${locale}/app/${projectId}?aiError=api`);
-  }
-
-  revalidatePath(`/${locale}/app/${projectId}`);
+  revalidateProjectTree(locale, projectId);
+  redirect(`/${locale}/app/${projectId}/content`);
 }

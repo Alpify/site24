@@ -71,6 +71,12 @@ export const projects = pgTable("project", {
     .notNull()
     .references(() => users.id, { onDelete: "cascade" }),
   name: text("name").notNull(),
+  /** goals | builder | content | review */
+  workflowStep: text("workflowStep").notNull().default("goals"),
+  workflowGoals: text("workflowGoals"),
+  workflowStructure: text("workflowStructure"),
+  /** JSON: Baukasten (Ja/Nein/Kommentar + gewählte Skizze) */
+  workflowBuilderJson: text("workflowBuilderJson"),
   createdAt: timestamp("createdAt", { mode: "date" }).defaultNow().notNull(),
   updatedAt: timestamp("updatedAt", { mode: "date" }).defaultNow().notNull(),
 });

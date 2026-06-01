@@ -1,4 +1,6 @@
 import { getTranslations } from "next-intl/server";
+
+import { auth } from "@/auth";
 import { Link } from "@/i18n/routing";
 import { buildPageMetadata } from "@/lib/build-page-metadata";
 import { FeatureCard } from "@/components/feature-card";
@@ -20,7 +22,13 @@ export async function generateMetadata({
   });
 }
 
-export default async function ProductPage() {
+export default async function ProductPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  await params;
+  const session = await auth();
   const t = await getTranslations("productPage");
 
   return (
@@ -66,15 +74,20 @@ export default async function ProductPage() {
           </h2>
           <p className="mt-3 max-w-2xl text-muted">{t("ctaBody")}</p>
           <div className="mt-8 flex flex-wrap gap-4">
-            <Link href="/ablauf" className={buttonClassName("primary", "px-5")}>
+            <Link href="/ablauf" className={buttonClassName("primary", "min-h-11 px-5")}>
               {t("ctaPrimary")}
             </Link>
             <Link
               href="/hosting"
-              className={buttonClassName("secondary", "px-5")}
+              className={buttonClassName("secondary", "min-h-11 px-5")}
             >
               {t("ctaSecondary")}
             </Link>
+            {!session?.user ? (
+              <Link href="/login" className={buttonClassName("secondary", "min-h-11 px-5")}>
+                {t("ctaGoogle")}
+              </Link>
+            ) : null}
           </div>
         </div>
       </section>

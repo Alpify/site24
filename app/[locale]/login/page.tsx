@@ -83,9 +83,6 @@ export default async function LoginPage({
             <p className="mt-4 text-center text-sm leading-relaxed text-muted">
               {t("lead")}
             </p>
-            <p className="mt-3 text-center text-xs leading-relaxed text-muted">
-              {t("note")}
-            </p>
             {authReady ? (
               <div className="mt-10 flex justify-center">
                 <form action={signInWithGoogle.bind(null, locale)}>

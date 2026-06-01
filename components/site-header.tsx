@@ -5,6 +5,16 @@ import { useLocale, useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/routing";
 import { NavCreateMenu } from "@/components/nav-create-menu";
 
+function normalizeAppPathname(pathname: string | null | undefined): string | null {
+  if (pathname == null) return null;
+  const trimmed = pathname.replace(/\/+$/, "");
+  return trimmed === "" ? "/" : trimmed;
+}
+
+function isAppRoute(pathname: string) {
+  return pathname === "/app" || pathname.startsWith("/app/");
+}
+
 const secondaryRoutes = [
   { href: "/hosting", key: "hosting" as const },
   { href: "/preise", key: "pricing" as const },
@@ -25,8 +35,10 @@ export function SiteHeader({
   signOutAction?: () => Promise<void>;
 }) {
   const t = useTranslations("nav");
-  const pathname = usePathname();
-  const homeActive = pathname === "/";
+  const pathnameRaw = usePathname();
+  const pathname = normalizeAppPathname(pathnameRaw);
+  const pathKey = pathname ?? "";
+  const homeActive = pathKey === "/";
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/80 bg-card/85 pt-[env(safe-area-inset-top,0px)] backdrop-blur-md supports-[backdrop-filter]:bg-card/70">
@@ -60,7 +72,7 @@ export function SiteHeader({
         >
           <NavCreateMenu />
           {secondaryRoutes.map(({ href, key }) => {
-            const active = pathname === href;
+            const active = pathKey === href;
             return (
               <Link
                 key={href}
@@ -81,7 +93,7 @@ export function SiteHeader({
           {user && signOutAction ? (
             <AccountMenu
               user={user}
-              pathname={pathname}
+              pathname={pathKey}
               signOutAction={signOutAction}
             />
           ) : (
@@ -89,16 +101,16 @@ export function SiteHeader({
               href="/login"
               aria-label={t("loginAria")}
               className={`inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-muted transition-colors hover:bg-accent/10 hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
-                pathname === "/login" ? "bg-accent/10 text-accent" : ""
+                pathKey === "/login" ? "bg-accent/10 text-accent" : ""
               }`}
             >
               <UserIcon className="h-5 w-5" />
             </Link>
           )}
-          {user ? (
+          {pathKey === "/" ? null : user ? (
             <Link
               href="/app"
-              aria-current={pathname === "/app" ? "page" : undefined}
+              aria-current={isAppRoute(pathKey) ? "page" : undefined}
               className="rounded-lg bg-accent px-2.5 py-2 text-xs font-medium text-white shadow-sm transition-colors hover:bg-accent-hover sm:px-4 sm:text-sm"
             >
               {t("myProjects")}
@@ -106,7 +118,7 @@ export function SiteHeader({
           ) : (
             <Link
               href="/login"
-              aria-current={pathname === "/login" ? "page" : undefined}
+              aria-current={pathKey === "/login" ? "page" : undefined}
               className="rounded-lg bg-accent px-2.5 py-2 text-xs font-medium text-white shadow-sm transition-colors hover:bg-accent-hover sm:px-4 sm:text-sm"
             >
               {t("cta")}
@@ -126,19 +138,19 @@ export function SiteHeader({
             <MobilePill href="/" active={homeActive}>
               {t("home")}
             </MobilePill>
-            <MobilePill href="/ablauf" active={pathname === "/ablauf"}>
+            <MobilePill href="/ablauf" active={pathKey === "/ablauf"}>
               {t("workflowItem")}
             </MobilePill>
-            <MobilePill href="/produkt" active={pathname === "/produkt"}>
+            <MobilePill href="/produkt" active={pathKey === "/produkt"}>
               {t("productItem")}
             </MobilePill>
             {secondaryRoutes.map(({ href, key }) => (
-              <MobilePill key={href} href={href} active={pathname === href}>
+              <MobilePill key={href} href={href} active={pathKey === href}>
                 {t(key)}
               </MobilePill>
             ))}
             {user ? (
-              <MobilePill href="/app" active={pathname === "/app"}>
+              <MobilePill href="/app" active={isAppRoute(pathKey)}>
                 {t("myProjects")}
               </MobilePill>
             ) : null}
@@ -163,7 +175,7 @@ function AccountMenu({
     <details className="relative">
       <summary
         className={`inline-flex h-10 w-10 cursor-pointer list-none items-center justify-center rounded-full text-muted transition-colors hover:bg-accent/10 hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring [&::-webkit-details-marker]:hidden ${
-          pathname === "/login" || pathname === "/app"
+          pathname === "/login" || isAppRoute(pathname)
             ? "bg-accent/10 text-accent"
             : ""
         }`}
@@ -265,6 +277,7 @@ function UserIcon({ className }: { className?: string }) {
 function LocaleSwitcher() {
   const pathname = usePathname();
   const locale = useLocale();
+  const href = pathname ?? "/";
   const tab =
     "rounded-md px-2 py-1 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring";
   return (
@@ -274,14 +287,14 @@ function LocaleSwitcher() {
       aria-label="Language"
     >
       <Link
-        href={pathname}
+        href={href}
         locale="de"
         className={`${tab} ${locale === "de" ? "bg-card text-foreground shadow-sm" : "text-muted hover:text-foreground"}`}
       >
         DE
       </Link>
       <Link
-        href={pathname}
+        href={href}
         locale="en"
         className={`${tab} ${locale === "en" ? "bg-card text-foreground shadow-sm" : "text-muted hover:text-foreground"}`}
       >

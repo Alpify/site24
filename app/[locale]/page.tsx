@@ -60,61 +60,37 @@ export default async function HomePage({
             <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted">
               {t("disclaimer")}
             </p>
-            <div className="mt-9 flex flex-col gap-3 sm:gap-4">
-              <div className="flex flex-wrap gap-3 sm:gap-4">
-                {session?.user ? (
-                  <>
-                    <Link
-                      href="/app"
-                      className={buttonClassName("primary", "min-h-11 px-5 py-3 text-base")}
-                    >
-                      {t("projectsBoardCta")}
-                    </Link>
-                    <Link
-                      href="/ablauf"
-                      className={buttonClassName("secondary", "min-h-11 px-5 py-3 text-base")}
-                    >
-                      {t("primaryCta")}
-                    </Link>
-                    <Link
-                      href="/produkt"
-                      className={buttonClassName("secondary", "min-h-11 px-5 py-3 text-base")}
-                    >
-                      {t("secondaryCta")}
-                    </Link>
-                  </>
-                ) : (
-                  <>
-                    <Link
-                      href="/ablauf"
-                      className={buttonClassName("primary", "min-h-11 px-5 py-3 text-base")}
-                    >
-                      {t("primaryCta")}
-                    </Link>
-                    <Link
-                      href="/login"
-                      className={buttonClassName("secondary", "min-h-11 px-5 py-3 text-base")}
-                    >
-                      {t("loginCta")}
-                    </Link>
-                    <Link
-                      href="/produkt"
-                      className={buttonClassName("secondary", "min-h-11 px-5 py-3 text-base")}
-                    >
-                      {t("secondaryCta")}
-                    </Link>
-                  </>
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
+              <Link
+                href={session?.user ? "/app" : "/login"}
+                className={buttonClassName(
+                  "primary",
+                  "inline-flex min-h-12 w-full min-w-[10.5rem] justify-center px-8 py-3.5 text-base shadow-md sm:w-auto",
                 )}
-              </div>
-              <p className="text-sm leading-relaxed text-muted">
-                {t("priceFunnelBefore")}
-                <Link
-                  href="/preise"
-                  className="font-medium text-accent underline-offset-4 hover:underline"
-                >
-                  {t("priceFunnelLink")}
+              >
+                {session?.user ? t("heroSingleLogged") : t("heroSingleGuest")}
+              </Link>
+              <Link
+                href="/produkt"
+                className={buttonClassName(
+                  "secondary",
+                  "inline-flex min-h-12 w-full min-w-[10.5rem] justify-center px-8 py-3.5 text-base sm:w-auto",
+                )}
+              >
+                {t("heroSecondary")}
+              </Link>
+              <p className="w-full max-w-xl text-sm leading-relaxed text-muted sm:basis-full">
+                <Link href="/ablauf" className="font-medium text-foreground underline-offset-4 hover:underline">
+                  {t("storyLinkWorkflow")}
                 </Link>
-                {t("priceFunnelAfter")}
+                <span className="mx-2 text-border">·</span>
+                <span className="text-muted">
+                  {t("priceFunnelBefore")}
+                  <Link href="/preise" className="font-medium text-foreground underline-offset-4 hover:underline">
+                    {t("priceFunnelLink")}
+                  </Link>
+                  {t("priceFunnelAfter")}
+                </span>
               </p>
             </div>
           </div>
@@ -181,7 +157,7 @@ export default async function HomePage({
       <HomeSeoPrinciples />
 
       <section className="border-t border-border bg-card py-14 md:py-24">
-        <div className="mx-auto flex max-w-6xl flex-col items-start gap-8 px-[max(1rem,env(safe-area-inset-left))] sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8 lg:pr-[max(1.5rem,env(safe-area-inset-right))]">
+        <div className="mx-auto max-w-6xl px-[max(1rem,env(safe-area-inset-left))] sm:px-6 lg:px-8 lg:pr-[max(1.5rem,env(safe-area-inset-right))]">
           <div className="max-w-xl">
             <h2 className="text-xl font-semibold tracking-tight text-foreground sm:text-2xl md:text-3xl">
               {t("proofTitle")}
@@ -189,13 +165,12 @@ export default async function HomePage({
             <p className="mt-4 text-sm leading-relaxed text-muted sm:text-base">
               {t("proofBody")}
             </p>
+            <p className="mt-4 text-sm">
+              <Link href="/ablauf" className="font-medium text-accent underline-offset-4 hover:underline">
+                {t("proofCta")}
+              </Link>
+            </p>
           </div>
-          <Link
-            href="/ablauf"
-            className={buttonClassName("primary", "min-h-11 shrink-0 px-6 py-3")}
-          >
-            {t("proofCta")}
-          </Link>
         </div>
       </section>
     </>

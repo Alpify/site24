@@ -29,24 +29,24 @@
       "description": "How personal data is handled on site24.com for the current informational site."
     },
     "login": {
-      "title": "Log in",
-      "description": "Sign in with Google on site24.com – account for the planned builder."
+      "title": "Sign in with Google",
+      "description": "Access your site24.com app—one website project, sign in with Google."
     },
     "app": {
-      "title": "My projects",
-      "description": "Your site24.com projects after sign-in."
+      "title": "My project",
+      "description": "One website project in the site24.com app after sign-in. More projects are planned later with paid plans."
     },
     "project": {
       "titleFallback": "Project",
       "titleWithName": "{name} – project",
-      "description": "Project workspace and drafts after sign-in."
+      "description": "Project workspace with sections after sign-in."
     }
   },
   "nav": {
     "ariaMain": "Main navigation",
     "ariaMainMobile": "Main navigation mobile",
     "home": "Home",
-    "login": "Log in",
+    "login": "Google",
     "loginAria": "Log in or open account",
     "createGroup": "Workflow & features",
     "workflowItem": "Workflow",
@@ -55,8 +55,8 @@
     "productDesc": "What you can use",
     "hosting": "Hosting",
     "pricing": "Pricing",
-    "cta": "Log in",
-    "myProjects": "My projects",
+    "cta": "Google",
+    "myProjects": "My project",
     "signOut": "Sign out",
     "accountMenuAria": "Account menu"
   },
@@ -77,10 +77,10 @@
     "title": "Your website—thought through, step by step",
     "subtitle": "You describe what you sell and who you serve. Then you move through clear questions (yes, no, short comment), review concrete layout proposals, and refine sections before you handle domain, hosting, and billing with your provider.",
     "disclaimer": "The full AI builder is still in development. These pages explain the intended product—without promising rankings, revenue, or “live in 60 seconds”.",
-    "primaryCta": "Get started",
-    "secondaryCta": "Read the features",
-    "projectsBoardCta": "Open my projects",
-    "loginCta": "Log in",
+    "heroSingleGuest": "Sign in",
+    "heroSingleLogged": "Open project",
+    "heroSecondary": "Features",
+    "loginCta": "Sign in with Google",
     "priceFunnelBefore": "Plans and payment will move through the ",
     "priceFunnelLink": "Pricing",
     "priceFunnelAfter": " page once packages are fixed (in preparation).",
@@ -161,6 +161,7 @@
     "ctaBody": "Read the timeline and hosting model before joining any waitlist or beta.",
     "ctaPrimary": "Workflow",
     "ctaSecondary": "Hosting explained",
+    "ctaGoogle": "Continue with Google",
     "seoTeaser": "We summarize planned technical SEO building blocks (headings, meta, performance, structured data) on the home page—including an honest disclaimer about rankings.",
     "seoTeaserCta": "“Technical SEO” section on the home page"
   },
@@ -180,7 +181,12 @@
       "s5Body": "When you are satisfied, you move to domain, email, and servers with the hosting provider. Contract and support live there."
     },
     "noteTitle": "Transparency on maturity",
-    "noteBody": "These pages describe the planned product. Features may change before launch. We will expand copy once capabilities are testable."
+    "noteBody": "These pages describe the planned product. Features may change before launch. We will expand copy once capabilities are testable.",
+    "ctaTitle": "Start building your site on site24.com",
+    "ctaLead": "In the app you create a project and work through goals, structure, and drafts step by step—without hype or fake speed promises.",
+    "ctaLogin": "Continue with Google",
+    "ctaApp": "Go to my projects",
+    "ctaProduct": "Browse the features"
   },
   "hostingPage": {
     "heroTitle": "Hosting and domain—with the right partner",
@@ -254,41 +260,157 @@
     "s10Body": "If our processing changes (new features, new vendors), we will update this statement and change the date. For material changes we will also inform you prominently on the site."
   },
   "appPage": {
-    "title": "My projects",
-    "lead": "Create a project to attach content and drafts later. The AI editor ships in a later step.",
+    "title": "My project",
+    "lead": "Your access includes one website project.",
     "nameLabel": "Project name",
     "namePlaceholder": "e.g. Café Sun website",
+    "ideaLabel": "Notes (optional)",
+    "ideaPlaceholder": "Briefly: offer, audience, what visitors should do …",
     "createSubmit": "Create project",
-    "listHeading": "Your projects",
-    "empty": "No projects yet—create one above.",
+    "listHeading": "Overview",
     "openProjectAria": "Open project “{name}”",
     "openLabel": "Open",
-    "draftsHint": "Per-project drafts and templates are the next step.",
+    "soloTitle": "Your project",
+    "soloSubtitle": "One project is included in the current access. More workspaces are planned later with subscription models.",
+    "soloCta": "Continue editing",
+    "limitAlert": "You already have a project. A second project is not available yet—expansion will come with paid plans.",
+    "multiLegacyHint": "Multiple saved projects were found. Please use the one you are actively working on; long term, one project per access is intended.",
     "backHome": "Back to home",
     "dbErrorTitle": "Database unavailable",
     "dbErrorBody": "Set DATABASE_URL in your host (Postgres). On Supabase use the transaction pooler (port 6543). Run migrations (npm run db:migrate) and reload."
   },
   "projectPage": {
-    "backToProjects": "All projects",
-    "lead": "Drafts belong to this project. Use AI per draft to structure and expand your notes (via OpenRouter, server-side).",
-    "draftListHeading": "Drafts",
-    "draftEmpty": "No drafts yet—create one below.",
+    "backToProjects": "To project",
+    "contentWorkspaceTitle": "Content for “{name}”",
+    "lead": "Sections from the builder or from templates—edit copy here. Optionally turn rough notes into a structured suggestion.",
+    "leadShort": "Edit sections; optionally add structure with AI. Remove drafts you no longer need.",
+    "sectionDraftsTitle": "Sections",
+    "sectionDraftsLead": "Each section is part of your site (e.g. home, contact). Use the button on the right to generate a structured outline from your notes.",
+    "sectionDraftsLeadShort": "Suggest structure or remove a section.",
+    "sectionNewTitle": "New section",
+    "sectionNewLead": "Add a title and optional notes—you can refine the text anytime.",
+    "sectionNewLeadShort": "Name it, save—refine later.",
+    "draftEmpty": "No sections yet—add one below or use a template.",
+    "draftNoBodyYet": "No notes in this section yet.",
+    "draftSuggestButton": "Suggest structure",
     "draftTitleLabel": "Title",
     "draftTitlePlaceholder": "e.g. Homepage – first draft",
     "draftBodyLabel": "Notes (optional)",
     "draftBodyPlaceholder": "Bullets, quotes, rough ideas …",
-    "draftCreateSubmit": "Save draft",
-    "aiExpand": "Expand with AI",
-    "aiSetupHint": "Set OPENROUTER_API_KEY in .env.local for AI suggestions (see .env.example).",
-    "aiErrorApi": "The AI request failed. Try again later or check your API key.",
-    "aiErrorConfig": "AI is not configured (OPENROUTER_API_KEY is missing).",
+    "draftCreateSubmit": "Save section",
+    "draftCountLabel": "{count} of {max} sections",
+    "draftLimitAlert": "Twelve sections per project at most. Delete a section or merge content before adding new ones.",
+    "deleteDraftSubmit": "Remove",
+    "actionPending": "Working …",
+    "aiSetupHint": "For automatic structure suggestions set OPENROUTER_API_KEY in .env.local (development only).",
+    "aiErrorApi": "The suggestion could not be loaded. Try again later or check configuration.",
+    "aiErrorConfig": "Structure suggestions are not configured in this environment.",
+    "aiErrorState": "This section could not be processed. Reload the page and try again.",
     "dbErrorTitle": "Database unavailable",
     "dbErrorBody": "Check DATABASE_URL in your host (Postgres; on Supabase use the transaction pooler). Run migrations and reload."
   },
+  "workflow": {
+    "workspaceLead": "Capture your idea, then use the builder for quick decisions and a sketch pick. You refine drafts under “Content”.",
+    "nav": {
+      "goals": "Idea",
+      "builder": "Builder",
+      "content": "Content",
+      "review": "Check",
+      "preview": "Preview",
+      "aria": "Website workflow steps"
+    },
+    "goals": {
+      "kicker": "Step 1",
+      "namePrefix": "# ",
+      "lead": "Describe what you offer and what the site should do for you. If you created the project without text, add your idea here.",
+      "label": "Your idea",
+      "placeholder": "e.g. breakfast café, neighbourhood audience, visitors should book or call …",
+      "save": "Save progress",
+      "next": "Continue to the builder"
+    },
+    "builder": {
+      "pageTitle": "Builder",
+      "pageLead": "Answer three questions with yes, no, or a short comment. Then pick one of four page sketches—we create matching drafts you can refine under “Content”.",
+      "stepsHeading": "Three questions",
+      "decisionsTitle": "Quick decisions",
+      "decisionsLead": "This is about direction for a first version—not a test you can fail.",
+      "proposalsTitle": "Four sketches—pick one",
+      "sketchBadge": "Sketch",
+      "choiceYes": "Yes",
+      "choiceNo": "No",
+      "choiceComment": "Comment",
+      "commentPlaceholder": "Add a short note …",
+      "save": "Save",
+      "next": "Use sketch & go to content",
+      "pendingSave": "Saving …",
+      "pendingNext": "Applying …",
+      "invalidBanner": "Something was incomplete. Pick a sketch and try again, or reload the page.",
+      "questions": {
+        "offer_clear": "Is your offer clear in one sentence (what you do / sell)?",
+        "audience_known": "Do you know who you mainly want to reach (e.g. local, B2B, consumers)?",
+        "content_ready": "Do you already have copy or images—or start with bullets and placeholders?"
+      },
+      "proposals": {
+        "focusLanding": {
+          "title": "Landing focus",
+          "hint": "Hero, benefits, contact—a classic small-site flow."
+        },
+        "localTrust": {
+          "title": "Local & trust",
+          "hint": "Location, hours, services—great for a local business."
+        },
+        "showcaseWork": {
+          "title": "Show your work",
+          "hint": "Portfolio with projects and a short intro."
+        },
+        "leanOnepager": {
+          "title": "Lean one-pager",
+          "hint": "One page with the essentials—fast to ship."
+        }
+      }
+    },
+    "review": {
+      "title": "Check",
+      "lead": "Quick check that your idea, builder choices, and drafts line up.",
+      "goalsLabel": "Idea",
+      "builderLabel": "Builder",
+      "structureNotesLabel": "Extra structure notes",
+      "draftsLabel": "Sections",
+      "draftCount": "{count, plural, =0 {No sections yet} one {# section} other {# sections}}",
+      "empty": "—",
+      "openPreview": "Open preview",
+      "downloadHtml": "Export HTML"
+    },
+    "preview": {
+      "badge": "Internal preview",
+      "goalsHeading": "Idea",
+      "structureHeading": "Structure notes",
+      "builderHeading": "Builder",
+      "empty": "Nothing to preview yet."
+    },
+    "templates": {
+      "heading": "Templates",
+      "lead": "Templates create several drafts with example bullet points—edit them under “Content”.",
+      "openCatalog": "Templates (optional)",
+      "catalogHint": "Collapsed until you need several blocks at once.",
+      "apply": "Apply template",
+      "landingBasic": {
+        "title": "Classic landing page",
+        "description": "Home, services/about, contact—as three drafts."
+      },
+      "localBusiness": {
+        "title": "Local business",
+        "description": "Location focus, services, contact/directions."
+      },
+      "portfolioMinimal": {
+        "title": "Minimal portfolio",
+        "description": "Intro, two project drafts, and contact."
+      }
+    }
+  },
   "loginPage": {
-    "title": "Log in",
-    "lead": "Sign in with your Google account. We store the account data we need in our database so projects and drafts can be linked to your profile later.",
-    "note": "There is no classic password on our site—Google is the only sign-in provider for now.",
+    "title": "Sign in with Google",
+    "lead": "Use Google to sign in. Then create projects, collect drafts, and shape your website step by step.",
     "back": "Back to home",
     "googleCta": "Continue with Google",
     "signedInTitle": "Signed in",
@@ -298,7 +420,7 @@
     "setupDb": "Add DATABASE_URL (Postgres) to your environment and apply Drizzle migrations (npm run db:migrate).",
     "setupGoogle": "Set AUTH_GOOGLE_ID and AUTH_GOOGLE_SECRET (OAuth client in Google Cloud).",
     "setupSecret": "Set AUTH_SECRET (e.g. openssl rand -base64 32) and AUTH_URL.",
-    "goToApp": "Go to my projects"
+    "goToApp": "Go to my project"
   },
   "notFound": {
     "title": "Page not found",

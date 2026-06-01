@@ -29,24 +29,24 @@
       "description": "Informationen zur Verarbeitung personenbezogener Daten auf site24.com – Stand der reinen Informationsseite."
     },
     "login": {
-      "title": "Anmelden",
-      "description": "Mit Google bei site24.com anmelden – Konto für den geplanten Builder."
+      "title": "Mit Google anmelden",
+      "description": "Zugang zur Projekt-App bei site24.com – ein Website-Projekt, Anmeldung über Google."
     },
     "app": {
-      "title": "Meine Projekte",
-      "description": "Übersicht deiner site24.com-Projekte – nach Anmeldung."
+      "title": "Mein Projekt",
+      "description": "Ein Website-Projekt in der site24.com-App – nach Anmeldung. Weitere Projekte sind später per Abo vorgesehen."
     },
     "project": {
       "titleFallback": "Projekt",
       "titleWithName": "{name} – Projekt",
-      "description": "Projektarbeitsfläche und Entwürfe – nach Anmeldung."
+      "description": "Projektarbeitsfläche mit Abschnitten – nach Anmeldung."
     }
   },
   "nav": {
     "ariaMain": "Hauptnavigation",
     "ariaMainMobile": "Hauptnavigation mobil",
     "home": "Start",
-    "login": "Anmelden",
+    "login": "Mit Google",
     "loginAria": "Anmelden oder Konto öffnen",
     "createGroup": "Ablauf & Funktionen",
     "workflowItem": "Ablauf",
@@ -55,8 +55,8 @@
     "productDesc": "Was du nutzen kannst",
     "hosting": "Hosting",
     "pricing": "Preise",
-    "cta": "Anmelden",
-    "myProjects": "Meine Projekte",
+    "cta": "Mit Google",
+    "myProjects": "Mein Projekt",
     "signOut": "Abmelden",
     "accountMenuAria": "Konto-Menü"
   },
@@ -77,10 +77,10 @@
     "title": "Deine Website – klar gedacht, Schritt für Schritt",
     "subtitle": "Du beschreibst, was du anbietest und wen du erreichst. Dann führst du dich durch klare Fragen (Ja, Nein, kurzer Kommentar), siehst dir konkrete Layout-Vorschläge an und schärfst Texte und Abschnitte, bevor du dich um Domain, Hosting und Rechnung beim Partner kümmerst.",
     "disclaimer": "Der vollständige KI-Builder ist noch in Arbeit. Auf diesen Seiten erklären wir, wie das Produkt gedacht ist – ohne Garantie für Rankings, Umsatz oder „fertig in 60 Sekunden“.",
-    "primaryCta": "Jetzt starten",
-    "secondaryCta": "Funktionen lesen",
-    "projectsBoardCta": "Meine Projekte öffnen",
-    "loginCta": "Anmelden",
+    "heroSingleGuest": "Anmelden",
+    "heroSingleLogged": "Zum Projekt",
+    "heroSecondary": "Funktionen",
+    "loginCta": "Mit Google anmelden",
     "priceFunnelBefore": "Bezahlung und Pakete sollen über die ",
     "priceFunnelLink": "Preise",
     "priceFunnelAfter": "-Seite laufen (derzeit in Vorbereitung).",
@@ -161,6 +161,7 @@
     "ctaBody": "Lies den zeitlichen Ablauf und die Hosting-Logik, bevor du dich auf Wartelisten oder Beta einträgst.",
     "ctaPrimary": "Zum Ablauf",
     "ctaSecondary": "Hosting erklärt",
+    "ctaGoogle": "Mit Google starten",
     "seoTeaser": "Geplante technische SEO-Bausteine (Überschriften, Meta, Performance, strukturierte Daten) fassen wir auf der Startseite zusammen – inklusive ehrlichem Disclaimer zu Rankings.",
     "seoTeaserCta": "Abschnitt „Technisches SEO“ auf der Startseite"
   },
@@ -180,7 +181,12 @@
       "s5Body": "Wenn du zufrieden bist, geht es zu Domain, E-Mail und Server beim Hosting-Anbieter. Dort liegen Vertrag und Support."
     },
     "noteTitle": "Transparenz zum Entwicklungsstand",
-    "noteBody": "Diese Seiten beschreiben das geplante Produkt. Funktionen können sich vor dem Launch noch ändern. Wir erweitern die Texte, sobald Features testbar sind."
+    "noteBody": "Diese Seiten beschreiben das geplante Produkt. Funktionen können sich vor dem Launch noch ändern. Wir erweitern die Texte, sobald Features testbar sind.",
+    "ctaTitle": "Website bei site24.com angehen",
+    "ctaLead": "In der App legst du ein Projekt an und arbeitest Ziele, Struktur und Entwürfe Schritt für Schritt ab – ohne Druck und ohne Schnellversprechen.",
+    "ctaLogin": "Mit Google starten",
+    "ctaApp": "Zu meinen Projekten",
+    "ctaProduct": "Funktionen im Überblick"
   },
   "hostingPage": {
     "heroTitle": "Hosting & Domain – beim richtigen Partner",
@@ -254,41 +260,157 @@
     "s10Body": "Wenn sich unsere Verarbeitung ändert (neue Features, neue Anbieter), passen wir diese Erklärung an und heben das Datum an. Bei wesentlichen Änderungen informieren wir zusätzlich gut sichtbar auf der Website."
   },
   "appPage": {
-    "title": "Meine Projekte",
-    "lead": "Lege ein Projekt an, um später Inhalte und Entwürfe zuzuordnen. Der KI-Editor kommt in einem späteren Schritt.",
+    "title": "Mein Projekt",
+    "lead": "Pro Zugang ist aktuell ein Website-Projekt vorgesehen.",
     "nameLabel": "Projektname",
     "namePlaceholder": "z. B. Website Café Sonne",
+    "ideaLabel": "Notizen (optional)",
+    "ideaPlaceholder": "Kurz: Angebot, Zielgruppe, was Besucher tun sollen …",
     "createSubmit": "Projekt anlegen",
-    "listHeading": "Deine Projekte",
-    "empty": "Noch keine Projekte – leg oben eines an.",
+    "listHeading": "Übersicht",
     "openProjectAria": "Projekt „{name}“ öffnen",
     "openLabel": "Öffnen",
-    "draftsHint": "Entwürfe und Vorlagen pro Projekt folgen als nächstes Schritt.",
+    "soloTitle": "Dein Projekt",
+    "soloSubtitle": "Ein Projekt ist im aktuellen Zugang enthalten. Weitere Workspaces sind für später mit Abo-Modellen vorgesehen.",
+    "soloCta": "Weiter bearbeiten",
+    "limitAlert": "Es ist bereits ein Projekt vorhanden. Ein zweites Projekt ist derzeit nicht möglich – Erweiterungen folgen per Abo.",
+    "multiLegacyHint": "Es liegen mehrere gespeicherte Projekte vor. Bitte nutze das Projekt, an dem du arbeiten willst; langfristig ist ein Projekt pro Zugang vorgesehen.",
     "backHome": "Zur Startseite",
     "dbErrorTitle": "Datenbank nicht erreichbar",
     "dbErrorBody": "In der Hosting-Umgebung DATABASE_URL setzen (Postgres). Bei Supabase den Transaction-Pooler (Port 6543) verwenden. Migration ausführen (npm run db:migrate) und die Seite neu laden."
   },
   "projectPage": {
-    "backToProjects": "Alle Projekte",
-    "lead": "Entwürfe gehören zu diesem Projekt. Mit KI kannst du Notizen pro Entwurf strukturieren und erweitern (über OpenRouter, serverseitig).",
-    "draftListHeading": "Entwürfe",
-    "draftEmpty": "Noch keine Entwürfe – leg unten einen an.",
+    "backToProjects": "Zum Projekt",
+    "contentWorkspaceTitle": "Inhalte für „{name}“",
+    "lead": "Abschnitte aus dem Baukasten oder aus Vorlagen – hier bearbeitest du Texte. Optional kannst du aus Notizen einen strukturierten Vorschlag ergänzen lassen.",
+    "leadShort": "Abschnitte bearbeiten, optional Struktur per KI ergänzen. Überzählige Entwürfe kannst du entfernen.",
+    "sectionDraftsTitle": "Abschnitte",
+    "sectionDraftsLead": "Jeder Abschnitt steht für einen Teil deiner Website (z. B. Startseite, Kontakt). Mit der Schaltfläche rechts erzeugst du aus deinen Notizen einen klaren Strukturvorschlag.",
+    "sectionDraftsLeadShort": "Struktur vorschlagen oder Abschnitt löschen.",
+    "sectionNewTitle": "Neuer Abschnitt",
+    "sectionNewLead": "Titel vergeben und optional Notizen eintragen – du kannst den Text später jederzeit anpassen.",
+    "sectionNewLeadShort": "Kurz benennen, speichern – Details später.",
+    "draftEmpty": "Noch keine Abschnitte – lege unten einen an oder nutze eine Vorlage.",
+    "draftNoBodyYet": "Noch keine Notizen in diesem Abschnitt.",
+    "draftSuggestButton": "Struktur vorschlagen",
     "draftTitleLabel": "Titel",
     "draftTitlePlaceholder": "z. B. Startseite – erster Entwurf",
     "draftBodyLabel": "Notizen (optional)",
     "draftBodyPlaceholder": "Stichpunkte, Zitate, Rohideen …",
-    "draftCreateSubmit": "Entwurf speichern",
-    "aiExpand": "Mit KI erweitern",
-    "aiSetupHint": "Für KI-Vorschläge OPENROUTER_API_KEY in .env.local setzen (siehe .env.example).",
-    "aiErrorApi": "KI-Anfrage ist fehlgeschlagen. Bitte später erneut versuchen oder API-Key prüfen.",
-    "aiErrorConfig": "KI ist nicht konfiguriert (OPENROUTER_API_KEY fehlt).",
+    "draftCreateSubmit": "Abschnitt speichern",
+    "draftCountLabel": "{count} von {max} Abschnitten",
+    "draftLimitAlert": "Maximal zwölf Abschnitte pro Projekt. Lösche einen Abschnitt oder fasse Inhalte zusammen, bevor du neue anlegst.",
+    "deleteDraftSubmit": "Entfernen",
+    "actionPending": "Wird ausgeführt …",
+    "aiSetupHint": "Für automatische Strukturvorschläge OPENROUTER_API_KEY in .env.local setzen (nur Entwicklung).",
+    "aiErrorApi": "Der Vorschlag konnte nicht geladen werden. Bitte später erneut versuchen oder die Konfiguration prüfen.",
+    "aiErrorConfig": "Strukturvorschläge sind in dieser Umgebung noch nicht eingerichtet.",
+    "aiErrorState": "Der Abschnitt konnte nicht verarbeitet werden. Seite neu laden und erneut versuchen.",
     "dbErrorTitle": "Datenbank nicht erreichbar",
     "dbErrorBody": "DATABASE_URL in der Hosting-Umgebung prüfen (Postgres, bei Supabase Transaction-Pooler). Migration ausführen und neu laden."
   },
+  "workflow": {
+    "workspaceLead": "Zuerst Idee festhalten, dann im Baukasten kurz entscheiden und eine Skizze wählen. Entwürfe bearbeitest du unter „Inhalte“.",
+    "nav": {
+      "goals": "Idee",
+      "builder": "Baukasten",
+      "content": "Inhalte",
+      "review": "Check",
+      "preview": "Vorschau",
+      "aria": "Schritte zur Website"
+    },
+    "goals": {
+      "kicker": "Schritt 1",
+      "namePrefix": "# ",
+      "lead": "Beschreibe in eigenen Worten, was du anbietest und was die Website für dich erledigen soll. Wenn du das Projekt ohne Text angelegt hast, fülle die Idee hier nach.",
+      "label": "Deine Idee",
+      "placeholder": "z. B. Café mit Frühstück, Zielgruppe Nachbarschaft, Besucher sollen reservieren oder anrufen …",
+      "save": "Zwischenstand speichern",
+      "next": "Weiter zum Baukasten"
+    },
+    "builder": {
+      "pageTitle": "Baukasten",
+      "pageLead": "Beantworte kurz drei Fragen mit Ja, Nein oder Kommentar. Wähle danach eine von vier Seiten-Skizzen – so legen wir passende Entwürfe an, die du unter „Inhalte“ weiterbearbeitest.",
+      "stepsHeading": "Drei Fragen",
+      "decisionsTitle": "Kurz entscheiden",
+      "decisionsLead": "Es geht nicht um „richtig oder falsch“, sondern um Orientierung für den ersten Aufbau.",
+      "proposalsTitle": "Vier Skizzen – eine wählen",
+      "sketchBadge": "Skizze",
+      "choiceYes": "Ja",
+      "choiceNo": "Nein",
+      "choiceComment": "Kommentar",
+      "commentPlaceholder": "Kurz ergänzen …",
+      "save": "Stand speichern",
+      "next": "Skizze übernehmen & zu Inhalten",
+      "pendingSave": "Speichere …",
+      "pendingNext": "Übernehme …",
+      "invalidBanner": "Bitte prüfe: alle Fragen beantwortet und eine Skizze gewählt. Speichere erneut oder wähle eine Skizze aus.",
+      "questions": {
+        "offer_clear": "Ist dein Angebot in einem Satz klar (was du tust / verkaufst)?",
+        "audience_known": "Weißt du, wen du primär erreichen willst (z. B. lokal, B2B, Privatkundinnen)?",
+        "content_ready": "Hast du schon Texte oder Bilder – oder startest du mit Stichpunkten und Platzhaltern?"
+      },
+      "proposals": {
+        "focusLanding": {
+          "title": "Fokus Landing",
+          "hint": "Hero, Nutzen, Kontakt – klassischer Auftritt mit wenigen Seiten."
+        },
+        "localTrust": {
+          "title": "Lokal & Vertrauen",
+          "hint": "Standort, Öffnungszeiten, Leistungen – gut für Geschäft vor Ort."
+        },
+        "showcaseWork": {
+          "title": "Arbeiten zeigen",
+          "hint": "Portfolio mit Projekten und kurzer Vorstellung."
+        },
+        "leanOnepager": {
+          "title": "Schlanker One-Pager",
+          "hint": "Eine Seite mit den wichtigsten Infos – schnell startklar."
+        }
+      }
+    },
+    "review": {
+      "title": "Check",
+      "lead": "Kurz prüfen, ob Idee, Baukasten und Entwürfe zusammenpassen.",
+      "goalsLabel": "Idee",
+      "builderLabel": "Baukasten",
+      "structureNotesLabel": "Weitere Struktur-Notizen",
+      "draftsLabel": "Abschnitte",
+      "draftCount": "{count, plural, =0 {Keine Abschnitte} one {# Abschnitt} other {# Abschnitte}}",
+      "empty": "—",
+      "openPreview": "Vorschau öffnen",
+      "downloadHtml": "HTML exportieren"
+    },
+    "preview": {
+      "badge": "Interne Vorschau",
+      "goalsHeading": "Idee",
+      "structureHeading": "Struktur-Notizen",
+      "builderHeading": "Baukasten",
+      "empty": "Noch keine Inhalte für die Vorschau."
+    },
+    "templates": {
+      "heading": "Vorlagen",
+      "lead": "Vorlagen legen mehrere Entwürfe mit Beispiel-Stichpunkten an. Du bearbeitest sie danach unter „Inhalte“.",
+      "openCatalog": "Vorlagen (optional)",
+      "catalogHint": "Klappt zu, bis du mehrere Bausteine auf einmal brauchst.",
+      "apply": "Vorlage anwenden",
+      "landingBasic": {
+        "title": "Landingpage (klassisch)",
+        "description": "Startseite, Über/Leistungen, Kontakt – als drei Entwürfe."
+      },
+      "localBusiness": {
+        "title": "Lokales Geschäft",
+        "description": "Fokus Standort, Leistungen, Kontakt/Anfahrt."
+      },
+      "portfolioMinimal": {
+        "title": "Portfolio (minimal)",
+        "description": "Intro und zwei Projekt-Entwürfe plus Kontakt."
+      }
+    }
+  },
   "loginPage": {
-    "title": "Anmelden",
-    "lead": "Melde dich mit deinem Google-Konto an. Wir speichern die nötigen Kontodaten in unserer Datenbank, damit später Projekte und Entwürfe deinem Konto zugeordnet werden können.",
-    "note": "Es gibt kein klassisches Passwort auf unserer Seite – nur den Anbieter Google als Login.",
+    "title": "Mit Google anmelden",
+    "lead": "Melde dich mit Google an. Danach kannst du Projekte anlegen, Entwürfe sammeln und deine Website Schritt für Schritt ausarbeiten.",
     "back": "Zurück zur Startseite",
     "googleCta": "Mit Google anmelden",
     "signedInTitle": "Angemeldet",
@@ -298,7 +420,7 @@
     "setupDb": "Lege DATABASE_URL (Postgres) in der Umgebung an und wende die Drizzle-Migrationen an (npm run db:migrate).",
     "setupGoogle": "Trage AUTH_GOOGLE_ID und AUTH_GOOGLE_SECRET ein (OAuth-Client bei Google).",
     "setupSecret": "Setze AUTH_SECRET (z. B. openssl rand -base64 32) und AUTH_URL.",
-    "goToApp": "Zu meinen Projekten"
+    "goToApp": "Zu meinem Projekt"
   },
   "notFound": {
     "title": "Seite nicht gefunden",

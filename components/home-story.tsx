@@ -15,20 +15,12 @@ export async function HomeStory() {
           <p>{t("storyP2")}</p>
           <p>{t("storyP3")}</p>
         </div>
-        <p className="mt-8 flex flex-wrap gap-x-4 gap-y-2 text-sm">
-          <Link
-            href="/produkt"
-            className="font-medium text-accent underline-offset-4 hover:underline"
-          >
+        <p className="mt-8 text-sm text-muted">
+          <Link href="/produkt" className="font-medium text-foreground underline-offset-4 hover:underline">
             {t("storyLinkProduct")}
           </Link>
-          <span className="text-border" aria-hidden>
-            ·
-          </span>
-          <Link
-            href="/ablauf"
-            className="font-medium text-accent underline-offset-4 hover:underline"
-          >
+          <span className="mx-2 text-border">·</span>
+          <Link href="/ablauf" className="font-medium text-foreground underline-offset-4 hover:underline">
             {t("storyLinkWorkflow")}
           </Link>
         </p>
